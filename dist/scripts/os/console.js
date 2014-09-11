@@ -85,7 +85,6 @@ var TSOS;
             //move the x position back
             if (this.currentXPosition > 12.48) {
                 var textOffset = textSizes[--textCount];
-                console.log(textOffset);
 
                 this.currentXPosition -= textOffset;
 
@@ -130,13 +129,11 @@ var TSOS;
                 this.clearLine();
                 this.putText(sc);
             }
-
-            console.log(this.buffer);
         };
 
         Console.prototype.commandDown = function () {
-            if (commandHistory.length < commandReference) {
-                var sc = commandHistory[commandReference++];
+            if (commandReference >= 0 && commandReference < commandHistory.length - 1) {
+                var sc = commandHistory[++commandReference];
                 this.clearLine();
                 this.putText(sc);
                 this.buffer = sc;
