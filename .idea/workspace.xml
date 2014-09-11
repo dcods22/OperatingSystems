@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/os/console.js" afterPath="$PROJECT_DIR$/dist/scripts/os/console.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/console.ts" afterPath="$PROJECT_DIR$/source/scripts/os/console.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/os/shell.js" afterPath="$PROJECT_DIR$/dist/scripts/os/shell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/shell.ts" afterPath="$PROJECT_DIR$/source/scripts/os/shell.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="OS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -95,13 +91,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shell.ts" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="shell.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="383" column="42" selection-start="13741" selection-end="13741" vertical-scroll-proportion="0.1724138">
+            <state line="383" column="42" selection-start="13741" selection-end="13741" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="4" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.37078652">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -141,9 +146,9 @@
         <option value="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/deviceDriverKeyboard.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/deviceDriver.ts" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/source/scripts/os/console.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -569,13 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="9" selection-start="722" selection-end="722" vertical-scroll-proportion="0.28651685">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="20" selection-start="2047" selection-end="2047" vertical-scroll-proportion="0.66206896">
@@ -617,10 +615,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="383" column="42" selection-start="13741" selection-end="13741" vertical-scroll-proportion="0.1724138">
+        <state line="383" column="42" selection-start="13741" selection-end="13741" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="4" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.37078652">
+          <folding />
         </state>
       </provider>
     </entry>
