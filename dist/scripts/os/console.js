@@ -89,6 +89,8 @@ var TSOS;
 
             //redraw over the existing text
             _DrawingContext.clearRect(this.currentXPosition, this.currentYPosition - this.currentFontSize, textOffset + 1, 18);
+
+            this.buffer = this.buffer.substring(0, this.buffer.length - 1);
         };
 
         Console.prototype.clearLine = function () {
@@ -123,6 +125,8 @@ var TSOS;
                 var sc = commandHistory[commandReference];
                 this.clearLine();
                 this.putText(sc);
+                this.buffer = sc;
+                console.log(this.buffer);
             }
         };
 
@@ -131,6 +135,8 @@ var TSOS;
                 var sc = commandHistory[commandReference++];
                 this.clearLine();
                 this.putText(sc);
+                this.buffer = sc;
+                console.log(this.buffer);
             }
         };
 

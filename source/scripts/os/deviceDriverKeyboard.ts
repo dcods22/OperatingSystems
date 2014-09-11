@@ -196,7 +196,6 @@ module TSOS {
 
                 // TODO: Check for caps-lock and handle as shifted if so.
                 _KernelInputQueue.enqueue(chr);
-
             }else if(keyCode === 8){
                 _StdOut.deleteText();
             }else if(keyCode === 9){
@@ -206,8 +205,6 @@ module TSOS {
             }else if(keyCode == 40){
                 _StdOut.commandDown();
             }
-
-
         }
     }
 }
