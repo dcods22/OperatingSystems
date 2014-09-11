@@ -121,13 +121,14 @@ var TSOS;
                 var sc = commandHistory[--commandReference];
                 this.clearLine();
                 this.putText(sc);
+                this.buffer = sc;
             } else {
                 var sc = commandHistory[commandReference];
                 this.clearLine();
                 this.putText(sc);
-                this.buffer = sc;
-                console.log(this.buffer);
             }
+
+            console.log(this.buffer);
         };
 
         Console.prototype.commandDown = function () {
@@ -136,7 +137,6 @@ var TSOS;
                 this.clearLine();
                 this.putText(sc);
                 this.buffer = sc;
-                console.log(this.buffer);
             }
         };
 
