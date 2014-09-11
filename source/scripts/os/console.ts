@@ -78,5 +78,6 @@ module TSOS {
             this.currentYPosition += _DefaultFontSize + _FontHeightMargin;
             // TODO: Handle scrolling. (Project 1)
         }
+
     }
  }
