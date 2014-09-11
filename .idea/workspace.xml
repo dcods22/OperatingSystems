@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/os/console.js" afterPath="$PROJECT_DIR$/dist/scripts/os/console.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/console.ts" afterPath="$PROJECT_DIR$/source/scripts/os/console.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="OS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,11 +17,15 @@
     <file path="/kernel.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410453685390" ignored="false" />
     <file path="/control.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410454546752" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410464781379" ignored="false" />
-    <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410467567793" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriverKeyboard.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473315690" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/os/kernel.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473315690" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/os/shell.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473315690" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/host/cpu.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473315690" ignored="false" />
+    <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473394736" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriverKeyboard.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473387178" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/globals.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473387178" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/kernel.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473387178" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/shell.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473387178" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/host/control.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473387178" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/host/cpu.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473387178" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/userCommand.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473387178" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/console.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473387178" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,10 +104,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console.ts" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="console.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="33" selection-start="4819" selection-end="4819" vertical-scroll-proportion="0.4537931">
+            <state line="115" column="33" selection-start="4819" selection-end="4819" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="10" selection-start="723" selection-end="723" vertical-scroll-proportion="0.28651685">
               <folding />
             </state>
           </provider>
@@ -138,8 +149,8 @@
         <option value="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/deviceDriverKeyboard.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/deviceDriver.ts" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/source/scripts/os/console.ts" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -590,13 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="156" column="58" selection-start="5842" selection-end="5842" vertical-scroll-proportion="0.0">
@@ -615,7 +619,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="33" selection-start="4819" selection-end="4819" vertical-scroll-proportion="0.4537931">
+        <state line="115" column="33" selection-start="4819" selection-end="4819" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="10" selection-start="723" selection-end="723" vertical-scroll-proportion="0.28651685">
           <folding />
         </state>
       </provider>
