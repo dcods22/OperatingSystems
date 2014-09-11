@@ -160,7 +160,11 @@ var TSOS;
         Kernel.prototype.krnTrapError = function (msg) {
             TSOS.Control.hostLog("OS ERROR - TRAP: " + msg);
 
-            // TODO: Display error on console, perhaps in some sort of colored screen. (Perhaps blue?)
+            _StdOut.clearScreen();
+            _Canvas.style.backgroundColor = "blue";
+            _Canvas.style.color = 'white';
+            _StdOut.putText("Blue Screen of Death!");
+
             this.krnShutdown();
         };
         return Kernel;

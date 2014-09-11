@@ -28,6 +28,8 @@ module TSOS {
 
         private clearScreen(): void {
             _DrawingContext.clearRect(0, 0, _Canvas.width, _Canvas.height);
+            this.currentXPosition = 0;
+            this.currentYPosition = 13;
         }
 
         private resetXY(): void {
@@ -84,23 +86,27 @@ module TSOS {
             this.currentXPosition -= textOffset;
 
             //redraw over the existing text
-            _DrawingContext.clearRect(this.currentXPosition, this.currentYPosition - 13, textOffset + 1, 18);
-        }
-
-        public newLine(): void{
-            this.currentXPosition = 0;
-            this.currentYPosition += 13;
+            _DrawingContext.clearRect(this.currentXPosition, this.currentYPosition - this.currentFontSize, textOffset + 1, 18);
         }
 
         public clearLine(): void{
-            _DrawingContext.clearRect(13, this.currentYPosition - 13, this.currentXPosition, 18);
-            this.currentXPosition = 13;
+            _DrawingContext.clearRect(this.currentFontSize, this.currentYPosition - this.currentFontSize, this.currentXPosition, 18);
+            this.currentXPosition = this.currentFontSize;
         }
 
         public advanceLine(): void {
             this.currentXPosition = 0;
             this.currentYPosition += _DefaultFontSize + _FontHeightMargin;
             // TODO: Handle scrolling. (Project 1)
+            // Handle scrolling, if necessary
+            if (this.currentYPosition >= _Canvas.height) {
+                // Get the canvas data, at an offset
+                var oldCanvasData = _DrawingContext.getImageData(0, this.currentFontSize + 5, _Canvas.width, _Canvas.height);
+                // Redraw it
+                _DrawingContext.putImageData(oldCanvasData, 0, 0);
+                // Move the current Y position
+                this.currentYPosition = _Canvas.height - this.currentFontSize;
+            }
         }
 
         public commandUp(): void{
@@ -121,6 +127,10 @@ module TSOS {
                 this.clearLine();
                 this.putText(sc);
             }
+        }
+
+        public autoComplete(): void{
+
         }
     }
  }

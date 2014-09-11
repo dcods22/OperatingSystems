@@ -95,8 +95,6 @@ var TSOS;
 
                 _KernelInputQueue.enqueue(chr);
             } else if (((keyCode >= 91) && (keyCode <= 93)) || ((keyCode >= 186) && (keyCode <= 192)) || ((keyCode >= 219) && (keyCode <= 222))) {
-                chr = String.fromCharCode(keyCode);
-
                 if (!isShifted) {
                     switch (keyCode) {
                         case 186:
@@ -193,6 +191,8 @@ var TSOS;
                 _KernelInputQueue.enqueue(chr);
             } else if (keyCode === 8) {
                 _StdOut.deleteText();
+            } else if (keyCode === 9) {
+                _StdOut.autoComplete();
             } else if (keyCode == 38) {
                 _StdOut.commandUp();
             } else if (keyCode == 40) {

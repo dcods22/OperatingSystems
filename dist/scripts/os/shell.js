@@ -70,12 +70,16 @@ var TSOS;
 
             this.commandList[this.commandList.length] = sc;
 
+            sc = new TSOS.ShellCommand(this.shellBSOD, "bsod", "<string> - Gives you the BSOD.");
+
+            this.commandList[this.commandList.length] = sc;
+
             // processes - list the running processes and their IDs
             // kill <id> - kills the specified process id.
             //
             // Display the initial prompt.
             _StdOut.putText(this.dateAndTime);
-            _StdOut.newLine();
+            _StdOut.advanceLine();
             this.putPrompt();
         };
 
@@ -322,18 +326,25 @@ var TSOS;
             commandReference = commandCount;
         };
 
-        Shell.prototype.shellTruth = function (ars) {
+        Shell.prototype.shellTruth = function (args) {
             _StdOut.putText("Daniel Craig is the best James Bond Ever!");
 
             commandHistory[commandCount++] = "truth";
             commandReference = commandCount;
         };
 
-        Shell.prototype.shellStatus = function (ars) {
+        Shell.prototype.shellStatus = function (args) {
             _StdOut.putText("Your Current Status is " + USER_STATUS);
 
             commandHistory[commandCount++] = "status";
             commandReference = commandCount;
+        };
+
+        Shell.prototype.shellBSOD = function (args) {
+            _StdOut.clearScreen();
+            _Canvas.style.backgroundColor = "blue";
+            _Canvas.style.color = 'white';
+            _StdOut.putText("Blue Screen of Death!");
         };
         return Shell;
     })();
