@@ -83,14 +83,17 @@ var TSOS;
 
         Console.prototype.deleteText = function () {
             //move the x position back
-            var textOffset = textSizes[--textCount];
+            if (this.currentXPosition > 12.48) {
+                var textOffset = textSizes[--textCount];
+                console.log(textOffset);
 
-            this.currentXPosition -= textOffset;
+                this.currentXPosition -= textOffset;
 
-            //redraw over the existing text
-            _DrawingContext.clearRect(this.currentXPosition, this.currentYPosition - this.currentFontSize, textOffset + 1, 18);
+                //redraw over the existing text
+                _DrawingContext.clearRect(this.currentXPosition, this.currentYPosition - this.currentFontSize, textOffset + 1, 18);
 
-            this.buffer = this.buffer.substring(0, this.buffer.length - 1);
+                this.buffer = this.buffer.substring(0, this.buffer.length - 1);
+            }
         };
 
         Console.prototype.clearLine = function () {
