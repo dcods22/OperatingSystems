@@ -12,9 +12,10 @@
 // Global "CONSTANTS" (There is currently no const or final or readonly type annotation in TypeScript.)
 // TODO: Make a global object and use that instead of the "_" naming convention in the global namespace.
 //
-var APP_NAME: string    = "dcOdS";   // 'cause Bob and I were at a loss for a better name.
-var APP_VERSION: string = "0.22";   // What did you expect?
-var USER_LOCATION: string = "Your Mothers House ;)";
+var APP_NAME: string    = "dcOdS";   // Dan Cody but in an OS form
+var APP_VERSION: string = "0.22";   // Best Number in History
+var USER_LOCATION: string = "Your Mothers House ;)";    //Incase anyone was wondering
+var USER_STATUS: string = "Root";     //Do as you please with my OS
 
 var CPU_CLOCK_INTERVAL: number = 100;   // This is in ms, or milliseconds, so 1000 = 1 second.
 
@@ -70,3 +71,9 @@ var Glados: any = null;
 var onDocumentLoad = function() {
 	TSOS.Control.hostInit();
 };
+
+var textOffset= null;
+
+var commandHistory = [];
+var textSizes = [];
+var textCount = 0;

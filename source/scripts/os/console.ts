@@ -68,10 +68,29 @@ module TSOS {
                 // Draw the text at the current X and Y coordinates.
                 _DrawingContext.drawText(this.currentFont, this.currentFontSize, this.currentXPosition, this.currentYPosition, text);
                 // Move the current X position.
-                var offset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, text);
-                this.currentXPosition = this.currentXPosition + offset;
+
+                var textOffset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, text);
+
+                textSizes[textCount++] = textOffset;
+
+                this.currentXPosition = this.currentXPosition + textOffset;
             }
          }
+
+        public deleteText(): void{
+            //move the x position back
+            var textOffset = textSizes[--textCount];
+
+            this.currentXPosition -= textOffset;
+
+            //redraw over the existing text
+            _DrawingContext.clearRect(this.currentXPosition, this.currentYPosition - 13, textOffset + 1, 18);
+        }
+
+        public newLine(): void{
+            this.currentXPosition = 0;
+            this.currentYPosition += 13;
+        }
 
         public advanceLine(): void {
             this.currentXPosition = 0;

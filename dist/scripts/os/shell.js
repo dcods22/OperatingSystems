@@ -12,6 +12,7 @@ var TSOS;
         function Shell() {
             // Properties
             this.promptStr = ">";
+            this.dateAndTime = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
             this.commandList = [];
             this.curses = "[fuvg],[cvff],[shpx],[phag],[pbpxfhpxre],[zbgureshpxre],[gvgf]";
             this.apologies = "[sorry]";
@@ -65,10 +66,16 @@ var TSOS;
 
             this.commandList[this.commandList.length] = sc;
 
+            sc = new TSOS.ShellCommand(this.shellStatus, "status", "<string> - Tells you your current status.");
+
+            this.commandList[this.commandList.length] = sc;
+
             // processes - list the running processes and their IDs
             // kill <id> - kills the specified process id.
             //
             // Display the initial prompt.
+            _StdOut.putText(this.dateAndTime);
+            _StdOut.newLine();
             this.putPrompt();
         };
 
@@ -287,6 +294,10 @@ var TSOS;
 
         Shell.prototype.shellTruth = function (ars) {
             _StdOut.putText("Daniel Craig is the best James Bond Ever!");
+        };
+
+        Shell.prototype.shellStatus = function (ars) {
+            _StdOut.putText("Your Current Status is " + USER_STATUS);
         };
         return Shell;
     })();

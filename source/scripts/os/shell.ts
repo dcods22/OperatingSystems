@@ -14,6 +14,7 @@ module TSOS {
     export class Shell {
         // Properties
         public promptStr = ">";
+        public dateAndTime = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
         public commandList = [];
         public curses = "[fuvg],[cvff],[shpx],[phag],[pbpxfhpxre],[zbgureshpxre],[gvgf]";
         public apologies = "[sorry]";
@@ -93,12 +94,22 @@ module TSOS {
 
             this.commandList[this.commandList.length] = sc;
 
+            sc = new ShellCommand(this.shellStatus,
+                "status",
+                "<string> - Tells you your current status.");
+
+            this.commandList[this.commandList.length] = sc;
+
             // processes - list the running processes and their IDs
             // kill <id> - kills the specified process id.
 
             //
             // Display the initial prompt.
+            _StdOut.putText(this.dateAndTime);
+            _StdOut.newLine();
             this.putPrompt();
+
+
         }
 
         public putPrompt() {
@@ -309,6 +320,11 @@ module TSOS {
         public shellTruth(ars){
             _StdOut.putText("Daniel Craig is the best James Bond Ever!");
         }
+
+        public shellStatus(ars){
+            _StdOut.putText("Your Current Status is " + USER_STATUS);
+        }
+
 
     }
 }

@@ -31,8 +31,6 @@ module TSOS {
             _Kernel.krnTrace("Key code:" + keyCode + " shifted:" + isShifted);
             var chr = "";
 
-            console.log(keyCode);
-
             // Check to see if we even want to deal with the key that was pressed.
             if (((keyCode >= 65) && (keyCode <= 90)) ||   // A..Z
                 ((keyCode >= 97) && (keyCode <= 123))) {  // a..z {
@@ -200,6 +198,8 @@ module TSOS {
                 // TODO: Check for caps-lock and handle as shifted if so.
                 _KernelInputQueue.enqueue(chr);
 
+            }else if(keyCode === 8){
+                _StdOut.deleteText();
             }
         }
     }

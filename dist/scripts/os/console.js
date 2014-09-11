@@ -71,9 +71,27 @@ var TSOS;
                 _DrawingContext.drawText(this.currentFont, this.currentFontSize, this.currentXPosition, this.currentYPosition, text);
 
                 // Move the current X position.
-                var offset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, text);
-                this.currentXPosition = this.currentXPosition + offset;
+                var textOffset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, text);
+
+                textSizes[textCount++] = textOffset;
+
+                this.currentXPosition = this.currentXPosition + textOffset;
             }
+        };
+
+        Console.prototype.deleteText = function () {
+            //move the x position back
+            var textOffset = textSizes[--textCount];
+
+            this.currentXPosition -= textOffset;
+
+            //redraw over the existing text
+            _DrawingContext.clearRect(this.currentXPosition, this.currentYPosition - 13, textOffset + 1, 18);
+        };
+
+        Console.prototype.newLine = function () {
+            this.currentXPosition = 0;
+            this.currentYPosition += 13;
         };
 
         Console.prototype.advanceLine = function () {
