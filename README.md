@@ -15,8 +15,8 @@ Implement scrolling	in	the	client	OS	console/CLI.
 - [ ] Other console/CLI	enhancements:
      - [x] Accept and	display	punctuation	characters	and	symbols.
      - [x] Handle backspace	appropriately.
-     - [x] Implement command	completion	with	the	tab	key.
-     - [ ] Provide command	history	recall	via	the	up	and	down	arrow	keys.
+     - [ ] Implement command	completion	with	the	tab	key.
+     - [x] Provide command	history	recall	via	the	up	and	down	arrow	keys.
 
 - [x] Display a BSOD	message	(on	the	CLI)	when	the	kernel	traps	an OS error.
      - [x] Add a shell	command	to	test	this.	Remember	to	include	it in the help.
