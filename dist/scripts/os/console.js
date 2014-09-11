@@ -107,13 +107,8 @@ var TSOS;
             // TODO: Handle scrolling. (Project 1)
             // Handle scrolling, if necessary
             if (this.currentYPosition >= _Canvas.height) {
-                // Get the canvas data, at an offset
-                var oldCanvasData = _DrawingContext.getImageData(0, this.currentFontSize + 5, _Canvas.width, _Canvas.height);
-
-                // Redraw it
-                _DrawingContext.putImageData(oldCanvasData, 0, 0);
-
-                // Move the current Y position
+                var oldCanvas = _DrawingContext.getImageData(0, this.currentFontSize + 5, _Canvas.width, _Canvas.height);
+                _DrawingContext.putImageData(oldCanvas, 0, 0);
                 this.currentYPosition = _Canvas.height - this.currentFontSize;
             }
         };
@@ -141,6 +136,13 @@ var TSOS;
         };
 
         Console.prototype.autoComplete = function () {
+            var command = _OsShell.autoComplete();
+
+            if (command) {
+                this.clearLine();
+                this.putText(command);
+                this.buffer = command;
+            }
         };
         return Console;
     })();

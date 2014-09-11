@@ -106,6 +106,12 @@ module TSOS {
 
             this.commandList[this.commandList.length] = sc;
 
+            sc = new ShellCommand(this.shellLoad,
+                "load",
+                "<string> - Loads the program out of the User Program Input Text Area.");
+
+            this.commandList[this.commandList.length] = sc;
+
             // processes - list the running processes and their IDs
             // kill <id> - kills the specified process id.
 
@@ -374,5 +380,53 @@ module TSOS {
             _Canvas.style.color = 'white';
             _StdOut.putText("Blue Screen of Death!");
         }
+
+        public shellLoad(args){
+            var program = document.getElementById("taProgramInput").value;
+
+            program = program.replace(/\s/g, '');
+
+            var re = new RegExp("^[0-9A-F]+$");
+
+            if(re.test(program))
+                _StdOut.putText("Program Loaded Successfully");
+            else
+                _StdOut.putText("Program was not successfully Loaded");
+
+            commandHistory[commandCount++] = "load";
+            commandReference = commandCount;
+        }
+
+        public autoComplete(args){
+            var possibleCommands = [];
+
+            for(var i=0; i < this.commandList.length; i++){
+                var comm = this.commandList[i];
+                if(this.startsWith(comm, args)){
+                    possibleCommands.push(comm);
+                }
+            }
+
+            console.log(possibleCommands);
+
+            if(possibleCommands.length == 1){
+                return possibleCommands[0];
+            }else{
+                return "";
+            }
+        }
+
+        public startsWith(str1, str2){
+            var exists = false;
+
+            for(var i=0; i < str1.length; i++){
+                if(str1.charAt(i) != str2.charAt(i))
+                    exists = false;
+            }
+
+            return exists;
+        }
+
+
     }
 }
