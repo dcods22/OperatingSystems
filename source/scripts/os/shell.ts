@@ -225,10 +225,14 @@ module TSOS {
            } else {
               _StdOut.putText("For what?");
            }
+
         }
 
         public shellVer(args) {
             _StdOut.putText(APP_NAME + " version " + APP_VERSION);
+
+            commandHistory[commandCount++] = "ver";
+            commandReference = commandCount;
         }
 
         public shellHelp(args) {
@@ -237,6 +241,9 @@ module TSOS {
                 _StdOut.advanceLine();
                 _StdOut.putText("  " + _OsShell.commandList[i].command + " " + _OsShell.commandList[i].description);
             }
+
+            commandHistory[commandCount++] = "help";
+            commandReference = commandCount;
         }
 
         public shellShutdown(args) {
@@ -244,11 +251,17 @@ module TSOS {
              // Call Kernel shutdown routine.
             _Kernel.krnShutdown();
             // TODO: Stop the final prompt from being displayed.  If possible.  Not a high priority.  (Damn OCD!)
+
+            commandHistory[commandCount++] = "shutdown";
+            commandReference = commandCount;
         }
 
         public shellCls(args) {
             _StdOut.clearScreen();
             _StdOut.resetXY();
+
+            commandHistory[commandCount++] = "cls";
+            commandReference = commandCount;
         }
 
         public shellMan(args) {
@@ -264,6 +277,9 @@ module TSOS {
             } else {
                 _StdOut.putText("Usage: man <topic>  Please supply a topic.");
             }
+
+            commandHistory[commandCount++] = "man";
+            commandReference = commandCount;
         }
 
         public shellTrace(args) {
@@ -289,6 +305,9 @@ module TSOS {
             } else {
                 _StdOut.putText("Usage: trace <on | off>");
             }
+
+            commandHistory[commandCount++] = "trace";
+            commandReference = commandCount;
         }
 
         public shellRot13(args) {
@@ -298,6 +317,9 @@ module TSOS {
             } else {
                 _StdOut.putText("Usage: rot13 <string>  Please supply a string.");
             }
+
+            commandHistory[commandCount++] = "rot13";
+            commandReference = commandCount;
         }
 
         public shellPrompt(args) {
@@ -306,24 +328,41 @@ module TSOS {
             } else {
                 _StdOut.putText("Usage: prompt <string>  Please supply a string.");
             }
+
+            commandHistory[commandCount++] = "prompt";
+            commandReference = commandCount;
         }
 
         public shellWhereAmI(args){
              _StdOut.putText(USER_LOCATION);
+
+            commandHistory[commandCount++] = "whereami";
+            commandReference = commandCount;
         }
 
         public shellDate(args){
             var currDateTime = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
             _StdOut.putText(currDateTime);
+
+            commandHistory[commandCount++] = "date";
+            commandReference = commandCount;
         }
 
         public shellTruth(ars){
             _StdOut.putText("Daniel Craig is the best James Bond Ever!");
+
+            commandHistory[commandCount++] = "truth";
+            commandReference = commandCount;
         }
 
         public shellStatus(ars){
             _StdOut.putText("Your Current Status is " + USER_STATUS);
+
+            commandHistory[commandCount++] = "status";
+            commandReference = commandCount;
         }
+
+
 
 
     }

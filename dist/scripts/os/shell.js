@@ -203,6 +203,9 @@ var TSOS;
 
         Shell.prototype.shellVer = function (args) {
             _StdOut.putText(APP_NAME + " version " + APP_VERSION);
+
+            commandHistory[commandCount++] = "ver";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellHelp = function (args) {
@@ -211,6 +214,9 @@ var TSOS;
                 _StdOut.advanceLine();
                 _StdOut.putText("  " + _OsShell.commandList[i].command + " " + _OsShell.commandList[i].description);
             }
+
+            commandHistory[commandCount++] = "help";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellShutdown = function (args) {
@@ -218,12 +224,18 @@ var TSOS;
 
             // Call Kernel shutdown routine.
             _Kernel.krnShutdown();
+
             // TODO: Stop the final prompt from being displayed.  If possible.  Not a high priority.  (Damn OCD!)
+            commandHistory[commandCount++] = "shutdown";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellCls = function (args) {
             _StdOut.clearScreen();
             _StdOut.resetXY();
+
+            commandHistory[commandCount++] = "cls";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellMan = function (args) {
@@ -239,6 +251,9 @@ var TSOS;
             } else {
                 _StdOut.putText("Usage: man <topic>  Please supply a topic.");
             }
+
+            commandHistory[commandCount++] = "man";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellTrace = function (args) {
@@ -264,6 +279,9 @@ var TSOS;
             } else {
                 _StdOut.putText("Usage: trace <on | off>");
             }
+
+            commandHistory[commandCount++] = "trace";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellRot13 = function (args) {
@@ -273,6 +291,9 @@ var TSOS;
             } else {
                 _StdOut.putText("Usage: rot13 <string>  Please supply a string.");
             }
+
+            commandHistory[commandCount++] = "rot13";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellPrompt = function (args) {
@@ -281,23 +302,38 @@ var TSOS;
             } else {
                 _StdOut.putText("Usage: prompt <string>  Please supply a string.");
             }
+
+            commandHistory[commandCount++] = "prompt";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellWhereAmI = function (args) {
             _StdOut.putText(USER_LOCATION);
+
+            commandHistory[commandCount++] = "whereami";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellDate = function (args) {
             var currDateTime = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
             _StdOut.putText(currDateTime);
+
+            commandHistory[commandCount++] = "date";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellTruth = function (ars) {
             _StdOut.putText("Daniel Craig is the best James Bond Ever!");
+
+            commandHistory[commandCount++] = "truth";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellStatus = function (ars) {
             _StdOut.putText("Your Current Status is " + USER_STATUS);
+
+            commandHistory[commandCount++] = "status";
+            commandReference = commandCount;
         };
         return Shell;
     })();

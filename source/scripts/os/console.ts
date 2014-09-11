@@ -92,11 +92,35 @@ module TSOS {
             this.currentYPosition += 13;
         }
 
+        public clearLine(): void{
+            _DrawingContext.clearRect(13, this.currentYPosition - 13, this.currentXPosition, 18);
+            this.currentXPosition = 13;
+        }
+
         public advanceLine(): void {
             this.currentXPosition = 0;
             this.currentYPosition += _DefaultFontSize + _FontHeightMargin;
             // TODO: Handle scrolling. (Project 1)
         }
 
+        public commandUp(): void{
+            if(commandReference > 0){
+                var sc = commandHistory[--commandReference];
+                this.clearLine();
+                this.putText(sc);
+            }else{
+                var sc = commandHistory[commandReference];
+                this.clearLine();
+                this.putText(sc);
+            }
+        }
+
+        public commandDown(): void{
+            if(commandHistory.length < commandReference){
+                var sc = commandHistory[commandReference++];
+                this.clearLine();
+                this.putText(sc);
+            }
+        }
     }
  }

@@ -75,5 +75,7 @@ var onDocumentLoad = function() {
 var textOffset= null;
 
 var commandHistory = [];
+var commandCount = 0;
+var commandReference = 0;
 var textSizes = [];
 var textCount = 0;

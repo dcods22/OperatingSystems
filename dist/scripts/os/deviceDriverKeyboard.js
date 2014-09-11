@@ -29,6 +29,7 @@ var TSOS;
             // Parse the params.    TODO: Check that they are valid and osTrapError if not.
             var keyCode = params[0];
             var isShifted = params[1];
+
             _Kernel.krnTrace("Key code:" + keyCode + " shifted:" + isShifted);
             var chr = "";
 
@@ -192,6 +193,10 @@ var TSOS;
                 _KernelInputQueue.enqueue(chr);
             } else if (keyCode === 8) {
                 _StdOut.deleteText();
+            } else if (keyCode == 38) {
+                _StdOut.commandUp();
+            } else if (keyCode == 40) {
+                _StdOut.commandDown();
             }
         };
         return DeviceDriverKeyboard;

@@ -94,10 +94,35 @@ var TSOS;
             this.currentYPosition += 13;
         };
 
+        Console.prototype.clearLine = function () {
+            _DrawingContext.clearRect(13, this.currentYPosition - 13, this.currentXPosition, 18);
+            this.currentXPosition = 13;
+        };
+
         Console.prototype.advanceLine = function () {
             this.currentXPosition = 0;
             this.currentYPosition += _DefaultFontSize + _FontHeightMargin;
             // TODO: Handle scrolling. (Project 1)
+        };
+
+        Console.prototype.commandUp = function () {
+            if (commandReference > 0) {
+                var sc = commandHistory[--commandReference];
+                this.clearLine();
+                this.putText(sc);
+            } else {
+                var sc = commandHistory[commandReference];
+                this.clearLine();
+                this.putText(sc);
+            }
+        };
+
+        Console.prototype.commandDown = function () {
+            if (commandHistory.length < commandReference) {
+                var sc = commandHistory[commandReference++];
+                this.clearLine();
+                this.putText(sc);
+            }
         };
         return Console;
     })();
