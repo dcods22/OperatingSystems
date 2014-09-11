@@ -2,7 +2,7 @@
 // Gulp is a task runner, it helps you automate things.
 // In this case, we're going to use it so it can automatically
 // update your JavaScript js files when you edit your TypeScript ts files.
-// Read more about Gulp: http://gulpjs.com/
+// Read more about Gulp: hulpjs.com/
 //
 var gulp = require('gulp');
 

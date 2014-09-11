@@ -53,6 +53,18 @@ var TSOS;
             sc = new TSOS.ShellCommand(this.shellPrompt, "prompt", "<string> - Sets the prompt.");
             this.commandList[this.commandList.length] = sc;
 
+            sc = new TSOS.ShellCommand(this.shellWhereAmI, "whereami", "<string> - Tells you where you are.");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new TSOS.ShellCommand(this.shellDate, "date", "<string> - Tells you the date.");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new TSOS.ShellCommand(this.shellTruth, "truth", "<string> - Tells you the truth.");
+
+            this.commandList[this.commandList.length] = sc;
+
             // processes - list the running processes and their IDs
             // kill <id> - kills the specified process id.
             //
@@ -262,6 +274,19 @@ var TSOS;
             } else {
                 _StdOut.putText("Usage: prompt <string>  Please supply a string.");
             }
+        };
+
+        Shell.prototype.shellWhereAmI = function (args) {
+            _StdOut.putText(USER_LOCATION);
+        };
+
+        Shell.prototype.shellDate = function (args) {
+            var currDateTime = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
+            _StdOut.putText(currDateTime);
+        };
+
+        Shell.prototype.shellTruth = function (ars) {
+            _StdOut.putText("Daniel Craig is the best James Bond Ever!");
         };
         return Shell;
     })();
