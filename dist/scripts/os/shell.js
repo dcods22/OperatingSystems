@@ -191,6 +191,7 @@ var TSOS;
             } else {
                 _StdOut.putText("Type 'help' for, well... help.");
             }
+            //            this.hostLogger("Invalid Command");
         };
 
         Shell.prototype.shellCurse = function () {
@@ -198,6 +199,7 @@ var TSOS;
             _StdOut.advanceLine();
             _StdOut.putText("Bitch.");
             _SarcasticMode = true;
+            //            this.hostLogger("Cursing...");
         };
 
         Shell.prototype.shellApology = function () {
@@ -207,6 +209,7 @@ var TSOS;
             } else {
                 _StdOut.putText("For what?");
             }
+            //            this.hostLogger("We Apologize");
         };
 
         Shell.prototype.shellVer = function (args) {
@@ -214,6 +217,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "ver";
             commandReference = commandCount;
+            //            this.hostLogger("ver Called");
         };
 
         Shell.prototype.shellHelp = function (args) {
@@ -225,6 +229,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "help";
             commandReference = commandCount;
+            //            this.hostLogger("Help Called");
         };
 
         Shell.prototype.shellShutdown = function (args) {
@@ -236,6 +241,7 @@ var TSOS;
             // TODO: Stop the final prompt from being displayed.  If possible.  Not a high priority.  (Damn OCD!)
             commandHistory[commandCount++] = "shutdown";
             commandReference = commandCount;
+            //            this.hostLogger("Shutdown Called");
         };
 
         Shell.prototype.shellCls = function (args) {
@@ -244,6 +250,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "cls";
             commandReference = commandCount;
+            //            this.hostLogger("Cls Called");
         };
 
         Shell.prototype.shellMan = function (args) {
@@ -262,6 +269,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "man";
             commandReference = commandCount;
+            //            this.hostLogger("Man Called");
         };
 
         Shell.prototype.shellTrace = function (args) {
@@ -290,6 +298,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "trace";
             commandReference = commandCount;
+            //            this.hostLogger("Trace Called");
         };
 
         Shell.prototype.shellRot13 = function (args) {
@@ -302,6 +311,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "rot13";
             commandReference = commandCount;
+            //            this.hostLogger("ROT13 Called");
         };
 
         Shell.prototype.shellPrompt = function (args) {
@@ -313,6 +323,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "prompt";
             commandReference = commandCount;
+            //            this.hostLogger("Prompt Called");
         };
 
         Shell.prototype.shellWhereAmI = function (args) {
@@ -320,6 +331,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "whereami";
             commandReference = commandCount;
+            //            this.hostLogger("Where Am I Called");
         };
 
         Shell.prototype.shellDate = function (args) {
@@ -328,6 +340,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "date";
             commandReference = commandCount;
+            //            this.hostLogger("Date Called");
         };
 
         Shell.prototype.shellTruth = function (args) {
@@ -335,6 +348,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "truth";
             commandReference = commandCount;
+            //            this.hostLogger("Truth Called");
         };
 
         Shell.prototype.shellStatus = function (args) {
@@ -342,6 +356,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "status";
             commandReference = commandCount;
+            //            this.hostLogger("Status Called");
         };
 
         Shell.prototype.shellBSOD = function (args) {
@@ -349,11 +364,11 @@ var TSOS;
             _Canvas.style.backgroundColor = "blue";
             _Canvas.style.color = 'white';
             _StdOut.putText("Blue Screen of Death!");
+            //            this.hostLogger("Blue Screen of Death!");
         };
 
         Shell.prototype.shellLoad = function (args) {
-            var program = document.getElementById("taProgramInput").value;
-
+            //            var program = <HTMLInputElement> document.getElementById("taProgramInput").value;
             program = program.replace(/\s/g, '');
 
             var re = new RegExp("^[0-9A-F]+$");
@@ -365,6 +380,7 @@ var TSOS;
 
             commandHistory[commandCount++] = "load";
             commandReference = commandCount;
+            //            this.hostLogger("Load Called");
         };
 
         Shell.prototype.autoComplete = function (args) {
@@ -395,6 +411,11 @@ var TSOS;
             }
 
             return exists;
+        };
+
+        Shell.prototype.hostLogger = function (str) {
+            var taLog = document.getElementById("taHostLog");
+            taLog.value = str + taLog.value;
         };
         return Shell;
     })();

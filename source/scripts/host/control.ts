@@ -57,10 +57,10 @@ module TSOS {
             var clock: number = _OSclock;
 
             // Note the REAL clock in milliseconds since January 1, 1970.
-            var now: number = new Date().getTime();
+            var now: string = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
 
             // Build the log string.
-            var str: string = "({ clock:" + clock + ", source:" + source + ", msg:" + msg + ", now:" + now  + " })"  + "\n";
+            var str: string = "({ clock: " + clock + ", source: " + source + ", msg: " + msg + ", now: " + now  + " })"  + "\n";
 
             // Update the log console.
             var taLog = <HTMLInputElement> document.getElementById("taHostLog");
