@@ -435,12 +435,10 @@ module TSOS {
 
             for(var i=0; i < this.commandList.length; i++){
                 var comm = this.commandList[i];
-                if(this.startsWith(comm.command, args)){
+                if(this.startsWith(args, comm.command)){
                     possibleCommands.push(comm.command);
                 }
             }
-
-            console.log(possibleCommands);
 
             if(possibleCommands.length == 1){
                 return possibleCommands[0];
@@ -449,15 +447,16 @@ module TSOS {
             }
         }
 
-        public startsWith(str1, str2){
+        public startsWith(buffer, command){
 
             /*for(var i=0; i < str1.length; i++){
                 if(str1.charAt(i) != str2.charAt(i))
                     exists = false;
             }*/
 
-            var subStr = str2.substring(0, str1.length);
-            if(subStr === str1){
+            var subCommand = command.substring(0, buffer.length);
+
+            if(subCommand === buffer){
                 return true;
             }else{
                 return false;

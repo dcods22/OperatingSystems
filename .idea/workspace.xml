@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/os/shell.js" afterPath="$PROJECT_DIR$/dist/scripts/os/shell.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/shell.ts" afterPath="$PROJECT_DIR$/source/scripts/os/shell.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -11,7 +10,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410637318928" ignored="false" />
     <file path="/globals.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410449843318" ignored="false" />
-    <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410639224131" ignored="false" />
+    <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410640749030" ignored="false" />
     <file path="/console.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410637431686" ignored="false" />
     <file path="/deviceDriverKeyboard.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410464782602" ignored="false" />
     <file path="/index.html" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410452656128" ignored="false" />
@@ -20,6 +19,7 @@
     <file path="/control.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410527315798" ignored="false" />
     <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410473418752" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/canvastext.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410534213211" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410640610470" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,19 +96,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shell.ts" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="shell.ts" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="225" column="24" selection-start="8468" selection-end="8468" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="8" selection-start="427" selection-end="427" vertical-scroll-proportion="0.18539326">
+            <state line="440" column="13" selection-start="15421" selection-end="15421" vertical-scroll-proportion="0.33793104">
               <folding />
             </state>
           </provider>
@@ -141,8 +132,8 @@
         <option value="$PROJECT_DIR$/source/scripts/os/deviceDriver.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/console.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
       </list>
     </option>
   </component>
@@ -613,16 +604,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="225" column="24" selection-start="8468" selection-end="8468" vertical-scroll-proportion="0.0">
+        <state line="11" column="8" selection-start="427" selection-end="427" vertical-scroll-proportion="0.18539326">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="427" selection-end="427" vertical-scroll-proportion="0.18539326">
+        <state line="440" column="13" selection-start="15421" selection-end="15421" vertical-scroll-proportion="0.33793104">
           <folding />
         </state>
       </provider>
