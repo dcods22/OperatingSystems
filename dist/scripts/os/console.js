@@ -136,7 +136,7 @@ var TSOS;
         };
 
         Console.prototype.autoComplete = function () {
-            var command = _OsShell.autoComplete();
+            var command = _OsShell.autoComplete(this.buffer);
 
             if (command) {
                 this.clearLine();

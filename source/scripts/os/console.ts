@@ -133,7 +133,7 @@ module TSOS {
         }
 
         public autoComplete(): void{
-            var command = _OsShell.autoComplete();
+            var command = _OsShell.autoComplete(this.buffer);
 
             if(command){
                 this.clearLine();
