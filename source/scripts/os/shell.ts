@@ -448,20 +448,9 @@ module TSOS {
         }
 
         public startsWith(buffer, command){
-
-            /*for(var i=0; i < str1.length; i++){
-                if(str1.charAt(i) != str2.charAt(i))
-                    exists = false;
-            }*/
-
             var subCommand = command.substring(0, buffer.length);
 
-            if(subCommand === buffer){
-                return true;
-            }else{
-                return false;
-            }
-
+            return subCommand === buffer;
         }
 
         public hostLogger(str){

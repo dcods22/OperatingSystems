@@ -4,13 +4,12 @@
     <list default="true" id="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/os/shell.js" afterPath="$PROJECT_DIR$/dist/scripts/os/shell.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/shell.ts" afterPath="$PROJECT_DIR$/source/scripts/os/shell.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OS.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410637318928" ignored="false" />
     <file path="/globals.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410449843318" ignored="false" />
-    <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410640749030" ignored="false" />
+    <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410640878795" ignored="false" />
     <file path="/console.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410637431686" ignored="false" />
     <file path="/deviceDriverKeyboard.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410464782602" ignored="false" />
     <file path="/index.html" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410452656128" ignored="false" />
@@ -99,7 +98,7 @@
       <file leaf-file-name="shell.ts" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="440" column="13" selection-start="15421" selection-end="15421" vertical-scroll-proportion="0.33793104">
+            <state line="452" column="41" selection-start="15736" selection-end="15736" vertical-scroll-proportion="0.7186207">
               <folding />
             </state>
           </provider>
@@ -613,7 +612,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="440" column="13" selection-start="15421" selection-end="15421" vertical-scroll-proportion="0.33793104">
+        <state line="452" column="41" selection-start="15736" selection-end="15736" vertical-scroll-proportion="0.7186207">
           <folding />
         </state>
       </provider>
