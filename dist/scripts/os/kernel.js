@@ -161,7 +161,7 @@ var TSOS;
             TSOS.Control.hostLog("OS ERROR - TRAP: " + msg);
 
             _StdOut.clearScreen();
-            _Canvas.style.backgroundColor = "blue";
+            _Canvas.style.backgroundColor = "#1028D9";
             _Canvas.style.color = 'white';
             _StdOut.putText("Blue Screen of Death!");
 
