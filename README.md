@@ -21,4 +21,4 @@ Implement scrolling	in	the	client	OS	console/CLI.
 - [x] Display a BSOD	message	(on	the	CLI)	when	the	kernel	traps	an OS error.
      - [x] Add a shell	command	to	test	this.	Remember	to	include	it in the help.
 - [x] Add a	shell	command	called	load	to	validate	the	user	code in the HTML5 text	area	(id=	“taProgramInput”).	Only	hex	digits	and	spaces	are	valid.
-- [ ] [optional]	Implement	line-wrap	in	the	CLI. Implementa6on
+- [x] [optional]	Implement	line-wrap	in	the	CLI. Implementa6on
