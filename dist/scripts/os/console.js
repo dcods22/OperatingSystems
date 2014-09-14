@@ -70,19 +70,39 @@ var TSOS;
             // UPDATE: Even though we are now working in TypeScript, char and string remain undistinguished.
             if (text !== "") {
                 // Draw the text at the current X and Y coordinates.
-                var textOffset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, text);
+                var words = text.split(" ");
 
-                textSizes[textCount++] = textOffset;
+                if (words.length > 1) {
+                    for (var i = 0; i < words.length; i++) {
+                        var word = words[i] + " ";
 
-                if ((this.currentXPosition + textOffset) > _Canvas.width) {
-                    this.currentXPosition = 0;
-                    this.currentYPosition += this.currentFontSize;
+                        var textOffset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, word);
+
+                        textSizes[textCount++] = textOffset;
+
+                        if ((this.currentXPosition + textOffset) > _Canvas.width) {
+                            this.advanceLine();
+                        }
+
+                        _DrawingContext.drawText(this.currentFont, this.currentFontSize, this.currentXPosition, this.currentYPosition, word);
+
+                        // Move the current X position.
+                        this.currentXPosition = this.currentXPosition + textOffset;
+                    }
+                } else {
+                    var textOffset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, words[0]);
+
+                    textSizes[textCount++] = textOffset;
+
+                    if ((this.currentXPosition + textOffset) > _Canvas.width) {
+                        this.advanceLine();
+                    }
+
+                    _DrawingContext.drawText(this.currentFont, this.currentFontSize, this.currentXPosition, this.currentYPosition, words[0]);
+
+                    // Move the current X position.
+                    this.currentXPosition = this.currentXPosition + textOffset;
                 }
-
-                _DrawingContext.drawText(this.currentFont, this.currentFontSize, this.currentXPosition, this.currentYPosition, text);
-
-                // Move the current X position.
-                this.currentXPosition = this.currentXPosition + textOffset;
             }
         };
 
