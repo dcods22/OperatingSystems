@@ -15,7 +15,7 @@
 var APP_NAME: string    = "dcOdS";   // Dan Cody but in an OS form
 var APP_VERSION: string = "0.22";   // Best Number in History
 var USER_LOCATION: string = "Your Mothers House ;)";    //Incase anyone was wondering
-var USER_STATUS: string = "Root";     //Do as you please with my OS
+var USER_STATUS: string = "Good";     //Do as you please with my OS
 
 var CPU_CLOCK_INTERVAL: number = 100;   // This is in ms, or milliseconds, so 1000 = 1 second.
 

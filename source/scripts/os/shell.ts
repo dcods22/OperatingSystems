@@ -120,8 +120,6 @@ module TSOS {
             _StdOut.putText(this.dateAndTime);
             _StdOut.advanceLine();
             this.putPrompt();
-
-
         }
 
         public putPrompt() {
@@ -221,8 +219,6 @@ module TSOS {
             } else {
                 _StdOut.putText("Type 'help' for, well... help.");
             }
-
-//            this.hostLogger("Invalid Command");
         }
 
         public shellCurse() {
@@ -231,7 +227,6 @@ module TSOS {
             _StdOut.putText("Bitch.");
             _SarcasticMode = true;
 
-//            this.hostLogger("Cursing...");
         }
 
         public shellApology() {
@@ -241,8 +236,6 @@ module TSOS {
            } else {
               _StdOut.putText("For what?");
            }
-
-//            this.hostLogger("We Apologize");
         }
 
         public shellVer(args) {
@@ -250,8 +243,6 @@ module TSOS {
 
             commandHistory[commandCount++] = "ver";
             commandReference = commandCount;
-
-//            this.hostLogger("ver Called");
         }
 
         public shellHelp(args) {
@@ -263,8 +254,6 @@ module TSOS {
 
             commandHistory[commandCount++] = "help";
             commandReference = commandCount;
-
-//            this.hostLogger("Help Called");
         }
 
         public shellShutdown(args) {
@@ -276,7 +265,6 @@ module TSOS {
             commandHistory[commandCount++] = "shutdown";
             commandReference = commandCount;
 
-//            this.hostLogger("Shutdown Called");
         }
 
         public shellCls(args) {
@@ -286,7 +274,6 @@ module TSOS {
             commandHistory[commandCount++] = "cls";
             commandReference = commandCount;
 
-//            this.hostLogger("Cls Called");
         }
 
         public shellMan(args) {
@@ -306,7 +293,6 @@ module TSOS {
             commandHistory[commandCount++] = "man";
             commandReference = commandCount;
 
-//            this.hostLogger("Man Called");
         }
 
         public shellTrace(args) {
@@ -336,7 +322,6 @@ module TSOS {
             commandHistory[commandCount++] = "trace";
             commandReference = commandCount;
 
-//            this.hostLogger("Trace Called");
         }
 
         public shellRot13(args) {
@@ -350,7 +335,6 @@ module TSOS {
             commandHistory[commandCount++] = "rot13";
             commandReference = commandCount;
 
-//            this.hostLogger("ROT13 Called");
         }
 
         public shellPrompt(args) {
@@ -363,7 +347,6 @@ module TSOS {
             commandHistory[commandCount++] = "prompt";
             commandReference = commandCount;
 
-//            this.hostLogger("Prompt Called");
         }
 
         public shellWhereAmI(args){
@@ -372,7 +355,6 @@ module TSOS {
             commandHistory[commandCount++] = "whereami";
             commandReference = commandCount;
 
-//            this.hostLogger("Where Am I Called");
         }
 
         public shellDate(args){
@@ -382,7 +364,6 @@ module TSOS {
             commandHistory[commandCount++] = "date";
             commandReference = commandCount;
 
-//            this.hostLogger("Date Called");
         }
 
         public shellTruth(args){
@@ -390,17 +371,17 @@ module TSOS {
 
             commandHistory[commandCount++] = "truth";
             commandReference = commandCount;
-
-//            this.hostLogger("Truth Called");
         }
 
         public shellStatus(args){
+
+            USER_STATUS = args;
+
             _StdOut.putText("Your Current Status is " + USER_STATUS);
 
             commandHistory[commandCount++] = "status";
             commandReference = commandCount;
 
-//            this.hostLogger("Status Called");
         }
 
         public shellBSOD(args){
@@ -409,7 +390,6 @@ module TSOS {
             _Canvas.style.color = 'white';
             _StdOut.putText("Blue Screen of Death!");
 
-//            this.hostLogger("Blue Screen of Death!");
         }
 
         public shellLoad(args){
@@ -427,7 +407,6 @@ module TSOS {
             commandHistory[commandCount++] = "load";
             commandReference = commandCount;
 
-//            this.hostLogger("Load Called");
         }
 
         public autoComplete(args){
@@ -452,12 +431,6 @@ module TSOS {
 
             return subCommand === buffer;
         }
-
-        public hostLogger(str){
-            var taLog = <HTMLInputElement> document.getElementById("taHostLog");
-            taLog.value = str + "\n" + taLog.value;
-        }
-
 
     }
 }

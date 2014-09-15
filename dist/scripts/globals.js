@@ -12,7 +12,7 @@ Operating System Concepts 8th edition by Silberschatz, Galvin, and Gagne.  ISBN 
 var APP_NAME = "dcOdS";
 var APP_VERSION = "0.22";
 var USER_LOCATION = "Your Mothers House ;)";
-var USER_STATUS = "Root";
+var USER_STATUS = "Good";
 
 var CPU_CLOCK_INTERVAL = 100;
 
