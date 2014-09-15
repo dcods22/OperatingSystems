@@ -7,10 +7,11 @@ Assignment 1
      - [x] whereami	-	displays	the	users	current	location	(use	your	imagination)
      - [x] something	else	interesting	and	creative;	surprise	me
 
-- [ ] Enhance	the host	display	with	a	graphic	task	bar	that	displays
-     - [ ] the current	date	and	time
-     - [ ] status messages	as	specified	by	the	user	with	a	new	shell command: status	<string>
-Implement scrolling	in	the	client	OS	console/CLI.
+- [x] Enhance	the host	display	with	a	graphic	task	bar	that	displays
+     - [x] the current	date	and	time
+     - [x] status messages	as	specified	by	the	user	with	a	new	shell command: status	<string>
+
+- [x] Implement scrolling	in	the	client	OS	console/CLI.
 
 - [x] Other console/CLI	enhancements:
      - [x] Accept and	display	punctuation	characters	and	symbols.
