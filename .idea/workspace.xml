@@ -2,25 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/console.ts" afterPath="$PROJECT_DIR$/source/scripts/os/console.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/globals.ts" afterPath="$PROJECT_DIR$/source/scripts/globals.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap-theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap-theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap-theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/fonts/glyphicons-halflings-regular.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/host/control.js" afterPath="$PROJECT_DIR$/dist/scripts/host/control.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/host/control.ts" afterPath="$PROJECT_DIR$/source/scripts/host/control.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/kernel.ts" afterPath="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/styles/tsos.css" afterPath="$PROJECT_DIR$/dist/styles/tsos.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OS.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411437811799" ignored="false" />
+    <file path="/Dummy.txt" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411495855793" ignored="false" />
     <file path="/globals.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410449843318" ignored="false" />
     <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410794858688" ignored="false" />
     <file path="/console.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411437899056" ignored="false" />
     <file path="/deviceDriverKeyboard.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410464782602" ignored="false" />
-    <file path="/index.html" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411438114256" ignored="false" />
-    <file path="/tsos.css" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410793783034" ignored="false" />
+    <file path="/index.html" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411496877777" ignored="false" />
+    <file path="/tsos.css" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411497247959" ignored="false" />
     <file path="/kernel.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410794683719" ignored="false" />
-    <file path="/control.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410793862179" ignored="false" />
+    <file path="/control.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411496593029" ignored="false" />
     <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410794914899" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriver.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410794530232" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/interrupt.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410794530232" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/globals.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411496692954" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/kernel.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411496692954" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +50,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -69,7 +85,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -82,43 +97,32 @@
       <file leaf-file-name="shell.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="395" column="40" selection-start="13861" selection-end="13861" vertical-scroll-proportion="0.0">
+            <state line="389" column="44" selection-start="13688" selection-end="13688" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console.ts" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="49" selection-start="4567" selection-end="4567" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="kernel.ts" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/os/kernel.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="1097" selection-end="1097" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="17" selection-start="2246" selection-end="2246" vertical-scroll-proportion="0.6818182">
+            <state line="107" column="52" selection-start="5309" selection-end="5309" vertical-scroll-proportion="-14.285714">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tsos.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="4" selection-start="94" selection-end="94" vertical-scroll-proportion="0.09903714">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -144,15 +148,15 @@
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/source/scripts/os/deviceDriverKeyboard.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/deviceDriver.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
         <option value="$PROJECT_DIR$/source/styles/tsos.css" />
-        <option value="$PROJECT_DIR$/dist/styles/tsos.css" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/console.ts" />
         <option value="$PROJECT_DIR$/source/scripts/globals.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/dist/styles/tsos.css" />
       </list>
     </option>
   </component>
@@ -214,7 +218,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -283,12 +286,45 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="os" />
+              <option name="myItemId" value="host" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -460,7 +496,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1764706" sideWeight="0.5922975" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15351507" sideWeight="0.5922975" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -534,26 +570,6 @@
         <state line="35" column="26" selection-start="617" selection-end="617" vertical-scroll-proportion="0.57931036" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="21" selection-start="889" selection-end="889" vertical-scroll-proportion="0.39724138" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/control.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="42" selection-start="3069" selection-end="3069" vertical-scroll-proportion="1.142069" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/devices.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.14896552" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/canvastext.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.039326" />
@@ -595,39 +611,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="395" column="40" selection-start="13861" selection-end="13861" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="49" selection-start="4567" selection-end="4567" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/kernel.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="1097" selection-end="1097" vertical-scroll-proportion="0.0">
+        <state line="28" column="0" selection-start="1097" selection-end="1097" vertical-scroll-proportion="0.38068965">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="49" selection-start="4567" selection-end="4567" vertical-scroll-proportion="1.7921349">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="389" column="44" selection-start="13688" selection-end="13688" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/control.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="76" selection-start="2764" selection-end="2764" vertical-scroll-proportion="0.3232462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/devices.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.18844567">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="21" selection-start="889" selection-end="889" vertical-scroll-proportion="0.39614856">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="17" selection-start="2246" selection-end="2246" vertical-scroll-proportion="0.6818182">
+        <state line="107" column="52" selection-start="5309" selection-end="5309" vertical-scroll-proportion="-14.285714">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="4" selection-start="94" selection-end="94" vertical-scroll-proportion="0.09903714">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -671,6 +715,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>1.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

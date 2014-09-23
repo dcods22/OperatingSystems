@@ -4,6 +4,8 @@
    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
    <meta name="author"             content="Alan G. Labouseur" />
    <link rel="stylesheet" href="dist/styles/tsos.css" type="text/css" media="screen" />
+   <link rel="stylesheet" href="source/styles/css/bootstrap.min.css" type="text/css" media="screen" />
+   <link rel="stylesheet" href="source/styles/css/bootstrap-theme.min.css" type="text/css" media="screen" />
    <title>
       dcOdS- a browser-based virtual Operating System in TypeScript
    </title>
@@ -27,6 +29,7 @@
    <script type="text/javascript" src="dist/scripts/os/shellCommand.js"></script>
    <script type="text/javascript" src="dist/scripts/os/userCommand.js"></script>
    <script type="text/javascript" src="dist/scripts/os/kernel.js"></script>
+    <script type="text/javascript" src="source/styles/js/bootstrap.min.js"></script>
 
    <!-- Other Routines -->
    <script type="text/javascript" src="dist/scripts/utils.js"></script>
@@ -44,80 +47,101 @@
 
 <body onload="onDocumentLoad();">
 
-<div id="divMain" style="width:100%;">
+<div class="container theme-showcase .text-center">
 
-   <div id="divButtonBar" style="margin:4px;">
-      <input type="button"
-             id = "btnStartOS"
-             name="brnStartOS"
-             class="normal_button"
-             value="Start"
-             tabindex="0"
-             onclick="TSOS.Control.hostBtnStartOS_click(this);">
+    <div id="divMain" style="width:100%;">
 
-      <input type="button"
-             id = "btnHaltOS"
-             name="brnHaltOS"
-             class="normal_button"
-             disabled="disabled"
-             value="Halt"
-             tabindex="1"
-             onclick="TSOS.Control.hostBtnHaltOS_click(this);">
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" style="font-size:20px; margin-top:10px;">dcOdS</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a><input type="button"
+                                   id = "btnStartOS"
+                                   name="brnStartOS"
+                                   class="btn btn-primary"
+                                   value="Start"
+                                   tabindex="0"
+                                   onclick="TSOS.Control.hostBtnStartOS_click(this);"></a></li>
+                        <li><a><input type="button"
+                                   id = "btnHaltOS"
+                                   name="brnHaltOS"
+                                   class="btn btn-primary"
+                                   disabled="disabled"
+                                   value="Halt"
+                                   tabindex="1"
+                                   onclick="TSOS.Control.hostBtnHaltOS_click(this);"></a></li>
+                        <li><a><input type="button"
+                                   id = "btnReset"
+                                   name="brnReset"
+                                   class="btn btn-primary"
+                                   disabled="disabled"
+                                   value="Reset"
+                                   tabindex="2"
+                                   onclick="TSOS.Control.hostBtnReset_click(this);"></a></li>
 
-      <input type="button"
-             id = "btnReset"
-             name="brnReset"
-             class="normal_button"
-             disabled="disabled"
-             value="Reset"
-             tabindex="2"
-             onclick="TSOS.Control.hostBtnReset_click(this);">
-   </div>
+                    </ul>
+                    <div id="statusBar" style="font-size:20px; font-weight:bold; margin-top: 18px;">
+                    </div>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
 
-   <div id="statusBar">
-   </div>
 
-   <div id="divConsole" style="margin:4px; width:500px; height:500px; float:left;">
-      <canvas id="display"
-              width="500px"
-              height="500px"
-              tabindex="3">
-      </canvas>
-   </div>
 
-   <div id="divLog" style="margin-left:520px;">
-      <label>
-         Host Log
-         <br>
-         <textarea name="taHostLog"
-                   id  ="taHostLog"
-                   rows="26"
-                   cols="48"
-         ></textarea>
-      </label>
-   </div>
+       <div id="divConsole" style="margin:4px; width:500px; height:500px; float:left;">
+          <canvas id="display"
+                  width="500px"
+                  height="500px"
+                  tabindex="3">
+          </canvas>
+       </div>
 
-   <div id="divUserProgramInput" style="margin-left:520px;">
-      <label>
-         User Program Input
-         <br>
-         <textarea name="taProgramInput"
-                   id  ="taProgramInput"
-                   rows="8"
-                   cols="48"
-         ></textarea>
-      </label>
-   </div>
+        <div id="divLog" class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Host Log</h3>
+            </div>
+            <div class="panel-body">
+                <textarea name="taHostLog"
+                          id  ="taHostLog"
+                          rows="15"
+                          cols="60"
+                ></textarea>
+            </div>
+        </div>
 
+
+        <div id="divUserProgramInput" class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">User Program Input</h3>
+            </div>
+            <div class="panel-body">
+                <textarea name="taProgramInput"
+                          id  ="taProgramInput"
+                          rows="8"
+                          cols="60"
+                        ></textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="footerText" style="clear:both;">
+       <br>
+       Copyright &copy; 2008 - 2014 No Rights Reserved.
+       <br>
+       Reproduction is prohibited without the express written consent of
+       Ted Codd, Stevie Ray Vaughan, and Ian Fleming.
+    </p>
 </div>
-
-<p class="footerText" style="clear:both;">
-   <br>
-   Copyright &copy; 2008 - 2014 No Rights Reserved.
-   <br>
-   Reproduction is prohibited without the express written consent of
-   Ted Codd, Stevie Ray Vaughan, and Ian Fleming.
-</p>
 
 </body>
 </html>

@@ -60,7 +60,7 @@ module TSOS {
             var now: string = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
 
             // Build the log string.
-            var str: string = "({ clock: " + clock + ", source: " + source + ", msg: " + msg + ", now: " + now  + " })"  + "\n";
+            var str: string = source + ": " + now + ": clock:" + clock + "\n msg: " + msg + "\n";
 
             // Update the log console.
             var taLog = <HTMLInputElement> document.getElementById("taHostLog");
