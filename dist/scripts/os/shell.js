@@ -351,6 +351,7 @@ var TSOS;
             _Canvas.style.backgroundColor = "#1028D9";
             _Canvas.style.color = 'white';
             _StdOut.putText("Blue Screen of Death!");
+            _Kernel.krnShutdown();
         };
 
         Shell.prototype.shellLoad = function (args) {

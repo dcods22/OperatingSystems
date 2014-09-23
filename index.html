@@ -32,6 +32,14 @@
    <script type="text/javascript" src="dist/scripts/utils.js"></script>
    <!-- Uncomment this line below to enable Glados testing -->
    <!-- <script type="text/javascript" src="http://www.labouseur.com/courses/os/projects/glados.js"></script> -->
+
+    <script>
+        setInterval(function(){
+            var currTime = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
+            var statusBar = document.getElementById("statusBar");
+            statusBar.innerHTML = currTime + " Status: " + USER_STATUS;
+        }, 1000);
+    </script>
 </head>
 
 <body onload="onDocumentLoad();">

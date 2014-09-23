@@ -78,8 +78,6 @@ var TSOS;
 
                         var textOffset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, word);
 
-                        textSizes[textCount++] = textOffset;
-
                         if ((this.currentXPosition + textOffset) > _Canvas.width) {
                             this.advanceLine();
                         }
@@ -91,8 +89,6 @@ var TSOS;
                     }
                 } else {
                     var textOffset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, words[0]);
-
-                    textSizes[textCount++] = textOffset;
 
                     if ((this.currentXPosition + textOffset) > _Canvas.width) {
                         this.advanceLine();
@@ -109,7 +105,7 @@ var TSOS;
         Console.prototype.deleteText = function () {
             //move the x position back
             if (this.currentXPosition > 12.48) {
-                var textOffset = textSizes[--textCount];
+                var textOffset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, this.buffer.substring(this.buffer.length - 1, this.buffer.length));
 
                 this.currentXPosition -= textOffset;
 
