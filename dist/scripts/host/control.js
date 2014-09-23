@@ -56,7 +56,7 @@ var TSOS;
             var now = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
 
             // Build the log string.
-            var str = source + ": " + now + ": clock:" + clock + "\n msg: " + msg + "\n";
+            var str = source + ": " + now + ": clock:" + clock + " msg: " + msg + "\n";
 
             // Update the log console.
             var taLog = document.getElementById("taHostLog");

@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap-theme.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/host/control.js" afterPath="$PROJECT_DIR$/dist/scripts/host/control.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/host/control.ts" afterPath="$PROJECT_DIR$/source/scripts/host/control.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/styles/tsos.css" afterPath="$PROJECT_DIR$/dist/styles/tsos.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -118,10 +102,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tsos.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="control.ts" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/scripts/host/control.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="74" selection-start="2762" selection-end="2762" vertical-scroll-proportion="0.3232462">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tsos.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="4" selection-start="94" selection-end="94" vertical-scroll-proportion="0.09903714">
+            <state line="6" column="4" selection-start="94" selection-end="94" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -154,9 +147,9 @@
         <option value="$PROJECT_DIR$/source/scripts/os/console.ts" />
         <option value="$PROJECT_DIR$/source/scripts/globals.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/dist/styles/tsos.css" />
+        <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
       </list>
     </option>
   </component>
@@ -634,23 +627,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/control.ts">
+    <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="76" selection-start="2764" selection-end="2764" vertical-scroll-proportion="0.3232462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/devices.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.18844567">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="21" selection-start="889" selection-end="889" vertical-scroll-proportion="0.39614856">
+        <state line="6" column="4" selection-start="94" selection-end="94" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -668,9 +647,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/devices.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="4" selection-start="94" selection-end="94" vertical-scroll-proportion="0.09903714">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="21" selection-start="889" selection-end="889" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/control.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="74" selection-start="2762" selection-end="2762" vertical-scroll-proportion="0.3232462">
           <folding />
         </state>
       </provider>
