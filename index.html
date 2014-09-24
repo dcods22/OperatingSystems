@@ -7,42 +7,9 @@
    <link rel="stylesheet" href="source/styles/css/bootstrap.min.css" type="text/css" media="screen" />
    <link rel="stylesheet" href="source/styles/css/bootstrap-theme.min.css" type="text/css" media="screen" />
    <title>
-      dcOdS- a browser-based virtual Operating System in TypeScript
+      dcOdS 0.22
    </title>
 
-   <!-- Globals CONSTANTS and _Variables. Must included be first. -->
-   <script type="text/javascript" src="dist/scripts/globals.js"></script>
-
-   <!-- Host (Hardware Simulation) Routines -->
-   <script type="text/javascript" src="dist/scripts/host/control.js"></script>
-   <script type="text/javascript" src="dist/scripts/host/devices.js"></script>
-   <script type="text/javascript" src="dist/scripts/host/cpu.js"></script>
-
-   <!-- Virtual OS Routines: Make sure Kernel code is last, since it needs those above it. -->
-   <script type="text/javascript" src="dist/scripts/os/interrupt.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/canvastext.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/console.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/deviceDriver.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/deviceDriverKeyboard.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/queue.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/shell.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/shellCommand.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/userCommand.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/kernel.js"></script>
-    <script type="text/javascript" src="source/styles/js/bootstrap.min.js"></script>
-
-   <!-- Other Routines -->
-   <script type="text/javascript" src="dist/scripts/utils.js"></script>
-   <!-- Uncomment this line below to enable Glados testing -->
-   <!-- <script type="text/javascript" src="http://www.labouseur.com/courses/os/projects/glados.js"></script> -->
-
-    <script>
-        setInterval(function(){
-            var currTime = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
-            var statusBar = document.getElementById("statusBar");
-            statusBar.innerHTML = currTime + " Status: " + USER_STATUS;
-        }, 1000);
-    </script>
 </head>
 
 <body onload="onDocumentLoad();">
@@ -105,6 +72,8 @@
           </canvas>
        </div>
 
+
+
         <div id="divLog" class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Host Log</h3>
@@ -128,13 +97,25 @@
                           id  ="taProgramInput"
                           rows="8"
                           cols="60"
-                        ></textarea>
+                        >A9 03 8D 41 00 A9 01 8D 40 00 AC 40 00 A2 01 FF EE 40</textarea>
+            </div>
+        </div>
+
+        <div id="memory" class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Memory</h3>
+            </div>
+            <div class="panel-body">
+                <table id="memoryTable" class="table table-condensed text-center">
+                    <tbody id="memoryDiv">
+                    </tbody>
+                </table>
             </div>
         </div>
 
     </div>
 
-    <p class="footerText" style="clear:both;">
+    <p class="footerText" style="clear:both; text-align: center;">
        <br>
        Copyright &copy; 2008 - 2014 No Rights Reserved.
        <br>
@@ -142,6 +123,43 @@
        Ted Codd, Stevie Ray Vaughan, and Ian Fleming.
     </p>
 </div>
+
+<!-- Globals CONSTANTS and _Variables. Must included be first. -->
+
+<script type="text/javascript" src="source/scripts/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="source/styles/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="dist/scripts/globals.js"></script>
+
+<!-- Host (Hardware Simulation) Routines -->
+<script type="text/javascript" src="dist/scripts/host/control.js"></script>
+<script type="text/javascript" src="dist/scripts/host/devices.js"></script>
+<script type="text/javascript" src="dist/scripts/host/cpu.js"></script>
+
+<!-- Virtual OS Routines: Make sure Kernel code is last, since it needs those above it. -->
+<script type="text/javascript" src="dist/scripts/os/interrupt.js"></script>
+<script type="text/javascript" src="dist/scripts/os/canvastext.js"></script>
+<script type="text/javascript" src="dist/scripts/os/console.js"></script>
+<script type="text/javascript" src="dist/scripts/os/deviceDriver.js"></script>
+<script type="text/javascript" src="dist/scripts/os/deviceDriverKeyboard.js"></script>
+<script type="text/javascript" src="dist/scripts/os/queue.js"></script>
+<script type="text/javascript" src="dist/scripts/os/shell.js"></script>
+<script type="text/javascript" src="dist/scripts/os/shellCommand.js"></script>
+<script type="text/javascript" src="dist/scripts/os/userCommand.js"></script>
+<script type="text/javascript" src="dist/scripts/os/kernel.js"></script>
+
+<!-- Other Routines -->
+<script type="text/javascript" src="dist/scripts/utils.js"></script>
+<!-- Uncomment this line below to enable Glados testing -->
+<!-- <script type="text/javascript" src="http://www.labouseur.com/courses/os/projects/glados.js"></script> -->
+
+<script>
+    setInterval(function(){
+        var currTime = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
+        var statusBar = document.getElementById("statusBar");
+        statusBar.innerHTML = currTime + " Status: " + USER_STATUS;
+    }, 1000);
+</script>
 
 </body>
 </html>

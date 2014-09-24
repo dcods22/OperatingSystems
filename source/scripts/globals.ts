@@ -23,7 +23,6 @@ var TIMER_IRQ: number = 0;  // Pages 23 (timer), 9 (interrupts), and 561 (interr
                             // NOTE: The timer is different from hardware/host clock pulses. Don't confuse these.
 var KEYBOARD_IRQ: number = 1;
 
-
 //
 // Global Variables
 //
@@ -72,8 +71,11 @@ var onDocumentLoad = function() {
 	TSOS.Control.hostInit();
 };
 
+//Used for command history
 var commandHistory = [];
 var commandCount = 0;
 var commandReference = 0;
-var textSizes = [];
-var textCount = 0;
+
+//used for program loading
+var PID = 0;
+var memory = [];

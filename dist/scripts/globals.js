@@ -68,8 +68,11 @@ var onDocumentLoad = function () {
     TSOS.Control.hostInit();
 };
 
+//Used for command history
 var commandHistory = [];
 var commandCount = 0;
 var commandReference = 0;
-var textSizes = [];
-var textCount = 0;
+
+//used for program loading
+var PID = 0;
+var memory = [];
