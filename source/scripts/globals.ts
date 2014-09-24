@@ -79,3 +79,7 @@ var commandCount = 0;
 var commandReference = 0;
 var textSizes = [];
 var textCount = 0;
+
+//Memory
+var PID = 0;
+var memory = [];

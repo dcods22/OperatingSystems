@@ -4,112 +4,162 @@
    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
    <meta name="author"             content="Alan G. Labouseur" />
    <link rel="stylesheet" href="dist/styles/tsos.css" type="text/css" media="screen" />
+   <link rel="stylesheet" href="source/styles/css/bootstrap.min.css" type="text/css" media="screen" />
+   <link rel="stylesheet" href="source/styles/css/bootstrap-theme.min.css" type="text/css" media="screen" />
    <title>
-      dcOdS- a browser-based virtual Operating System in TypeScript
+      dcOdS 0.22
    </title>
 
-   <!-- Globals CONSTANTS and _Variables. Must included be first. -->
-   <script type="text/javascript" src="dist/scripts/globals.js"></script>
-
-   <!-- Host (Hardware Simulation) Routines -->
-   <script type="text/javascript" src="dist/scripts/host/control.js"></script>
-   <script type="text/javascript" src="dist/scripts/host/devices.js"></script>
-   <script type="text/javascript" src="dist/scripts/host/cpu.js"></script>
-
-   <!-- Virtual OS Routines: Make sure Kernel code is last, since it needs those above it. -->
-   <script type="text/javascript" src="dist/scripts/os/interrupt.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/canvastext.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/console.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/deviceDriver.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/deviceDriverKeyboard.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/queue.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/shell.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/shellCommand.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/userCommand.js"></script>
-   <script type="text/javascript" src="dist/scripts/os/kernel.js"></script>
-
-   <!-- Other Routines -->
-   <script type="text/javascript" src="dist/scripts/utils.js"></script>
-   <!-- Uncomment this line below to enable Glados testing -->
-   <!-- <script type="text/javascript" src="http://www.labouseur.com/courses/os/projects/glados.js"></script> -->
 </head>
 
 <body onload="onDocumentLoad();">
 
-<div id="divMain" style="width:100%;">
+<div class="container theme-showcase .text-center">
 
-   <div id="divButtonBar" style="margin:4px;">
-      <input type="button"
-             id = "btnStartOS"
-             name="brnStartOS"
-             class="normal_button"
-             value="Start"
-             tabindex="0"
-             onclick="TSOS.Control.hostBtnStartOS_click(this);">
+    <div id="divMain" style="width:100%;">
 
-      <input type="button"
-             id = "btnHaltOS"
-             name="brnHaltOS"
-             class="normal_button"
-             disabled="disabled"
-             value="Halt"
-             tabindex="1"
-             onclick="TSOS.Control.hostBtnHaltOS_click(this);">
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" style="font-size:20px; margin-top:10px;">dcOdS</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a><input type="button"
+                                   id = "btnStartOS"
+                                   name="brnStartOS"
+                                   class="btn btn-primary"
+                                   value="Start"
+                                   tabindex="0"
+                                   onclick="TSOS.Control.hostBtnStartOS_click(this);"></a></li>
+                        <li><a><input type="button"
+                                   id = "btnHaltOS"
+                                   name="brnHaltOS"
+                                   class="btn btn-primary"
+                                   disabled="disabled"
+                                   value="Halt"
+                                   tabindex="1"
+                                   onclick="TSOS.Control.hostBtnHaltOS_click(this);"></a></li>
+                        <li><a><input type="button"
+                                   id = "btnReset"
+                                   name="brnReset"
+                                   class="btn btn-primary"
+                                   disabled="disabled"
+                                   value="Reset"
+                                   tabindex="2"
+                                   onclick="TSOS.Control.hostBtnReset_click(this);"></a></li>
 
-      <input type="button"
-             id = "btnReset"
-             name="brnReset"
-             class="normal_button"
-             disabled="disabled"
-             value="Reset"
-             tabindex="2"
-             onclick="TSOS.Control.hostBtnReset_click(this);">
-   </div>
+                    </ul>
+                    <div id="statusBar" style="font-size:20px; font-weight:bold; margin-top: 18px;">
+                    </div>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
 
-   <div id="statusBar">
-   </div>
 
-   <div id="divConsole" style="margin:4px; width:500px; height:500px; float:left;">
-      <canvas id="display"
-              width="500px"
-              height="500px"
-              tabindex="3">
-      </canvas>
-   </div>
 
-   <div id="divLog" style="margin-left:520px;">
-      <label>
-         Host Log
-         <br>
-         <textarea name="taHostLog"
-                   id  ="taHostLog"
-                   rows="26"
-                   cols="48"
-         ></textarea>
-      </label>
-   </div>
+       <div id="divConsole" style="margin:4px; width:500px; height:500px; float:left;">
+          <canvas id="display"
+                  width="500px"
+                  height="500px"
+                  tabindex="3">
+          </canvas>
+       </div>
 
-   <div id="divUserProgramInput" style="margin-left:520px;">
-      <label>
-         User Program Input
-         <br>
-         <textarea name="taProgramInput"
-                   id  ="taProgramInput"
-                   rows="8"
-                   cols="48"
-         ></textarea>
-      </label>
-   </div>
 
+
+        <div id="divLog" class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Host Log</h3>
+            </div>
+            <div class="panel-body">
+                <textarea name="taHostLog"
+                          id  ="taHostLog"
+                          rows="15"
+                          cols="60"
+                ></textarea>
+            </div>
+        </div>
+
+
+        <div id="divUserProgramInput" class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">User Program Input</h3>
+            </div>
+            <div class="panel-body">
+                <textarea name="taProgramInput"
+                          id  ="taProgramInput"
+                          rows="8"
+                          cols="60"
+                        >A9 03 8D 41 00 A9 01 8D 40 00 AC 40 00 A2 01 FF EE 40</textarea>
+            </div>
+        </div>
+
+        <div id="memory" class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Memory</h3>
+            </div>
+            <div class="panel-body">
+                <table id="memoryTable" class="table table-condensed text-center">
+                    <tbody id="memoryDiv">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="footerText" style="clear:both; text-align: center;">
+       <br>
+       Copyright &copy; 2008 - 2014 No Rights Reserved.
+       <br>
+       Reproduction is prohibited without the express written consent of
+       Ted Codd, Stevie Ray Vaughan, and Ian Fleming.
+    </p>
 </div>
 
-<p class="footerText" style="clear:both;">
-   <br>
-   Copyright &copy; 2008 - 2014 No Rights Reserved.
-   <br>
-   Reproduction is prohibited without the express written consent of
-   Ted Codd, Stevie Ray Vaughan, and Ian Fleming.
-</p>
+<!-- Globals CONSTANTS and _Variables. Must included be first. -->
+
+<script type="text/javascript" src="source/scripts/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="source/styles/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="dist/scripts/globals.js"></script>
+
+<!-- Host (Hardware Simulation) Routines -->
+<script type="text/javascript" src="dist/scripts/host/control.js"></script>
+<script type="text/javascript" src="dist/scripts/host/devices.js"></script>
+<script type="text/javascript" src="dist/scripts/host/cpu.js"></script>
+
+<!-- Virtual OS Routines: Make sure Kernel code is last, since it needs those above it. -->
+<script type="text/javascript" src="dist/scripts/os/interrupt.js"></script>
+<script type="text/javascript" src="dist/scripts/os/canvastext.js"></script>
+<script type="text/javascript" src="dist/scripts/os/console.js"></script>
+<script type="text/javascript" src="dist/scripts/os/deviceDriver.js"></script>
+<script type="text/javascript" src="dist/scripts/os/deviceDriverKeyboard.js"></script>
+<script type="text/javascript" src="dist/scripts/os/queue.js"></script>
+<script type="text/javascript" src="dist/scripts/os/shell.js"></script>
+<script type="text/javascript" src="dist/scripts/os/shellCommand.js"></script>
+<script type="text/javascript" src="dist/scripts/os/userCommand.js"></script>
+<script type="text/javascript" src="dist/scripts/os/kernel.js"></script>
+
+<!-- Other Routines -->
+<script type="text/javascript" src="dist/scripts/utils.js"></script>
+<!-- Uncomment this line below to enable Glados testing -->
+<!-- <script type="text/javascript" src="http://www.labouseur.com/courses/os/projects/glados.js"></script> -->
+
+<script>
+    setInterval(function(){
+        var currTime = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
+        var statusBar = document.getElementById("statusBar");
+        statusBar.innerHTML = currTime + " Status: " + USER_STATUS;
+    }, 1000);
+</script>
 
 </body>
 </html>

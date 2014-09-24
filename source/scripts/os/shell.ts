@@ -399,10 +399,22 @@ module TSOS {
 
             var re = new RegExp("^[0-9A-F]+$");
 
-            if(re.test(loadedProgram))
-                _StdOut.putText("Program Loaded Successfully");
-            else
-                _StdOut.putText("Program was not successfully Loaded");
+            if(re.test(loadedProgram)){
+                _StdOut.putText("Program ID: " + PID++);
+
+                for(var i=0; i < loadedProgram.length; i++){
+                    var hexLocation = i.toString(16);
+                    var hexValue =  loadedProgram.substring(i * 2, (i * 2) + 2);
+
+                    if(hexValue == "")
+                        hexValue = "00";
+
+                    memory[hexLocation] = hexValue;
+                }
+
+                _Kernel.updateMemory();
+            }else
+                _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
 
             commandHistory[commandCount++] = "load";
             commandReference = commandCount;
