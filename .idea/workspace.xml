@@ -125,7 +125,7 @@
       <file leaf-file-name="shell.ts" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="404" column="73" selection-start="14202" selection-end="14202" vertical-scroll-proportion="0.3232462">
+            <state line="404" column="74" selection-start="14216" selection-end="14216" vertical-scroll-proportion="0.3232462">
               <folding />
             </state>
           </provider>
@@ -698,7 +698,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="404" column="73" selection-start="14202" selection-end="14202" vertical-scroll-proportion="0.3232462">
+        <state line="404" column="74" selection-start="14216" selection-end="14216" vertical-scroll-proportion="0.3232462">
           <folding />
         </state>
       </provider>

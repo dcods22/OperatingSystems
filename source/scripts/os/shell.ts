@@ -402,7 +402,7 @@ module TSOS {
             if(re.test(loadedProgram)){
                 _StdOut.putText("Program ID: " + PID++);
 
-                for(var i=0; i < loadedProgram.length; i++){
+                for(var i=0; i < loadedProgram.length; i++){             g
                     var hexLocation = i.toString(16);
                     var hexValue =  loadedProgram.substring(i * 2, (i * 2) + 2);
 
