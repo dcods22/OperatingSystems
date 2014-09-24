@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/jquery.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/globals.js" afterPath="$PROJECT_DIR$/dist/scripts/globals.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/globals.ts" afterPath="$PROJECT_DIR$/source/scripts/globals.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/os/kernel.js" afterPath="$PROJECT_DIR$/dist/scripts/os/kernel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/kernel.ts" afterPath="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/os/shell.js" afterPath="$PROJECT_DIR$/dist/scripts/os/shell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/shell.ts" afterPath="$PROJECT_DIR$/source/scripts/os/shell.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/styles/tsos.css" afterPath="$PROJECT_DIR$/dist/styles/tsos.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" name="Default" comment="" />
     <ignored path="OS.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411517267798" ignored="false" />
@@ -28,10 +17,13 @@
     <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriver.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411567861161" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/interrupt.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411567861161" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/cpu.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411567861161" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriverKeyboard.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411573966141" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/host/control.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411573966141" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411573966141" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/os/console.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411573966141" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriverKeyboard.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574073847" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/globals.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574073847" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/kernel.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574073847" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/shell.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574073847" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/host/control.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574073847" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574073847" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/console.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574073847" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
