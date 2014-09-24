@@ -30,9 +30,6 @@ var TSOS;
             _StdIn = _Console;
             _StdOut = _Console;
 
-            this.resetMemory();
-            this.updateMemory();
-
             // Load the Keyboard Device Driver
             this.krnTrace("Loading the keyboard device driver.");
             _krnKeyboardDriver = new TSOS.DeviceDriverKeyboard(); // Construct it.
@@ -170,42 +167,6 @@ var TSOS;
             _StdOut.putText("Blue Screen of Death!");
 
             this.krnShutdown();
-        };
-
-        Kernel.prototype.resetMemory = function () {
-            for (var i = 0; i < 768; i++) {
-                var hexValue = i.toString(16);
-                memory[hexValue] = "00";
-            }
-        };
-
-        Kernel.prototype.updateMemory = function () {
-            var memoryTable = $("#memoryTable");
-            memoryTable.html("");
-
-            for (var i = 0; i < 96; i++) {
-                memoryTable.append("<tr id='memory-row-" + i + "'>");
-
-                var memoryRow = $("#memory-row-" + i);
-
-                var hexInt = i * 8;
-
-                var hexIntString = hexInt.toString(16);
-                if (hexIntString.length < 2) {
-                    hexIntString = "00" + hexIntString;
-                } else if (hexIntString.length < 3) {
-                    hexIntString = "0" + hexIntString;
-                }
-
-                memoryRow.append("<td id='memory-label-" + i + "' class='memoryData'>0x" + hexIntString.toUpperCase() + "</td>");
-
-                for (var x = 0; x < 8; x++) {
-                    var memoryLocation = (x + hexInt);
-                    memoryRow.append("<td id='memory-label-" + memoryLocation + "' class='memoryData'>" + memory[memoryLocation.toString(16)].toUpperCase() + "</td>");
-                }
-
-                memoryTable.append("</tr>");
-            }
         };
         return Kernel;
     })();

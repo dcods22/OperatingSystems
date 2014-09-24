@@ -1,0 +1,78 @@
+var pcb = PCB[args];
+                var pcbStart: number = pcb[0];
+                var pcbEnd: number = pcb[1];
+
+                for(var x=pcbStart; x < pcbEnd; x++){
+                    var hexLoc = x.toString(16);
+                    var command = memory[hexLoc];
+                    var exec = executions[command];
+
+                    if(exec == "LDAC"){
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant = memory[hexLoc];
+                        _CPU.setAcc(constant);
+                    }else if(exec == "LDXC"){
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant = memory[hexLoc];
+                        _CPU.setX(constant);
+                    }else if(exec == "LDYC"){
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant = memory[hexLoc];
+                        _CPU.setY(constant);
+                    }else if(exec == "BNE"){
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant = memory[hexLoc];
+                    }else if(exec == "LDAM"){
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant = memory[hexLoc];
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant2 = memory[hexLoc];
+                    }else if(exec == "LDXM"){
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant = memory[hexLoc];
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant2 = memory[hexLoc];
+                    }else if(exec == "LDYM"){
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant = memory[hexLoc];
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant2 = memory[hexLoc];
+                    }else if(exec == "STAM" ){
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant = memory[hexLoc];
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant2 = memory[hexLoc];
+                    }else if(exec == "ADC" ){
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant = memory[hexLoc];
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant2 = memory[hexLoc];
+                    }else if(exec == "CPX"){
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant = memory[hexLoc];
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant2 = memory[hexLoc];
+                    }else if(exec == "INC"){
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant = memory[hexLoc];
+                        x++;
+                        hexLoc = x.toString(16);
+                        var constant2 = memory[hexLoc];
+                    }

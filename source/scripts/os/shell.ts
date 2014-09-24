@@ -90,7 +90,7 @@ module TSOS {
 
             sc = new ShellCommand(this.shellTruth,
                 "truth",
-                "Tells you the truth.");
+                "- Tells you the truth.");
 
             this.commandList[this.commandList.length] = sc;
 
@@ -102,13 +102,13 @@ module TSOS {
 
             sc = new ShellCommand(this.shellBSOD,
                 "bsod",
-                "Gives you the BSOD.");
+                "- Gives you the BSOD.");
 
             this.commandList[this.commandList.length] = sc;
 
             sc = new ShellCommand(this.shellLoad,
                 "load",
-                "Loads the program out of the User Program Input Text Area.");
+                "- Loads the program out of the User Program Input Text Area.");
 
             this.commandList[this.commandList.length] = sc;
 
@@ -399,23 +399,21 @@ module TSOS {
         }
 
         public shellLoad(args){
-            _Kernel.resetMemory();
+            _CPU.resetMemory();
 
             var program = <HTMLInputElement> document.getElementById("taProgramInput");
 
             var loadedProgram:string = program.value.toString().replace(/\s/g, '');
+            loadedProgram.replace("\n", "");
 
             var re = new RegExp("^[0-9A-F]+$");
 
             if(re.test(loadedProgram)){
                 PCB[PID] = [PCBStart, PCBEnd];
-                PCBStart += 255;
-                PCBEnd += 255;
-                console.log(PCB);
 
                 _StdOut.putText("Program ID: " + PID++);
 
-                for(var i=0; i < loadedProgram.length; i++){
+                for(var i: number=PCBStart; i < loadedProgram.length; i++){
                     var hexLocation = i.toString(16);
                     var hexValue =  loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
 
@@ -425,7 +423,10 @@ module TSOS {
                     memory[hexLocation] = hexValue;
                 }
 
-                _Kernel.updateMemory();
+                _CPU.updateMemory();
+
+                PCBStart += 255;
+                PCBEnd += 255;
             }else
                 _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
 
@@ -435,10 +436,11 @@ module TSOS {
         }
 
         public shellRun(args){
-            var pcb = PCB[args];
-            var pcbStart = pcb[0];
-            var pcbEnd = pcb[1];
-
+            if(args != ""){
+                _CPU.cycle();
+            }else{
+                _StdOut.putText("Need a Program ID");
+            }
         }
 
         public autoComplete(args){

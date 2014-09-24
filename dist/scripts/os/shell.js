@@ -62,7 +62,7 @@ var TSOS;
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellTruth, "truth", "Tells you the truth.");
+            sc = new TSOS.ShellCommand(this.shellTruth, "truth", "- Tells you the truth.");
 
             this.commandList[this.commandList.length] = sc;
 
@@ -70,11 +70,11 @@ var TSOS;
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellBSOD, "bsod", "Gives you the BSOD.");
+            sc = new TSOS.ShellCommand(this.shellBSOD, "bsod", "- Gives you the BSOD.");
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellLoad, "load", "Loads the program out of the User Program Input Text Area.");
+            sc = new TSOS.ShellCommand(this.shellLoad, "load", "- Loads the program out of the User Program Input Text Area.");
 
             this.commandList[this.commandList.length] = sc;
 
@@ -359,23 +359,21 @@ var TSOS;
         };
 
         Shell.prototype.shellLoad = function (args) {
-            _Kernel.resetMemory();
+            _CPU.resetMemory();
 
             var program = document.getElementById("taProgramInput");
 
             var loadedProgram = program.value.toString().replace(/\s/g, '');
+            loadedProgram.replace("\n", "");
 
             var re = new RegExp("^[0-9A-F]+$");
 
             if (re.test(loadedProgram)) {
                 PCB[PID] = [PCBStart, PCBEnd];
-                PCBStart += 255;
-                PCBEnd += 255;
-                console.log(PCB);
 
                 _StdOut.putText("Program ID: " + PID++);
 
-                for (var i = 0; i < loadedProgram.length; i++) {
+                for (var i = PCBStart; i < loadedProgram.length; i++) {
                     var hexLocation = i.toString(16);
                     var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
 
@@ -385,7 +383,10 @@ var TSOS;
                     memory[hexLocation] = hexValue;
                 }
 
-                _Kernel.updateMemory();
+                _CPU.updateMemory();
+
+                PCBStart += 255;
+                PCBEnd += 255;
             } else
                 _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
 
@@ -394,9 +395,11 @@ var TSOS;
         };
 
         Shell.prototype.shellRun = function (args) {
-            var pcb = PCB[args];
-            var pcbStart = pcb[0];
-            var pcbEnd = pcb[1];
+            if (args != "") {
+                _CPU.cycle();
+            } else {
+                _StdOut.putText("Need a Program ID");
+            }
         };
 
         Shell.prototype.autoComplete = function (args) {
