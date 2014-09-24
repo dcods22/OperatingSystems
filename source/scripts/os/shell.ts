@@ -90,25 +90,31 @@ module TSOS {
 
             sc = new ShellCommand(this.shellTruth,
                 "truth",
-                "<string> - Tells you the truth.");
+                "Tells you the truth.");
 
             this.commandList[this.commandList.length] = sc;
 
             sc = new ShellCommand(this.shellStatus,
                 "status",
-                "<string> - Tells you your current status.");
+                "<string> - Changes you your current status.");
 
             this.commandList[this.commandList.length] = sc;
 
             sc = new ShellCommand(this.shellBSOD,
                 "bsod",
-                "<string> - Gives you the BSOD.");
+                "Gives you the BSOD.");
 
             this.commandList[this.commandList.length] = sc;
 
             sc = new ShellCommand(this.shellLoad,
                 "load",
-                "<string> - Loads the program out of the User Program Input Text Area.");
+                "Loads the program out of the User Program Input Text Area.");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellRun,
+                "run",
+                "<string> - Runs, based on process ID a program that is loaded into memory.");
 
             this.commandList[this.commandList.length] = sc;
 
@@ -393,6 +399,8 @@ module TSOS {
         }
 
         public shellLoad(args){
+            _Kernel.resetMemory();
+
             var program = <HTMLInputElement> document.getElementById("taProgramInput");
 
             var loadedProgram:string = program.value.toString().replace(/\s/g, '');
@@ -400,11 +408,16 @@ module TSOS {
             var re = new RegExp("^[0-9A-F]+$");
 
             if(re.test(loadedProgram)){
+                PCB[PID] = [PCBStart, PCBEnd];
+                PCBStart += 255;
+                PCBEnd += 255;
+                console.log(PCB);
+
                 _StdOut.putText("Program ID: " + PID++);
 
                 for(var i=0; i < loadedProgram.length; i++){
                     var hexLocation = i.toString(16);
-                    var hexValue =  loadedProgram.substring(i * 2, (i * 2) + 2);
+                    var hexValue =  loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
 
                     if(hexValue == "")
                         hexValue = "00";
@@ -418,6 +431,13 @@ module TSOS {
 
             commandHistory[commandCount++] = "load";
             commandReference = commandCount;
+
+        }
+
+        public shellRun(args){
+            var pcb = PCB[args];
+            var pcbStart = pcb[0];
+            var pcbEnd = pcb[1];
 
         }
 

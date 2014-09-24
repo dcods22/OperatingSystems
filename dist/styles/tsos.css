@@ -1,3 +1,7 @@
+textarea{
+    resize:none;
+}
+
 #display{
     border: 1px solid #000;
     background: #e7e7e7;
@@ -6,7 +10,7 @@
 
 #divLog{
     margin-left:630px;
-    height: 380px;
+    height: 420px;
     width:415px;
 }
 
@@ -17,13 +21,16 @@
 
 #memory{
     float: left;
-    margin-top: -130px;
+    margin-top: -215px;
     margin-left: 85px;
-    height: 150px;
+    height: 195px;
     width: 500px;
     overflow: scroll;
 }
 
-.memoryData{
-    //width:10px;
+#cpu{
+  float:left;
+  margin-left:85px;
+  height:auto;
+  width:500px;
 }

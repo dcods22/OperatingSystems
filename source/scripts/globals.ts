@@ -83,3 +83,6 @@ var textCount = 0;
 //Memory
 var PID = 0;
 var memory = [];
+var PCB = [];
+var PCBStart = 0;
+var PCBEnd = 255;

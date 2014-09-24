@@ -30,11 +30,7 @@ var TSOS;
             _StdIn = _Console;
             _StdOut = _Console;
 
-            for (var i = 0; i < 768; i++) {
-                var hexValue = i.toString(16);
-                memory[hexValue] = "00";
-            }
-
+            this.resetMemory();
             this.updateMemory();
 
             // Load the Keyboard Device Driver
@@ -176,6 +172,13 @@ var TSOS;
             this.krnShutdown();
         };
 
+        Kernel.prototype.resetMemory = function () {
+            for (var i = 0; i < 768; i++) {
+                var hexValue = i.toString(16);
+                memory[hexValue] = "00";
+            }
+        };
+
         Kernel.prototype.updateMemory = function () {
             var memoryTable = $("#memoryTable");
             memoryTable.html("");
@@ -194,11 +197,11 @@ var TSOS;
                     hexIntString = "0" + hexIntString;
                 }
 
-                memoryRow.append("<td id='memory-label-" + i + "' class='memoryData'>0x" + hexIntString + "</td>");
+                memoryRow.append("<td id='memory-label-" + i + "' class='memoryData'>0x" + hexIntString.toUpperCase() + "</td>");
 
                 for (var x = 0; x < 8; x++) {
                     var memoryLocation = (x + hexInt);
-                    memoryRow.append("<td id='memory-label-" + memoryLocation + "' class='memoryData'>" + memory[memoryLocation.toString(16)] + "</td>");
+                    memoryRow.append("<td id='memory-label-" + memoryLocation + "' class='memoryData'>" + memory[memoryLocation.toString(16)].toUpperCase() + "</td>");
                 }
 
                 memoryTable.append("</tr>");

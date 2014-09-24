@@ -62,19 +62,23 @@ var TSOS;
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellTruth, "truth", "<string> - Tells you the truth.");
+            sc = new TSOS.ShellCommand(this.shellTruth, "truth", "Tells you the truth.");
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellStatus, "status", "<string> - Tells you your current status.");
+            sc = new TSOS.ShellCommand(this.shellStatus, "status", "<string> - Changes you your current status.");
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellBSOD, "bsod", "<string> - Gives you the BSOD.");
+            sc = new TSOS.ShellCommand(this.shellBSOD, "bsod", "Gives you the BSOD.");
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellLoad, "load", "<string> - Loads the program out of the User Program Input Text Area.");
+            sc = new TSOS.ShellCommand(this.shellLoad, "load", "Loads the program out of the User Program Input Text Area.");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new TSOS.ShellCommand(this.shellRun, "run", "<string> - Runs, based on process ID a program that is loaded into memory.");
 
             this.commandList[this.commandList.length] = sc;
 
@@ -355,6 +359,8 @@ var TSOS;
         };
 
         Shell.prototype.shellLoad = function (args) {
+            _Kernel.resetMemory();
+
             var program = document.getElementById("taProgramInput");
 
             var loadedProgram = program.value.toString().replace(/\s/g, '');
@@ -362,11 +368,16 @@ var TSOS;
             var re = new RegExp("^[0-9A-F]+$");
 
             if (re.test(loadedProgram)) {
+                PCB[PID] = [PCBStart, PCBEnd];
+                PCBStart += 255;
+                PCBEnd += 255;
+                console.log(PCB);
+
                 _StdOut.putText("Program ID: " + PID++);
 
                 for (var i = 0; i < loadedProgram.length; i++) {
                     var hexLocation = i.toString(16);
-                    var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2);
+                    var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
 
                     if (hexValue == "")
                         hexValue = "00";
@@ -380,6 +391,12 @@ var TSOS;
 
             commandHistory[commandCount++] = "load";
             commandReference = commandCount;
+        };
+
+        Shell.prototype.shellRun = function (args) {
+            var pcb = PCB[args];
+            var pcbStart = pcb[0];
+            var pcbEnd = pcb[1];
         };
 
         Shell.prototype.autoComplete = function (args) {
