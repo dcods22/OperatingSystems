@@ -30,7 +30,7 @@ Assignment 2
 - [ ] Modify	the	load	command	to	copy	the	6502a	machine	language	op	codes into	main	memory.
     - [x] Put	the	code	at	location	$0000	in	memory
     - [x] assign	a	Process	ID	(PID)
-    - [] create	a	Process	Control	Block	(PCB)
+    - [ ] create	a	Process	Control	Block	(PCB)
     - [x] return	the	PID	to	the	console.
 
 - [ ] Add	a	shell	command,	run	<pid>,	to	run	a	program	already	in	memory.
