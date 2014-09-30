@@ -456,7 +456,17 @@ module TSOS {
             if(possibleCommands.length == 1){
                 return possibleCommands[0];
             }else{
-                return "";
+                var outputString = "";
+
+                for(var x=0; x < possibleCommands.length; x++){
+                    outputString += possibleCommands[x] + " ";
+                }
+
+                _StdOut.clearLine();
+                _StdOut.putText(outputString);
+                _StdOut.advanceLine();
+
+                return args;
             }
         }
 
