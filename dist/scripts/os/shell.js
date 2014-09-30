@@ -369,7 +369,16 @@ var TSOS;
             var re = new RegExp("^[0-9A-F]+$");
 
             if (re.test(loadedProgram)) {
-                PCB[PID] = [PCBStart, PCBEnd];
+                PCBArray[PID] = {
+                    'PCBStart': PCBStart,
+                    'PCBEnd': PCBEnd,
+                    'PC': 0,
+                    'IR': 0,
+                    'ACC': 0,
+                    'X': 0,
+                    'Y': 0,
+                    'Z': 0
+                };
 
                 _StdOut.putText("Program ID: " + PID++);
 
@@ -384,9 +393,9 @@ var TSOS;
                 }
 
                 _CPU.updateMemory();
-
-                PCBStart += 255;
-                PCBEnd += 255;
+                //Used for next assignment with more memory
+                //PCBStart += 255;
+                //PCBEnd += 255;
             } else
                 _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
 
@@ -396,7 +405,8 @@ var TSOS;
 
         Shell.prototype.shellRun = function (args) {
             if (args != "") {
-                _CPU.cycle();
+                currentPID = args[0];
+                _CPU.isExecuting = true;
             } else {
                 _StdOut.putText("Need a Program ID");
             }

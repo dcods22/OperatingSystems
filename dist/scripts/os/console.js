@@ -103,8 +103,6 @@ var TSOS;
         };
 
         Console.prototype.deleteText = function () {
-            console.log(this.currentYPosition);
-
             if (this.buffer.length > 0 && (this.currentXPosition <= 0)) {
                 this.currentXPosition = _Canvas.width;
                 this.currentYPosition -= (this.currentFontSize + 4);

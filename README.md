@@ -27,19 +27,19 @@ Assignment 1
 Assignment 2
 ============
 
-- [ ] Modify	the	load	command	to	copy	the	6502a	machine	language	op	codes into	main	memory.
+- [x] Modify	the	load	command	to	copy	the	6502a	machine	language	op	codes into	main	memory.
     - [x] Put	the	code	at	location	$0000	in	memory
     - [x] assign	a	Process	ID	(PID)
-    - [ ] create	a	Process	Control	Block	(PCB)
+    - [x] create	a	Process	Control	Block	(PCB)
     - [x] return	the	PID	to	the	console.
 
-- [ ] Add	a	shell	command,	run	<pid>,	to	run	a	program	already	in	memory.
+- [x] Add	a	shell	command,	run	<pid>,	to	run	a	program	already	in	memory.
 
 - [ ] Update	and	display	the	PCB	contents	at	the	end	of	execution.
 
 - [x] Implement	line-wrap	in	the	CLI.	(This	is	not	longer	optional.)
 
-- [ ] Optional:	Provide	the	ability	to	single-step	execution.
+- [x] Optional:	Provide	the	ability	to	single-step	execution.
 
 - [ ] Develop	a	PCB	prototype	and	implement	it	in	the	client	OS.
 - [ ] Develop	a	memory	manager	and	implement	it	in	the	client	OS.

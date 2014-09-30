@@ -74,6 +74,7 @@ var TSOS;
             // .. enable the Halt and Reset buttons ...
             document.getElementById("btnHaltOS").disabled = false;
             document.getElementById("btnReset").disabled = false;
+            document.getElementById("btnSingleStepMode").disabled = false;
 
             // .. set focus on the OS console display ...
             document.getElementById("display").focus();
@@ -108,6 +109,15 @@ var TSOS;
             // That boolean parameter is the 'forceget' flag. When it is true it causes the page to always
             // be reloaded from the server. If it is false or not specified the browser may reload the
             // page from its cache, which is not what we want.
+        };
+
+        Control.hostSingleStepMode_click = function (btn) {
+            _CPU.singleStep = true;
+            document.getElementById("btnStep").disabled = false;
+        };
+
+        Control.hostSingleStep_click = function (btn) {
+            _CPU.isExecuting = true;
         };
         return Control;
     })();

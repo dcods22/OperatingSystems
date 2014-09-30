@@ -14,19 +14,21 @@ Operating System Concepts 8th edition by Silberschatz, Galvin, and Gagne.  ISBN 
 var TSOS;
 (function (TSOS) {
     var Cpu = (function () {
-        function Cpu(PC, Acc, Xreg, Yreg, Zflag, isExecuting) {
+        function Cpu(PC, Acc, Xreg, Yreg, Zflag, isExecuting, singleStep) {
             if (typeof PC === "undefined") { PC = 0; }
             if (typeof Acc === "undefined") { Acc = 0; }
             if (typeof Xreg === "undefined") { Xreg = 0; }
             if (typeof Yreg === "undefined") { Yreg = 0; }
             if (typeof Zflag === "undefined") { Zflag = 0; }
             if (typeof isExecuting === "undefined") { isExecuting = false; }
+            if (typeof singleStep === "undefined") { singleStep = false; }
             this.PC = PC;
             this.Acc = Acc;
             this.Xreg = Xreg;
             this.Yreg = Yreg;
             this.Zflag = Zflag;
             this.isExecuting = isExecuting;
+            this.singleStep = singleStep;
         }
         Cpu.prototype.init = function () {
             this.PC = 0;
@@ -35,6 +37,7 @@ var TSOS;
             this.Yreg = 0;
             this.Zflag = 0;
             this.isExecuting = false;
+            this.singleStep = false;
 
             this.initializeExecutions();
             this.resetMemory();
@@ -43,8 +46,111 @@ var TSOS;
 
         Cpu.prototype.cycle = function () {
             _Kernel.krnTrace('CPU cycle');
+
             // TODO: Accumulate CPU usage and profiling statistics here.
             // Do the real work here. Be sure to set this.isExecuting appropriately.
+            var PCB = PCBArray[currentPID];
+            var PCBStart = PCB.PCBStart;
+            var PCBEnd = PCB.PCBEnd;
+            var PC = PCB.PC;
+
+            var hexLoc = PC.toString(16);
+            var command = memory[hexLoc];
+            var exec = executions[command];
+
+            PCB.PC++;
+
+            if (exec == "LDAC") {
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant = memory[hexLoc];
+
+                _CPU.setAcc(constant);
+                PCB.ACC = constant;
+            } else if (exec == "LDXC") {
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant = memory[hexLoc];
+
+                _CPU.setX(constant);
+                PCB.X = constant;
+            } else if (exec == "LDYC") {
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant = memory[hexLoc];
+
+                _CPU.setY(constant);
+                PCB.Y = constant;
+            } else if (exec == "BNE") {
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant = memory[hexLoc];
+
+                //move PC counter to appropiate location if z = 0
+                if (PCB.Z == 0) {
+                    PCB.PC += parseInt(constant, 16);
+                }
+            } else if (exec == "LDAM") {
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant = memory[hexLoc];
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant2 = memory[hexLoc];
+
+                var memoryLoc = constant + constant2;
+                console.log("memory loc" + memoryLoc);
+                var value = memory[memoryLoc];
+                PCB.ACC = value;
+            } else if (exec == "LDXM") {
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant = memory[hexLoc];
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant2 = memory[hexLoc];
+            } else if (exec == "LDYM") {
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant = memory[hexLoc];
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant2 = memory[hexLoc];
+            } else if (exec == "STAM") {
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant = memory[hexLoc];
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant2 = memory[hexLoc];
+            } else if (exec == "ADC") {
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant = memory[hexLoc];
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant2 = memory[hexLoc];
+            } else if (exec == "CPX") {
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant = memory[hexLoc];
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant2 = memory[hexLoc];
+            } else if (exec == "INC") {
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant = memory[hexLoc];
+                hexLoc = PC.toString(16);
+                PCB.PC++;
+                var constant2 = memory[hexLoc];
+            }
+
+            this.updateCPU();
+            this.updateMemory();
+
+            if (this.singleStep || PCB.PC === PCBEnd)
+                this.isExecuting = false;
         };
 
         Cpu.prototype.setAcc = function (val) {
