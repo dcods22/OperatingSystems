@@ -68,8 +68,6 @@ var onDocumentLoad = function () {
     TSOS.Control.hostInit();
 };
 
-var textOffset = null;
-
 var commandHistory = [];
 var commandCount = 0;
 var commandReference = 0;

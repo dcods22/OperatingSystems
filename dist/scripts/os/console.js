@@ -78,8 +78,6 @@ var TSOS;
 
                         var textOffset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, word);
 
-                        textSizes[textCount++] = textOffset;
-
                         if ((this.currentXPosition + textOffset) > _Canvas.width) {
                             this.advanceLine();
                         }
@@ -91,8 +89,6 @@ var TSOS;
                     }
                 } else {
                     var textOffset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, words[0]);
-
-                    textSizes[textCount++] = textOffset;
 
                     if ((this.currentXPosition + textOffset) > _Canvas.width) {
                         this.advanceLine();
@@ -107,17 +103,23 @@ var TSOS;
         };
 
         Console.prototype.deleteText = function () {
-            //move the x position back
-            if (this.currentXPosition > 12.48) {
-                var textOffset = textSizes[--textCount];
+            console.log(this.currentYPosition);
 
-                this.currentXPosition -= textOffset;
-
-                //redraw over the existing text
-                _DrawingContext.clearRect(this.currentXPosition, this.currentYPosition - this.currentFontSize, textOffset + 1, 18);
-
-                this.buffer = this.buffer.substring(0, this.buffer.length - 1);
+            if (this.buffer.length > 0 && (this.currentXPosition <= 0)) {
+                this.currentXPosition = _Canvas.width;
+                this.currentYPosition -= (this.currentFontSize + 4);
             }
+
+            var lastChar = this.buffer.substring(this.buffer.length - 1, this.buffer.length);
+
+            var textOffset = _DrawingContext.measureText(this.currentFont, this.currentFontSize, lastChar);
+
+            this.currentXPosition -= textOffset;
+
+            //redraw over the existing text
+            _DrawingContext.clearRect(this.currentXPosition, this.currentYPosition - this.currentFontSize, textOffset + 1, 18);
+
+            this.buffer = this.buffer.substring(0, this.buffer.length - 1);
         };
 
         Console.prototype.clearLine = function () {

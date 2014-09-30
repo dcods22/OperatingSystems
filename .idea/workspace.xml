@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/os/shell.js" afterPath="$PROJECT_DIR$/dist/scripts/os/shell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/shell.ts" afterPath="$PROJECT_DIR$/source/scripts/os/shell.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/os/console.js" afterPath="$PROJECT_DIR$/dist/scripts/os/console.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/console.ts" afterPath="$PROJECT_DIR$/source/scripts/os/console.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/globals.js" afterPath="$PROJECT_DIR$/dist/scripts/globals.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/globals.ts" afterPath="$PROJECT_DIR$/source/scripts/globals.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OS.iws" />
@@ -11,7 +13,7 @@
     <file path="/Dummy.txt" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412099991232" ignored="false" />
     <file path="/globals.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411583510100" ignored="false" />
     <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412100440958" ignored="false" />
-    <file path="/console.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411437899056" ignored="false" />
+    <file path="/console.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412105447097" ignored="false" />
     <file path="/deviceDriverKeyboard.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410464782602" ignored="false" />
     <file path="/index.html" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411576639464" ignored="false" />
     <file path="/tsos.css" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411585504048" ignored="false" />
@@ -21,12 +23,11 @@
     <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriver.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411567861161" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/interrupt.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411567861161" ignored="false" />
     <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411584430742" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/host/cpu.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411587596592" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/host/control.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412091505313" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412091505313" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriverKeyboard.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412100428044" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/os/kernel.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412100428044" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/os/console.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412100428044" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/host/cpu.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412100920823" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412100920823" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriverKeyboard.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412105888223" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/shell.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412106057092" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/kernel.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412106057092" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +89,7 @@
       <file leaf-file-name="globals.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="17" selection-start="2771" selection-end="2771" vertical-scroll-proportion="0.0">
+            <state line="72" column="2" selection-start="2523" selection-end="2523" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -103,13 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shell.ts" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
+      <file leaf-file-name="console.ts" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="464" column="40" selection-start="16047" selection-end="16047" vertical-scroll-proportion="0.62243503">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="112" column="76" selection-start="4524" selection-end="4524" vertical-scroll-proportion="0.29411766">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -135,19 +134,19 @@
         <option value="$PROJECT_DIR$/source/scripts/os/deviceDriverKeyboard.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/deviceDriver.ts" />
         <option value="$PROJECT_DIR$/source/styles/tsos.css" />
-        <option value="$PROJECT_DIR$/source/scripts/os/console.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
         <option value="$PROJECT_DIR$/source/scripts/jquery.ts" />
         <option value="$PROJECT_DIR$/source/jquery.d.ts" />
         <option value="$PROJECT_DIR$/source/scripts/jquery.d.ts" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/globals.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/backup.txt" />
         <option value="$PROJECT_DIR$/dist/styles/tsos.css" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/globals.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/os/console.ts" />
       </list>
     </option>
   </component>
@@ -657,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="17" selection-start="2771" selection-end="2771" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/kernel.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="295" selection-end="333" vertical-scroll-proportion="-1.7730399">
@@ -671,10 +663,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="49" selection-start="4421" selection-end="4421" vertical-scroll-proportion="-0.1389271">
-          <folding />
+        <state line="440" column="33" selection-start="15306" selection-end="15306" vertical-scroll-proportion="0.93433654">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -685,12 +679,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
+    <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="464" column="40" selection-start="16047" selection-end="16047" vertical-scroll-proportion="0.62243503">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="72" column="2" selection-start="2523" selection-end="2523" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="76" selection-start="4524" selection-end="4524" vertical-scroll-proportion="0.29411766">
+          <folding />
         </state>
       </provider>
     </entry>
