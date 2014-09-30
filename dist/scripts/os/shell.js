@@ -424,6 +424,8 @@ var TSOS;
                 _StdOut.clearLine();
                 _StdOut.putText(outputString);
                 _StdOut.advanceLine();
+                _StdOut.putText(this.promptStr);
+
                 return args;
             }
         };
