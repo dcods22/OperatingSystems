@@ -1,6 +1,7 @@
 ///<reference path="shellCommand.ts" />
 ///<reference path="userCommand.ts" />
 ///<reference path="../utils.ts" />
+///<reference path="..//host/pcb.ts" />
 
 /* ------------
    Shell.ts
@@ -426,16 +427,7 @@ module TSOS {
 
                 _MemoryManager.updateMemory();
 
-                PCBArray[PID] = {
-                    'PCBStart' : PCBStart,
-                    'PCBEnd' : PCBEnd,
-                    'PC' : 0,
-                    'IR' : 0,
-                    'ACC' : 0,
-                    'X' : 0,
-                    'Y' : 0,
-                    'Z' : 0
-                };
+                PCBArray[PID] = new PCB(PCBStart, PCBEnd);
 
                 PID++;
 

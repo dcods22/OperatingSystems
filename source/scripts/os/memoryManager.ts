@@ -1,8 +1,6 @@
-
 module TSOS {
 
     export class MemoryManager {
-
 
         constructor() {
             _Memory = new Memory();

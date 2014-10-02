@@ -1,6 +1,7 @@
 ///<reference path="shellCommand.ts" />
 ///<reference path="userCommand.ts" />
 ///<reference path="../utils.ts" />
+///<reference path="..//host/pcb.ts" />
 /* ------------
 Shell.ts
 The OS Shell - The "command line interface" (CLI) for the console.
@@ -379,21 +380,13 @@ var TSOS;
                         hexValue = "00";
 
                     _MemoryManager.setByLoc(hexLocation, hexValue);
+
                     PCBEnd = i + PCBStart;
                 }
 
                 _MemoryManager.updateMemory();
 
-                PCBArray[PID] = {
-                    'PCBStart': PCBStart,
-                    'PCBEnd': PCBEnd,
-                    'PC': 0,
-                    'IR': 0,
-                    'ACC': 0,
-                    'X': 0,
-                    'Y': 0,
-                    'Z': 0
-                };
+                PCBArray[PID] = new TSOS.PCB(PCBStart, PCBEnd);
 
                 PID++;
                 //Used for next assignment with more memory

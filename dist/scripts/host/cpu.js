@@ -1,5 +1,4 @@
 ///<reference path="../globals.ts" />
-///<reference path="../os/memoryManager.ts" />
 /* ------------
 CPU.ts
 Requires global.ts.
@@ -194,10 +193,12 @@ var TSOS;
                     var value = _MemoryManager.getByLoc(memoryLoc);
 
                     value = parseInt(value, 10) + 1;
-
                     _MemoryManager.setByLoc(memoryLoc, value.toString(16));
                 } else if (exec == "SYS") {
                     _StdOut.putText(PCB.Y);
+                } else if (exec == "BRK") {
+                    _StdOut.putText("DONE");
+                    this.isExecuting = false;
                 }
 
                 this.updateCPU();

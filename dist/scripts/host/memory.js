@@ -19,13 +19,6 @@ var TSOS;
             this.memory = memory;
             this.initalizeMemory();
         }
-        Memory.prototype.resetMemory = function () {
-            for (var i = 0; i < 768; i++) {
-                var hexValue = i.toString(16);
-                this.memory[hexValue] = "00";
-            }
-        };
-
         Memory.prototype.initalizeMemory = function () {
             this.resetMemory();
 
@@ -54,6 +47,13 @@ var TSOS;
                 }
 
                 memoryTable.append("</tr>");
+            }
+        };
+
+        Memory.prototype.resetMemory = function () {
+            for (var i = 0; i < 768; i++) {
+                var hexValue = i.toString(16);
+                this.memory[hexValue] = "00";
             }
         };
 

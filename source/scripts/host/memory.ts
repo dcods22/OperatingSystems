@@ -21,20 +21,11 @@ module TSOS {
 
 export class Memory {
 
-
-
     constructor(public memory = []) {
         this.initalizeMemory();
     }
 
-    public resetMemory() : void{
-        for(var i=0; i < 768; i++){
-            var hexValue = i.toString(16);
-            this.memory[hexValue] = "00";
-        }
-    }
-
-    public initalizeMemory() : void{
+    private initalizeMemory() : void{
         this.resetMemory();
 
         var memoryTable = $("#memoryTable");
@@ -63,6 +54,13 @@ export class Memory {
             }
 
             memoryTable.append("</tr>");
+        }
+    }
+
+    public resetMemory() : void{
+        for(var i=0; i < 768; i++){
+            var hexValue = i.toString(16);
+            this.memory[hexValue] = "00";
         }
     }
 

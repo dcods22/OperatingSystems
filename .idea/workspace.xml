@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/host/memory.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/styles/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/source/styles/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/host/pcb.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/host/control.js" afterPath="$PROJECT_DIR$/dist/scripts/host/control.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/host/control.ts" afterPath="$PROJECT_DIR$/source/scripts/host/control.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/host/cpu.js" afterPath="$PROJECT_DIR$/dist/scripts/host/cpu.js" />
@@ -13,8 +10,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/globals.js" afterPath="$PROJECT_DIR$/dist/scripts/globals.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/globals.ts" afterPath="$PROJECT_DIR$/source/scripts/globals.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/os/kernel.js" afterPath="$PROJECT_DIR$/dist/scripts/os/kernel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/kernel.ts" afterPath="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/host/memory.js" afterPath="$PROJECT_DIR$/dist/scripts/host/memory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/host/memory.ts" afterPath="$PROJECT_DIR$/source/scripts/host/memory.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" afterPath="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/os/shell.js" afterPath="$PROJECT_DIR$/dist/scripts/os/shell.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/os/shell.ts" afterPath="$PROJECT_DIR$/source/scripts/os/shell.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/styles/tsos.css" afterPath="$PROJECT_DIR$/dist/styles/tsos.css" />
@@ -22,26 +20,30 @@
     </list>
     <ignored path="OS.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412262710314" ignored="false" />
+    <file path="/Dummy.txt" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412277427643" ignored="false" />
     <file path="/globals.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412265100343" ignored="false" />
-    <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412269560321" ignored="false" />
+    <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412289915614" ignored="false" />
     <file path="/console.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412105447097" ignored="false" />
     <file path="/deviceDriverKeyboard.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410464782602" ignored="false" />
-    <file path="/index.html" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412264726968" ignored="false" />
-    <file path="/tsos.css" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412121535995" ignored="false" />
+    <file path="/index.html" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412289883954" ignored="false" />
+    <file path="/tsos.css" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412278144875" ignored="false" />
     <file path="/kernel.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412264639085" ignored="false" />
-    <file path="/control.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412115655989" ignored="false" />
+    <file path="/control.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412271824843" ignored="false" />
     <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412266161286" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriver.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411567861161" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/interrupt.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411567861161" ignored="false" />
-    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412269522255" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/os/canvastext.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412189635512" ignored="false" />
-    <file path="/memory.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412269472151" ignored="false" />
-    <file path="/memoryManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412269468302" ignored="false" />
+    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412289955894" ignored="false" />
+    <file path="/memory.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412282588503" ignored="false" />
+    <file path="/memoryManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412269905869" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/shellCommand.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412265885523" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412266115906" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/os/console.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412266115906" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriverKeyboard.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412266115906" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/canvastext.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412288374156" ignored="false" />
+    <file path="/pcb.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412289672494" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412290014756" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/console.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412290014756" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/memoryManager.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412290014756" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriverKeyboard.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412290014756" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/os/kernel.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412290014756" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/host/pcb.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412290014756" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,38 +105,16 @@
       <file leaf-file-name="cpu.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="63" selection-start="5587" selection-end="5587" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shell.ts" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="422" column="20" selection-start="14808" selection-end="14808" vertical-scroll-proportion="0.22420909">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="memoryManager.ts" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="42" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
+            <state line="51" column="43" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="memory.ts" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/host/memory.ts">
+      <file leaf-file-name="pcb.ts" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/scripts/host/pcb.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="40" selection-start="2079" selection-end="2079" vertical-scroll-proportion="0.0">
+            <state line="29" column="39" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.4786795">
               <folding />
             </state>
           </provider>
@@ -143,7 +123,7 @@
       <file leaf-file-name="globals.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="20" selection-start="2736" selection-end="2736" vertical-scroll-proportion="0.0">
+            <state line="33" column="31" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -169,22 +149,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/scripts/jquery.ts" />
         <option value="$PROJECT_DIR$/source/jquery.d.ts" />
         <option value="$PROJECT_DIR$/source/scripts/jquery.d.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/console.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/backup.txt" />
         <option value="$PROJECT_DIR$/source/styles/css/bootstrap.min.css" />
-        <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
-        <option value="$PROJECT_DIR$/dist/styles/tsos.css" />
         <option value="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/source/scripts/globals.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
+        <option value="$PROJECT_DIR$/dist/styles/tsos.css" />
         <option value="$PROJECT_DIR$/source/scripts/host/memory.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/globals.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/host/pcb.ts" />
       </list>
     </option>
   </component>
@@ -246,8 +226,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -342,6 +322,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -359,8 +371,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -380,19 +392,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -423,6 +422,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -436,6 +448,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -457,13 +476,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <list size="0" />
@@ -506,7 +518,6 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -520,10 +531,11 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15351507" sideWeight="0.5922975" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15351507" sideWeight="0.5922975" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -590,23 +602,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/styles/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="57288" selection-start="57453" selection-end="57453" vertical-scroll-proportion="0.06936416">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/styles/tsos.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="18" selection-start="303" selection-end="303" vertical-scroll-proportion="0.34473324">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
@@ -625,21 +623,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/devices.ts">
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/shellCommand.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/control.ts">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="68" selection-start="2756" selection-end="2756" vertical-scroll-proportion="0.9669876">
+        <state line="45" column="4" selection-start="1916" selection-end="1916" vertical-scroll-proportion="0.75630254" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="24" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/shellCommand.ts">
+    <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/devices.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
@@ -653,61 +663,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="202" column="81" selection-start="8947" selection-end="9027" vertical-scroll-proportion="1.6536796">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#a#0;n#li#5;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="4" selection-start="1916" selection-end="1916" vertical-scroll-proportion="0.75630254">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="20" selection-start="2736" selection-end="2736" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/memory.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="40" selection-start="2079" selection-end="2079" vertical-scroll-proportion="0.0">
+        <state line="0" column="28" selection-start="28" selection-end="28" vertical-scroll-proportion="-0.4789916">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/control.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="42" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
+        <state line="38" column="0" selection-start="1753" selection-end="1753" vertical-scroll-proportion="-0.33700138">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="63" selection-start="5587" selection-end="5587" vertical-scroll-proportion="0.0">
+        <state line="196" column="71" selection-start="8270" selection-end="8270" vertical-scroll-proportion="0.64069265">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#a#0;n#li#5;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="422" column="20" selection-start="14808" selection-end="14808" vertical-scroll-proportion="0.22420909">
+        <state line="428" column="0" selection-start="14958" selection-end="14958" vertical-scroll-proportion="0.71939474">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="31" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="43" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/pcb.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="39" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.4786795">
+          <folding />
         </state>
       </provider>
     </entry>
