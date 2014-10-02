@@ -1,3 +1,4 @@
+///<reference path="..//host/memory.ts" />
 var TSOS;
 (function (TSOS) {
     var MemoryManager = (function () {

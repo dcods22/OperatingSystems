@@ -1,3 +1,4 @@
+///<reference path="..//host/memory.ts" />
 module TSOS {
 
     export class MemoryManager {

@@ -372,6 +372,8 @@ var TSOS;
             if (re.test(loadedProgram)) {
                 _StdOut.putText("Program ID: " + PID);
 
+                PCBEnd = 255;
+
                 for (var i = PCBStart; i < loadedProgram.length; i++) {
                     var hexLocation = i.toString(16);
                     var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
@@ -380,8 +382,6 @@ var TSOS;
                         hexValue = "00";
 
                     _MemoryManager.setByLoc(hexLocation, hexValue);
-
-                    PCBEnd = i + PCBStart;
                 }
 
                 _MemoryManager.updateMemory();
