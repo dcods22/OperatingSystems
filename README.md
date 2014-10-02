@@ -35,13 +35,13 @@ Assignment 2
 
 - [x] Add	a	shell	command,	run	<pid>,	to	run	a	program	already	in	memory.
 
-- [ ] Update	and	display	the	PCB	contents	at	the	end	of	execution.
+- [x] Update	and	display	the	PCB	contents	at	the	end	of	execution.
 
 - [x] Implement	line-wrap	in	the	CLI.	(This	is	not	longer	optional.)
 
 - [x] Optional:	Provide	the	ability	to	single-step	execution.
 
-- [ ] Develop	a	PCB	prototype	and	implement	it	in	the	client	OS.
-- [ ] Develop	a	memory	manager	and	implement	it	in	the	client	OS.
-- [ ] Develop	a	core	memory	prototype	and	implement	it	in	the	host	OS.
+- [x] Develop	a	PCB	prototype	and	implement	it	in	the	client	OS.
+- [x] Develop	a	memory	manager	and	implement	it	in	the	client	OS.
+- [x] Develop	a	core	memory	prototype	and	implement	it	in	the	host	OS.
 - [ ] Develop	a	CPU	prototype	and	implement	it	in	the	host	OS.

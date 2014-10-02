@@ -15,22 +15,21 @@ textarea{
 }
 
 #divUserProgramInput{
-    margin-left:630px;
-    width:415px;
+    float:left;
+    margin-left:85px;
+    height:auto;
+    width:500px;
+    margin-top:-300px;
 }
 
 #memory{
-    float: left;
-    margin-top: -215px;
-    margin-left: 85px;
-    height: 195px;
-    width: 500px;
+    margin-left:630px;
+    width:415px;
+    height:190px;
     overflow: scroll;
 }
 
 #cpu{
-  float:left;
-  margin-left:85px;
-  height:auto;
-  width:500px;
+    margin-left:630px;
+    width:415px;
 }

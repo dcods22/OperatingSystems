@@ -24,6 +24,9 @@ var KEYBOARD_IRQ = 1;
 //
 // Global Variables
 //
+var _MemoryManager;
+var _Memory;
+
 var _CPU;
 
 var _OSclock = 0;
@@ -76,7 +79,6 @@ var textCount = 0;
 
 //Memory
 var executions = [];
-var memory = [];
 
 var PID = 0;
 var PCBArray = [];

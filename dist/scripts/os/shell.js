@@ -359,7 +359,7 @@ var TSOS;
         };
 
         Shell.prototype.shellLoad = function (args) {
-            _CPU.resetMemory();
+            _MemoryManager.resetMemory();
 
             var program = document.getElementById("taProgramInput");
 
@@ -369,6 +369,21 @@ var TSOS;
             var re = new RegExp("^[0-9A-F]+$");
 
             if (re.test(loadedProgram)) {
+                _StdOut.putText("Program ID: " + PID);
+
+                for (var i = PCBStart; i < loadedProgram.length; i++) {
+                    var hexLocation = i.toString(16);
+                    var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
+
+                    if (hexValue == "")
+                        hexValue = "00";
+
+                    _MemoryManager.setByLoc(hexLocation, hexValue);
+                    PCBEnd = i + PCBStart;
+                }
+
+                _MemoryManager.updateMemory();
+
                 PCBArray[PID] = {
                     'PCBStart': PCBStart,
                     'PCBEnd': PCBEnd,
@@ -380,22 +395,9 @@ var TSOS;
                     'Z': 0
                 };
 
-                _StdOut.putText("Program ID: " + PID++);
-
-                for (var i = PCBStart; i < loadedProgram.length; i++) {
-                    var hexLocation = i.toString(16);
-                    var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
-
-                    if (hexValue == "")
-                        hexValue = "00";
-
-                    memory[hexLocation] = hexValue;
-                }
-
-                _CPU.updateMemory();
+                PID++;
                 //Used for next assignment with more memory
                 //PCBStart += 255;
-                //PCBEnd += 255;
             } else
                 _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
 
@@ -406,7 +408,8 @@ var TSOS;
         Shell.prototype.shellRun = function (args) {
             if (args != "") {
                 currentPID = args[0];
-                _CPU.isExecuting = true;
+                if (!_CPU.singleStep)
+                    _CPU.isExecuting = true;
             } else {
                 _StdOut.putText("Need a Program ID");
             }

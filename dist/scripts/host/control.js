@@ -114,6 +114,14 @@ var TSOS;
         Control.hostSingleStepMode_click = function (btn) {
             _CPU.singleStep = true;
             document.getElementById("btnStep").disabled = false;
+            document.getElementById("btnDisableStep").disabled = false;
+        };
+
+        Control.hostDisableSingleStep_click = function (btn) {
+            _CPU.singleStep = false;
+            document.getElementById("btnStep").disabled = true;
+            document.getElementById("btnSingleStepMode").disabled = false;
+            document.getElementById("btnDisableStep").disabled = true;
         };
 
         Control.hostSingleStep_click = function (btn) {
