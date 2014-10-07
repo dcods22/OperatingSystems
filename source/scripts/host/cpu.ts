@@ -233,7 +233,8 @@ module TSOS {
                         var currentLoc = PCB.Y + PCBStart;
                         var constant3 = _MemoryManager.getByLoc(currentLoc);
                         while(constant3 != "00"){
-                            var letter = String.fromCharCode(constant3);
+                            var letterVal = parseInt(constant3,16);
+                            var letter = String.fromCharCode(letterVal);
                             _StdOut.putText(letter);
                             var intLoc = parseInt(currentLoc,16) + 1;
                             currentLoc = intLoc.toString(16);
