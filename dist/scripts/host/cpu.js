@@ -245,10 +245,13 @@ var TSOS;
                     }
                 } else if (exec == "BRK") {
                     this.isExecuting = false;
+                    this.resetCPU();
                 }
 
-                this.updateCPU();
-                _MemoryManager.updateMemory();
+                if (exec != "BRK") {
+                    this.updateCPU();
+                    _MemoryManager.updateMemory();
+                }
             }
 
             if (this.singleStep || PCB.PC === PCBEnd) {
@@ -297,6 +300,20 @@ var TSOS;
             $("#x").html(PCB.X);
             $("#y").html(PCB.Y);
             $("#z").html(PCB.Z);
+        };
+
+        Cpu.prototype.resetCPU = function () {
+            this.PC = 0;
+            this.Acc = 0;
+            this.Xreg = 0;
+            this.Yreg = 0;
+            this.Zflag = 0;
+            $("#pc").html(this.PC.toString());
+            $("#ir").html(this.PC.toString());
+            $("#acc").html(this.Acc.toString());
+            $("#x").html(this.Xreg.toString());
+            $("#y").html(this.Yreg.toString());
+            $("#z").html(this.Zflag.toString());
         };
         return Cpu;
     })();
