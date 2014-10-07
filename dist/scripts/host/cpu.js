@@ -87,7 +87,7 @@ var TSOS;
 
                     //move PC counter to appropiate location if z = 0
                     if (PCB.Z == 0) {
-                        PCB.PC += parseInt(constant, 16);
+                        PCB.PC = parseInt(constant, 16);
                     }
                 } else if (exec == "LDAM") {
                     hexLoc = PCB.PC.toString(16);
@@ -174,11 +174,11 @@ var TSOS;
                     value = parseInt(value, 10);
 
                     if (value == PCB.X) {
-                        PCB.Z = 0;
-                        _CPU.setZ(0);
-                    } else if (value != PCB.X) {
                         PCB.Z = 1;
                         _CPU.setZ(1);
+                    } else if (value != PCB.X) {
+                        PCB.Z = 0;
+                        _CPU.setZ(0);
                     }
                 } else if (exec == "INC") {
                     hexLoc = PCB.PC.toString(16);
@@ -195,9 +195,21 @@ var TSOS;
                     value = parseInt(value, 10) + 1;
                     _MemoryManager.setByLoc(memoryLoc, value.toString(16));
                 } else if (exec == "SYS") {
-                    _StdOut.putText(PCB.Y);
+                    if (PCB.X == 1) {
+                        _StdOut.putText(PCB.Y.toString());
+                    } else if (PCB.X == 2) {
+                        //Loop through till 00
+                        var currentLoc = PCB.Y;
+                        var constant3 = _MemoryManager.getByLoc(currentLoc);
+                        while (constant3 != "00") {
+                            var letter = String.fromCharCode(constant3);
+                            _StdOut.putText(letter);
+                            var intLoc = parseInt(currentLoc, 16) + 1;
+                            currentLoc = intLoc.toString(16);
+                            constant3 = _MemoryManager.getByLoc(currentLoc);
+                        }
+                    }
                 } else if (exec == "BRK") {
-                    _StdOut.putText("DONE");
                     this.isExecuting = false;
                 }
 

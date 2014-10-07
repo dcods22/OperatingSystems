@@ -16,6 +16,13 @@ var TSOS;
         };
 
         MemoryManager.prototype.getByLoc = function (loc) {
+            var end = PCBArray[currentPID].PCBEnd;
+            var pos = parseInt(loc, 10);
+
+            if (pos > end) {
+                _Kernel.krnTrapError("Out Of Memory Error");
+            }
+
             return _Memory.getByLoc(loc);
         };
 

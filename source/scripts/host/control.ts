@@ -111,6 +111,7 @@ module TSOS {
         public static hostSingleStepMode_click(btn): void{
             _CPU.singleStep = true;
             document.getElementById("btnStep").disabled = false;
+            document.getElementById("btnSingleStepMode").disabled = true;
             document.getElementById("btnDisableStep").disabled = false;
         }
 

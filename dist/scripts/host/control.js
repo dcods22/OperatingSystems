@@ -109,6 +109,7 @@ var TSOS;
         Control.hostSingleStepMode_click = function (btn) {
             _CPU.singleStep = true;
             document.getElementById("btnStep").disabled = false;
+            document.getElementById("btnSingleStepMode").disabled = true;
             document.getElementById("btnDisableStep").disabled = false;
         };
 
