@@ -22,7 +22,7 @@ module TSOS {
             var pos = parseInt(loc,10);
 
             if(pos > end){
-               // _Kernel.krnTrapError("Out Of Memory Error");
+                _Kernel.krnTrapError("Out Of Memory Error");
             }
 
             return _Memory.getByLoc(loc);

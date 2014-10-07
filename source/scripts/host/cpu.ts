@@ -234,7 +234,7 @@ module TSOS {
                     }else if(PCB.X == 2){
                         //Loop through till 00
                         //print appropiate charaters
-                        var currentLoc = parseInt(PCB.Y,10) + parseInt(PCBStart,10);
+                        var currentLoc = parseInt(PCB.Y) + PCBStart;
                         var constant3 = _MemoryManager.getByLoc(currentLoc);
                         while(constant3 != "00"){
                             var letterVal = parseInt(constant3,16);

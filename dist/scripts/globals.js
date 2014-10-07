@@ -80,6 +80,7 @@ var executions = [];
 
 var PID = 0;
 var ResidentQueue = [];
+var ReadyQueue = [];
 var currentPID = 0;
 var PCBStart = 0;
 var PCBEnd = 255;

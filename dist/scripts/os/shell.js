@@ -391,6 +391,7 @@ var TSOS;
                 PID++;
                 //Used for next assignment with more memory
                 //PCBStart += 255;
+                //PCBEnd += 255;
             } else
                 _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
 
