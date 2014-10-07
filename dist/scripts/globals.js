@@ -79,8 +79,7 @@ var commandReference = 0;
 var executions = [];
 
 var PID = 0;
-var PCBArray = [];
-var CBArray = [];
+var ResidentQueue = [];
 var currentPID = 0;
 var PCBStart = 0;
 var PCBEnd = 255;

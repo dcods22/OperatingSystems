@@ -386,7 +386,7 @@ var TSOS;
 
                 _MemoryManager.updateMemory();
 
-                PCBArray[PID] = new TSOS.PCB(PCBStart, PCBEnd);
+                ResidentQueue[PID] = new TSOS.PCB(PCBStart, PCBEnd);
 
                 PID++;
                 //Used for next assignment with more memory

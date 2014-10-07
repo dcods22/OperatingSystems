@@ -49,10 +49,9 @@ module TSOS {
             // TODO: Accumulate CPU usage and profiling statistics here.
             // Do the real work here. Be sure to set this.isExecuting appropriately.
 
-            var PCB = PCBArray[currentPID];
+            var PCB = ResidentQueue[currentPID];
             var PCBStart: number = PCB.PCBStart;
             var PCBEnd: number = PCB.PCBEnd;
-
 
             var PCLoc = PCB.PC + PCBStart;
             var hexLoc = PCLoc.toString(16);
@@ -222,7 +221,12 @@ module TSOS {
 
                     //move PC counter to appropiate location if z = 0
                     if(PCB.Z == 0){
-                        PCB.PC = parseInt(constant,16);
+                        var jumpAmt = parseInt(constant,16);
+                        if(((PCB.PC + jumpAmt) - PCBStart) > 255){
+                            PCB.PC = PCB.PC + jumpAmt - 255 - 1;
+                        }else{
+                            PCB.PC += jumpAmt - 1;
+                        }
                     }
                 }else if(exec == "SYS"){
                     if(PCB.X == 1){
@@ -230,7 +234,7 @@ module TSOS {
                     }else if(PCB.X == 2){
                         //Loop through till 00
                         //print appropiate charaters
-                        var currentLoc = PCB.Y + PCBStart;
+                        var currentLoc = parseInt(PCB.Y,10) + parseInt(PCBStart,10);
                         var constant3 = _MemoryManager.getByLoc(currentLoc);
                         while(constant3 != "00"){
                             var letterVal = parseInt(constant3,16);
@@ -289,7 +293,7 @@ module TSOS {
         }
 
         public updateCPU(){
-            var PCB = PCBArray[currentPID];
+            var PCB = ResidentQueue[currentPID];
             $("#pc").html(PCB.PC);
             $("#ir").html(PCB.IR);
             $("#acc").html(PCB.ACC);

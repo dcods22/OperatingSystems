@@ -427,7 +427,7 @@ module TSOS {
 
                 _MemoryManager.updateMemory();
 
-                PCBArray[PID] = new PCB(PCBStart, PCBEnd);
+                ResidentQueue[PID] = new PCB(PCBStart, PCBEnd);
 
                 PID++;
 
