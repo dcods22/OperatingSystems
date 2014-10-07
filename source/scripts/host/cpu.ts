@@ -240,8 +240,8 @@ module TSOS {
                             var letterVal = parseInt(constant3,16);
                             var letter = String.fromCharCode(letterVal);
                             _StdOut.putText(letter);
-                            var intLoc = parseInt(currentLoc,16) + 1;
-                            currentLoc = intLoc.toString(16);
+                            var intLoc = parseInt(currentLoc.toString(),16) + 1;
+                            currentLoc = parseInt(intLoc.toString(16));
                             constant3 = _MemoryManager.getByLoc(currentLoc);
                         }
                     }
