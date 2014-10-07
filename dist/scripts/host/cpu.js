@@ -248,6 +248,8 @@ var TSOS;
                     this.resetCPU();
                 }
 
+                this.PC = PCB.PC;
+
                 if (exec != "BRK") {
                     this.updateCPU();
                     _MemoryManager.updateMemory();
@@ -294,12 +296,12 @@ var TSOS;
 
         Cpu.prototype.updateCPU = function () {
             var PCB = ResidentQueue[currentPID];
-            $("#pc").html(PCB.PC);
+            $("#pc").html(this.PC.toString());
             $("#ir").html(PCB.IR);
-            $("#acc").html(PCB.ACC);
-            $("#x").html(PCB.X);
-            $("#y").html(PCB.Y);
-            $("#z").html(PCB.Z);
+            $("#acc").html(this.Acc.toString());
+            $("#x").html(this.Xreg.toString());
+            $("#y").html(this.Yreg.toString());
+            $("#z").html(this.Zflag.toString());
         };
 
         Cpu.prototype.resetCPU = function () {
