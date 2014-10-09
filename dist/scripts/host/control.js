@@ -32,10 +32,6 @@ var TSOS;
             // Enable the added-in canvas text functions (see canvastext.ts for provenance and details).
             TSOS.CanvasTextFunctions.enable(_DrawingContext); // Text functionality is now built in to the HTML5 canvas. But this is old-school, and fun.
 
-            // Clear the log text box.
-            // Use the TypeScript cast to HTMLInputElement
-            document.getElementById("taHostLog").value = "";
-
             // Set focus on the start button.
             // Use the TypeScript cast to HTMLInputElement
             document.getElementById("btnStartOS").focus();
@@ -56,12 +52,11 @@ var TSOS;
             var now = new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString();
 
             // Build the log string.
-            var str = source + ": " + now + ": clock: " + clock + " msg: " + msg + "\n";
+            var str = "({ clock: " + clock + ", source: " + source + ", msg: " + msg + ", now: " + now + " })" + "\n";
 
-            // Update the log console.
-            var taLog = document.getElementById("taHostLog");
-            taLog.value = str + taLog.value;
-            // Optionally update a log database or some streaming service.
+            var log = "<div id='osMessage'><span class='label label-success'>" + source + "</span> Msg: " + msg + " time:" + now + " </div>";
+
+            $("#host-log").prepend(log);
         };
 
         //
@@ -74,6 +69,7 @@ var TSOS;
             // .. enable the Halt and Reset buttons ...
             document.getElementById("btnHaltOS").disabled = false;
             document.getElementById("btnReset").disabled = false;
+            document.getElementById("btnSingleStepMode").disabled = false;
 
             // .. set focus on the OS console display ...
             document.getElementById("display").focus();
@@ -108,6 +104,24 @@ var TSOS;
             // That boolean parameter is the 'forceget' flag. When it is true it causes the page to always
             // be reloaded from the server. If it is false or not specified the browser may reload the
             // page from its cache, which is not what we want.
+        };
+
+        Control.hostSingleStepMode_click = function (btn) {
+            _CPU.singleStep = true;
+            document.getElementById("btnStep").disabled = false;
+            document.getElementById("btnSingleStepMode").disabled = true;
+            document.getElementById("btnDisableStep").disabled = false;
+        };
+
+        Control.hostDisableSingleStep_click = function (btn) {
+            _CPU.singleStep = false;
+            document.getElementById("btnStep").disabled = true;
+            document.getElementById("btnSingleStepMode").disabled = false;
+            document.getElementById("btnDisableStep").disabled = true;
+        };
+
+        Control.hostSingleStep_click = function (btn) {
+            _CPU.isExecuting = true;
         };
         return Control;
     })();

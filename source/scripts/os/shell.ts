@@ -1,6 +1,7 @@
 ///<reference path="shellCommand.ts" />
 ///<reference path="userCommand.ts" />
 ///<reference path="../utils.ts" />
+///<reference path="..//host/pcb.ts" />
 
 /* ------------
    Shell.ts
@@ -90,25 +91,31 @@ module TSOS {
 
             sc = new ShellCommand(this.shellTruth,
                 "truth",
-                "<string> - Tells you the truth.");
+                "- Tells you the truth.");
 
             this.commandList[this.commandList.length] = sc;
 
             sc = new ShellCommand(this.shellStatus,
                 "status",
-                "<string> - Tells you your current status.");
+                "<string> - Changes you your current status.");
 
             this.commandList[this.commandList.length] = sc;
 
             sc = new ShellCommand(this.shellBSOD,
                 "bsod",
-                "<string> - Gives you the BSOD.");
+                "- Gives you the BSOD.");
 
             this.commandList[this.commandList.length] = sc;
 
             sc = new ShellCommand(this.shellLoad,
                 "load",
-                "<string> - Loads the program out of the User Program Input Text Area.");
+                "- Loads the program out of the User Program Input Text Area.");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellRun,
+                "run",
+                "<string> - Runs, based on process ID a program that is loaded into memory.");
 
             this.commandList[this.commandList.length] = sc;
 
@@ -393,32 +400,56 @@ module TSOS {
         }
 
         public shellLoad(args){
+            _MemoryManager.resetMemory();
+
             var program = <HTMLInputElement> document.getElementById("taProgramInput");
 
             var loadedProgram:string = program.value.toString().replace(/\s/g, '');
+            loadedProgram.replace("\n", "");
 
             var re = new RegExp("^[0-9A-F]+$");
 
             if(re.test(loadedProgram)){
-                _StdOut.putText("Program ID: " + PID++);
 
-                for(var i=0; i < loadedProgram.length; i++){             g
+                _StdOut.putText("Program ID: " + PID);
+
+                PCBEnd = 255;
+
+                for(var i: number=PCBStart; i < loadedProgram.length; i++){
                     var hexLocation = i.toString(16);
-                    var hexValue =  loadedProgram.substring(i * 2, (i * 2) + 2);
+                    var hexValue =  loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
 
                     if(hexValue == "")
                         hexValue = "00";
 
-                    memory[hexLocation] = hexValue;
+                    _MemoryManager.setByLoc(hexLocation, hexValue);
                 }
 
-                _Kernel.updateMemory();
+                _MemoryManager.updateMemory();
+
+                ResidentQueue[PID] = new PCB(PCBStart, PCBEnd);
+
+                PID++;
+
+                //Used for next assignment with more memory
+                //PCBStart += 255;
+                //PCBEnd += 255;
             }else
                 _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
 
             commandHistory[commandCount++] = "load";
             commandReference = commandCount;
 
+        }
+
+        public shellRun(args){
+            if(args != ""){
+                currentPID = args[0];
+                if(! _CPU.singleStep)
+                    _CPU.isExecuting = true;
+            }else{
+                _StdOut.putText("Need a Program ID");
+            }
         }
 
         public autoComplete(args){
@@ -434,7 +465,18 @@ module TSOS {
             if(possibleCommands.length == 1){
                 return possibleCommands[0];
             }else{
-                return "";
+                var outputString = "";
+
+                for(var x=0; x < possibleCommands.length; x++){
+                    outputString += possibleCommands[x] + " ";
+                }
+
+                _StdOut.clearLine();
+                _StdOut.putText(outputString);
+                _StdOut.advanceLine();
+                _StdOut.putText(this.promptStr);
+
+                return args;
             }
         }
 

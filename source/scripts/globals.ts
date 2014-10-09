@@ -23,14 +23,20 @@ var TIMER_IRQ: number = 0;  // Pages 23 (timer), 9 (interrupts), and 561 (interr
                             // NOTE: The timer is different from hardware/host clock pulses. Don't confuse these.
 var KEYBOARD_IRQ: number = 1;
 
+
 //
 // Global Variables
 //
+
+var _MemoryManager: TSOS.MemoryManager;
+var _Memory: TSOS.Memory;
+
 var _CPU: TSOS.Cpu;  // Utilize TypeScript's type annotation system to ensure that _CPU is an instance of the Cpu class.
 
 var _OSclock: number = 0;  // Page 23.
 
 var _Mode: number = 0;     // (currently unused)  0 = Kernel Mode, 1 = User Mode.  See page 21.
+
 
 var _Canvas: HTMLCanvasElement = null;  // Initialized in hostInit().
 var _DrawingContext = null;             // Initialized in hostInit().
@@ -71,11 +77,17 @@ var onDocumentLoad = function() {
 	TSOS.Control.hostInit();
 };
 
-//Used for command history
 var commandHistory = [];
 var commandCount = 0;
 var commandReference = 0;
 
-//used for program loading
+//Memory
+var executions = [];
+
 var PID = 0;
-var memory = [];
+var ResidentQueue = [];
+var ReadyQueue = [];
+var currentPID = 0;
+var PCBStart = 0;
+var PCBEnd = 255;
+

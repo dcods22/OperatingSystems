@@ -1,29 +1,23 @@
+textarea{
+    resize:none;
+}
+
 #display{
     border: 1px solid #000;
     background: #e7e7e7;
-    margin-left: 80px;;
 }
 
 #divLog{
-    margin-left:630px;
-    height: 380px;
-    width:415px;
-}
-
-#divUserProgramInput{
-    margin-left:630px;
-    width:415px;
+    height: 150px;
 }
 
 #memory{
-    float: left;
-    margin-top: -130px;
-    margin-left: 85px;
-    height: 150px;
-    width: 500px;
+    height:145px;
     overflow: scroll;
 }
 
-.memoryData{
-    //width:10px;
+
+#host-log{
+    overflow:scroll;
+    height:80px;
 }

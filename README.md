@@ -22,4 +22,26 @@ Assignment 1
 - [x] Display a BSOD	message	(on	the	CLI)	when	the	kernel	traps	an OS error.
      - [x] Add a shell	command	to	test	this.	Remember	to	include	it in the help.
 - [x] Add a	shell	command	called	load	to	validate	the	user	code in the HTML5 text	area	(id=	“taProgramInput”).	Only	hex	digits	and	spaces	are	valid.
-- [x] [optional]	Implement	line-wrap	in	the	CLI. Implementa6on
+- [x] [optional]	Implement	line-wrap	in	the	CLI.
+
+Assignment 2
+============
+
+- [x] Modify	the	load	command	to	copy	the	6502a	machine	language	op	codes into	main	memory.
+    - [x] Put	the	code	at	location	$0000	in	memory
+    - [x] assign	a	Process	ID	(PID)
+    - [x] create	a	Process	Control	Block	(PCB)
+    - [x] return	the	PID	to	the	console.
+
+- [x] Add	a	shell	command,	run	<pid>,	to	run	a	program	already	in	memory.
+
+- [x] Update	and	display	the	PCB	contents	at	the	end	of	execution.
+
+- [x] Implement	line-wrap	in	the	CLI.	(This	is	not	longer	optional.)
+
+- [x] Optional:	Provide	the	ability	to	single-step	execution.
+
+- [x] Develop	a	PCB	prototype	and	implement	it	in	the	client	OS.
+- [x] Develop	a	memory	manager	and	implement	it	in	the	client	OS.
+- [x] Develop	a	core	memory	prototype	and	implement	it	in	the	host	OS.
+- [ ] Develop	a	CPU	prototype	and	implement	it	in	the	host	OS.

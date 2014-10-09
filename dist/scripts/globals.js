@@ -24,6 +24,9 @@ var KEYBOARD_IRQ = 1;
 //
 // Global Variables
 //
+var _MemoryManager;
+var _Memory;
+
 var _CPU;
 
 var _OSclock = 0;
@@ -68,11 +71,16 @@ var onDocumentLoad = function () {
     TSOS.Control.hostInit();
 };
 
-//Used for command history
 var commandHistory = [];
 var commandCount = 0;
 var commandReference = 0;
 
-//used for program loading
+//Memory
+var executions = [];
+
 var PID = 0;
-var memory = [];
+var ResidentQueue = [];
+var ReadyQueue = [];
+var currentPID = 0;
+var PCBStart = 0;
+var PCBEnd = 255;

@@ -1,6 +1,7 @@
 ///<reference path="shellCommand.ts" />
 ///<reference path="userCommand.ts" />
 ///<reference path="../utils.ts" />
+///<reference path="..//host/pcb.ts" />
 /* ------------
 Shell.ts
 The OS Shell - The "command line interface" (CLI) for the console.
@@ -62,19 +63,23 @@ var TSOS;
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellTruth, "truth", "<string> - Tells you the truth.");
+            sc = new TSOS.ShellCommand(this.shellTruth, "truth", "- Tells you the truth.");
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellStatus, "status", "<string> - Tells you your current status.");
+            sc = new TSOS.ShellCommand(this.shellStatus, "status", "<string> - Changes you your current status.");
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellBSOD, "bsod", "<string> - Gives you the BSOD.");
+            sc = new TSOS.ShellCommand(this.shellBSOD, "bsod", "- Gives you the BSOD.");
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellLoad, "load", "<string> - Loads the program out of the User Program Input Text Area.");
+            sc = new TSOS.ShellCommand(this.shellLoad, "load", "- Loads the program out of the User Program Input Text Area.");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new TSOS.ShellCommand(this.shellRun, "run", "<string> - Runs, based on process ID a program that is loaded into memory.");
 
             this.commandList[this.commandList.length] = sc;
 
@@ -355,32 +360,53 @@ var TSOS;
         };
 
         Shell.prototype.shellLoad = function (args) {
+            _MemoryManager.resetMemory();
+
             var program = document.getElementById("taProgramInput");
 
             var loadedProgram = program.value.toString().replace(/\s/g, '');
+            loadedProgram.replace("\n", "");
 
             var re = new RegExp("^[0-9A-F]+$");
 
             if (re.test(loadedProgram)) {
-                _StdOut.putText("Program ID: " + PID++);
+                _StdOut.putText("Program ID: " + PID);
 
-                for (var i = 0; i < loadedProgram.length; i++) {
-                    g;
+                PCBEnd = 255;
+
+                for (var i = PCBStart; i < loadedProgram.length; i++) {
                     var hexLocation = i.toString(16);
-                    var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2);
+                    var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
 
                     if (hexValue == "")
                         hexValue = "00";
 
-                    memory[hexLocation] = hexValue;
+                    _MemoryManager.setByLoc(hexLocation, hexValue);
                 }
 
-                _Kernel.updateMemory();
+                _MemoryManager.updateMemory();
+
+                ResidentQueue[PID] = new TSOS.PCB(PCBStart, PCBEnd);
+
+                PID++;
+                //Used for next assignment with more memory
+                //PCBStart += 255;
+                //PCBEnd += 255;
             } else
                 _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
 
             commandHistory[commandCount++] = "load";
             commandReference = commandCount;
+        };
+
+        Shell.prototype.shellRun = function (args) {
+            if (args != "") {
+                currentPID = args[0];
+                if (!_CPU.singleStep)
+                    _CPU.isExecuting = true;
+            } else {
+                _StdOut.putText("Need a Program ID");
+            }
         };
 
         Shell.prototype.autoComplete = function (args) {
@@ -396,7 +422,18 @@ var TSOS;
             if (possibleCommands.length == 1) {
                 return possibleCommands[0];
             } else {
-                return "";
+                var outputString = "";
+
+                for (var x = 0; x < possibleCommands.length; x++) {
+                    outputString += possibleCommands[x] + " ";
+                }
+
+                _StdOut.clearLine();
+                _StdOut.putText(outputString);
+                _StdOut.advanceLine();
+                _StdOut.putText(this.promptStr);
+
+                return args;
             }
         };
 
