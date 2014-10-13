@@ -243,8 +243,13 @@ var TSOS;
                             constant3 = _MemoryManager.getByLoc(currentLoc);
                         }
                     }
+                } else if (exec == "NOP") {
+                    PCB.PC++;
                 } else if (exec == "BRK") {
                     this.isExecuting = false;
+                    var PCBString = "PC: " + PCB.PC + " ACC: " + PCB.ACC + " IR: " + PCB.IR + " X: " + PCB.X + " Y: " + PCB.Y + " Z: " + PCB.Z;
+                    _StdOut.advanceLine();
+                    _StdOut.putText(PCBString);
                     this.resetCPU();
                 }
 
