@@ -83,6 +83,22 @@ var TSOS;
 
             this.commandList[this.commandList.length] = sc;
 
+            sc = new TSOS.ShellCommand(this.shellClearMem, "clearmem", "- Clears out memory");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new TSOS.ShellCommand(this.shellRunAll, "runall", "- Runs All Programs in Memory");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new TSOS.ShellCommand(this.shellQuantum, "quantum", "- Sets the round robin quantum");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new TSOS.ShellCommand(this.shellPS, "ps", "- Displays the running PID's");
+
+            this.commandList[this.commandList.length] = sc;
+
             // processes - list the running processes and their IDs
             // kill <id> - kills the specified process id.
             //
@@ -360,8 +376,6 @@ var TSOS;
         };
 
         Shell.prototype.shellLoad = function (args) {
-            _MemoryManager.resetMemory();
-
             var program = document.getElementById("taProgramInput");
 
             var loadedProgram = program.value.toString().replace(/\s/g, '');
@@ -372,10 +386,9 @@ var TSOS;
             if (re.test(loadedProgram)) {
                 _StdOut.putText("Program ID: " + PID);
 
-                PCBEnd = 255;
-
-                for (var i = PCBStart; i < loadedProgram.length; i++) {
-                    var hexLocation = i.toString(16);
+                for (var i = 0; i < 255; i++) {
+                    var hexLoc = i + PCBStart;
+                    var hexLocation = hexLoc.toString(16);
                     var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
 
                     if (hexValue == "")
@@ -386,12 +399,18 @@ var TSOS;
 
                 _MemoryManager.updateMemory();
 
-                ResidentQueue[PID] = new TSOS.PCB(PCBStart, PCBEnd);
+                ReadyQueue[PID] = new TSOS.PCB(PCBStart, PCBEnd);
 
                 PID++;
+
                 //Used for next assignment with more memory
-                //PCBStart += 255;
-                //PCBEnd += 255;
+                PCBStart += 256;
+                PCBEnd += 256;
+
+                if (PCBStart >= 765) {
+                    PCBStart = 0;
+                    PCBEnd = 255;
+                }
             } else
                 _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
 
@@ -441,6 +460,32 @@ var TSOS;
             var subCommand = command.substring(0, buffer.length);
 
             return subCommand === buffer;
+        };
+
+        Shell.prototype.shellClearMem = function (args) {
+            _MemoryManager.resetMemory();
+        };
+
+        Shell.prototype.shellQuantum = function (args) {
+            _Quantum = parseInt(args[0]);
+        };
+
+        Shell.prototype.shellPS = function (args) {
+            for (var i = 0; i < ReadyQueue.length; i++) {
+                _StdOut.putText(ReadyQueue[i]);
+            }
+        };
+
+        Shell.prototype.shellKill = function (args) {
+            for (var i = 0; i < ReadyQueue.length; i++) {
+                if (ReadyQueue[i].PID == args[0]) {
+                    ReadyQueue[i] = {};
+                }
+            }
+        };
+
+        Shell.prototype.shellRunAll = function (args) {
+            //TODO write runall command
         };
         return Shell;
     })();

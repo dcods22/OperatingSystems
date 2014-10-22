@@ -84,3 +84,6 @@ var ReadyQueue = [];
 var currentPID = 0;
 var PCBStart = 0;
 var PCBEnd = 255;
+
+//CPU Scheduling
+var _Quantum = 6;

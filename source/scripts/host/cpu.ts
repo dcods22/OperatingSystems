@@ -49,7 +49,7 @@ module TSOS {
             // TODO: Accumulate CPU usage and profiling statistics here.
             // Do the real work here. Be sure to set this.isExecuting appropriately.
 
-            var PCB = ResidentQueue[currentPID];
+            var PCB = ReadyQueue[currentPID];
             var PCBStart: number = PCB.PCBStart;
             var PCBEnd: number = PCB.PCBEnd;
 
@@ -252,7 +252,7 @@ module TSOS {
                     var PCBString = "PC: " + PCB.PC + " ACC: " + PCB.ACC + " IR: " + PCB.IR +" X: " + PCB.X + " Y: " + PCB.Y + " Z: " + PCB.Z;
                     _StdOut.advanceLine();
                     _StdOut.putText(PCBString);
-                    this.resetCPU();
+                    //this.resetCPU();
                 }
 
                 this.PC = PCB.PC;
@@ -303,7 +303,7 @@ module TSOS {
         }
 
         public updateCPU(){
-            var PCB = ResidentQueue[currentPID];
+            var PCB = ReadyQueue[currentPID];
             $("#pc").html(this.PC.toString());
             $("#ir").html(PCB.IR);
             $("#acc").html(this.Acc.toString());

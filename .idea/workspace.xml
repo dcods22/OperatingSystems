@@ -5,15 +5,15 @@
     <ignored path="OS.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411517267798" ignored="false" />
-    <file path="/globals.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411516551797" ignored="false" />
-    <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574021366" ignored="false" />
+    <file path="/globals.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1413996045081" ignored="false" />
+    <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414005267695" ignored="false" />
     <file path="/console.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411437899056" ignored="false" />
     <file path="/deviceDriverKeyboard.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410464782602" ignored="false" />
-    <file path="/index.html" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411565206590" ignored="false" />
+    <file path="/index.html" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1413996684404" ignored="false" />
     <file path="/tsos.css" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411571750927" ignored="false" />
     <file path="/kernel.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411573711126" ignored="false" />
     <file path="/control.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411496593029" ignored="false" />
-    <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410794914899" ignored="false" />
+    <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414005219715" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriver.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411567861161" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/interrupt.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411567861161" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/cpu.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411567861161" ignored="false" />
@@ -25,7 +25,8 @@
     <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574073847" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/console.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574073847" ignored="false" />
     <file path="$PROJECT_DIR$/source/styles/js/bootstrap.min.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412784731509" ignored="false" />
-    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1413213471001" ignored="false" />
+    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414001252392" ignored="false" />
+    <file path="/memory.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414004246774" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,11 +85,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="4" selection-start="2287" selection-end="2287" vertical-scroll-proportion="0.56179774">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="78" selection-start="542" selection-end="542" vertical-scroll-proportion="-0.5714286">
-              <folding />
+            <state line="105" column="77" selection-start="4938" selection-end="4938" vertical-scroll-proportion="-13.476191">
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,7 +108,25 @@
       <file leaf-file-name="shell.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="446" column="56" selection-start="15506" selection-end="15506" vertical-scroll-proportion="0.0">
+            <state line="519" column="40" selection-start="17687" selection-end="17687" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console.ts" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="23" selection-start="2773" selection-end="2773" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="globals.ts" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="64" selection-start="1493" selection-end="1493" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -105,16 +135,7 @@
       <file leaf-file-name="cpu.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="255" column="62" selection-start="10163" selection-end="10163" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tsos.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="42" selection-start="274" selection-end="274" vertical-scroll-proportion="0.43034482">
+            <state line="305" column="32" selection-start="11393" selection-end="11393" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -138,21 +159,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/source/scripts/os/deviceDriverKeyboard.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/deviceDriver.ts" />
         <option value="$PROJECT_DIR$/source/styles/tsos.css" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/source/scripts/os/console.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
         <option value="$PROJECT_DIR$/source/scripts/jquery.ts" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/globals.ts" />
         <option value="$PROJECT_DIR$/source/scripts/jquery.d.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
         <option value="$PROJECT_DIR$/dist/styles/tsos.css" />
+        <option value="$PROJECT_DIR$/source/scripts/globals.ts" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/host/memory.ts" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/os/console.ts" />
       </list>
     </option>
   </component>
@@ -160,8 +182,7 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
-    <option name="y" value="59" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="873" />
   </component>
@@ -204,7 +225,7 @@
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
-      <flattenPackages />
+      <flattenPackages ProjectPane="true" />
       <showMembers />
       <showModules />
       <showLibraryContents />
@@ -247,8 +268,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -263,6 +284,19 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -293,19 +327,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -319,13 +340,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -347,6 +361,13 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <list size="0" />
@@ -382,8 +403,28 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="59" width="1440" height="873" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -397,12 +438,12 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18651363" sideWeight="0.3984064" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15351507" sideWeight="0.5922975" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15351507" sideWeight="0.6706507" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -473,21 +514,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/queue.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="36" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="30" selection-start="450" selection-end="450" vertical-scroll-proportion="0.18539326" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/deviceDriverKeyboard.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="40" selection-start="6818" selection-end="6818" vertical-scroll-proportion="0.7517241" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/control.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="62" selection-start="2750" selection-end="2750" vertical-scroll-proportion="0.3232462" />
@@ -503,28 +529,9 @@
         <state line="664" column="0" selection-start="23246" selection-end="23279" vertical-scroll-proportion="0.25842696" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="0" selection-start="2814" selection-end="2814" vertical-scroll-proportion="0.90068966" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="78" selection-start="542" selection-end="542" vertical-scroll-proportion="-0.5714286">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/devices.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="446" column="56" selection-start="15506" selection-end="15506" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/canvastext.ts">
@@ -537,28 +544,72 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="49" selection-start="4474" selection-end="4474" vertical-scroll-proportion="0.106206894" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/styles/tsos.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="35" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="77" selection-start="4938" selection-end="4938" vertical-scroll-proportion="-13.476191">
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="255" column="62" selection-start="10163" selection-end="10163" vertical-scroll-proportion="0.0">
+        <state line="305" column="32" selection-start="11393" selection-end="11393" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="42" selection-start="274" selection-end="274" vertical-scroll-proportion="0.43034482">
+        <state line="23" column="25" selection-start="547" selection-end="547" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="64" selection-start="1493" selection-end="1493" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/memory.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="28" selection-start="2112" selection-end="2112" vertical-scroll-proportion="0.7303371">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="519" column="40" selection-start="17687" selection-end="17687" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="23" selection-start="2773" selection-end="2773" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="4" selection-start="2287" selection-end="2287" vertical-scroll-proportion="0.56179774">
           <folding />
         </state>
       </provider>

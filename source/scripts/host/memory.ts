@@ -67,7 +67,7 @@ export class Memory {
     public updateMemory() : void{
         var memoryTable = $("#memoryTable");
 
-        for(var i=0; i < this.memory.length; i++){
+        for(var i=0; i < 768; i++){
             memoryTable.find("#memory-label-" + i).html(this.memory[i.toString(16)].toUpperCase());
         }
     }

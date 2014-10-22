@@ -68,7 +68,7 @@ var TSOS;
             // do the same thing, thereby encouraging confusion and decreasing readability, I
             // decided to write one function and use the term "text" to connote string or char.
             // UPDATE: Even though we are now working in TypeScript, char and string remain undistinguished.
-            if (text !== "") {
+            if (text != "") {
                 // Draw the text at the current X and Y coordinates.
                 var words = text.split(" ");
 
