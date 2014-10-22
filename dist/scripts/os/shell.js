@@ -399,7 +399,7 @@ var TSOS;
 
                 _MemoryManager.updateMemory();
 
-                ReadyQueue[PID] = new TSOS.PCB(PCBStart, PCBEnd);
+                ResidentQueue[PID] = new TSOS.PCB(PCBStart, PCBEnd, PID);
 
                 PID++;
 
@@ -421,6 +421,9 @@ var TSOS;
         Shell.prototype.shellRun = function (args) {
             if (args != "") {
                 currentPID = args[0];
+                var p = parseInt(args[0]);
+                ReadyQueue[p] = ResidentQueue[p];
+                ResidentQueue[p] = {};
                 if (!_CPU.singleStep)
                     _CPU.isExecuting = true;
             } else {

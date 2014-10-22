@@ -247,9 +247,8 @@ var TSOS;
                     PCB.PC++;
                 } else if (exec == "BRK") {
                     this.isExecuting = false;
-                    var PCBString = "PC: " + PCB.PC + " ACC: " + PCB.ACC + " IR: " + PCB.IR + " X: " + PCB.X + " Y: " + PCB.Y + " Z: " + PCB.Z;
-                    _StdOut.advanceLine();
-                    _StdOut.putText(PCBString);
+                    ReadyQueue.splice(0, 1);
+                    $("#queueTableBody").html("");
                     //this.resetCPU();
                 }
 
@@ -258,6 +257,7 @@ var TSOS;
                 if (exec != "BRK") {
                     this.updateCPU();
                     _MemoryManager.updateMemory();
+                    this.updateReadyQueue();
                 }
             }
 
@@ -321,6 +321,17 @@ var TSOS;
             $("#x").html(this.Xreg.toString());
             $("#y").html(this.Yreg.toString());
             $("#z").html(this.Zflag.toString());
+        };
+
+        Cpu.prototype.updateReadyQueue = function () {
+            var table = $("#queueTableBody");
+            table.html("");
+            if (ReadyQueue.length > 0) {
+                for (var i = 0; i < ReadyQueue.length; i++) {
+                    var pcb = ReadyQueue[i];
+                    table.append("<tr><td class='pid'>" + pcb.PC + "</td><td class='pc'>" + pcb.PC + "</td><td class='ir'>" + pcb.IR + "</td><td class='acc'>" + pcb.Acc + "</td><td class='x'>" + pcb.X + "</td><td class='y'>" + pcb.Y + "</td><td class='z'>" + pcb.Z + "</td><td class='priority'>" + pcb.Priority + "</td><td class='state'>" + pcb.State + "</td><td class='location'>" + pcb.Location + "</td><tr>");
+                }
+            }
         };
         return Cpu;
     })();

@@ -86,6 +86,8 @@ var TSOS;
             } else {
                 this.krnTrace("Idle");
             }
+
+            _CPU.updateReadyQueue();
         };
 
         //

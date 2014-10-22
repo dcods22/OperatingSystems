@@ -14,19 +14,26 @@ Operating System Concepts 8th edition by Silberschatz, Galvin, and Gagne.  ISBN 
 var TSOS;
 (function (TSOS) {
     var PCB = (function () {
-        function PCB(PCBStart, PCBEnd, PC, Acc, X, Y, Z) {
+        function PCB(PCBStart, PCBEnd, PID, PC, Acc, X, Y, Z, State, Priority, Location) {
             if (typeof PC === "undefined") { PC = 0; }
             if (typeof Acc === "undefined") { Acc = 0; }
             if (typeof X === "undefined") { X = 0; }
             if (typeof Y === "undefined") { Y = 0; }
             if (typeof Z === "undefined") { Z = 0; }
+            if (typeof State === "undefined") { State = "Waiting"; }
+            if (typeof Priority === "undefined") { Priority = 0; }
+            if (typeof Location === "undefined") { Location = "Memory"; }
             this.PCBStart = PCBStart;
             this.PCBEnd = PCBEnd;
+            this.PID = PID;
             this.PC = PC;
             this.Acc = Acc;
             this.X = X;
             this.Y = Y;
             this.Z = Z;
+            this.State = State;
+            this.Priority = Priority;
+            this.Location = Location;
         }
         return PCB;
     })();
