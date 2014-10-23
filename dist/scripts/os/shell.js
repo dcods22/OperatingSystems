@@ -373,6 +373,9 @@ var TSOS;
             _Canvas.style.color = 'white';
             _StdOut.putText("Blue Screen of Death!");
             _Kernel.krnShutdown();
+
+            commandHistory[commandCount++] = "bsod";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellLoad = function (args) {
@@ -420,15 +423,26 @@ var TSOS;
 
         Shell.prototype.shellRun = function (args) {
             if (args != "") {
-                currentPID = args[0];
+                if (ReadyQueue.length > 0) {
+                    for (var i = 0; i < ReadyQueue.length; i++) {
+                        ReadyQueue[i + 1] = ReadyQueue[i];
+                    }
+                }
+
+                ReadyQueue[0] = ResidentQueue[args[0]];
+
                 var p = parseInt(args[0]);
-                ReadyQueue[p] = ResidentQueue[p];
-                ResidentQueue[p] = {};
+                ResidentQueue.splice(p, 1);
+                ReadyQueue[0].State = "Running";
+                ReadyQueue[0].Location = "Memory";
                 if (!_CPU.singleStep)
                     _CPU.isExecuting = true;
             } else {
                 _StdOut.putText("Need a Program ID");
             }
+
+            commandHistory[commandCount++] = "run " + args[0];
+            commandReference = commandCount;
         };
 
         Shell.prototype.autoComplete = function (args) {
@@ -467,16 +481,25 @@ var TSOS;
 
         Shell.prototype.shellClearMem = function (args) {
             _MemoryManager.resetMemory();
+
+            commandHistory[commandCount++] = "clearmem";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellQuantum = function (args) {
             _Quantum = parseInt(args[0]);
+
+            commandHistory[commandCount++] = "quantum " + args[0];
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellPS = function (args) {
             for (var i = 0; i < ReadyQueue.length; i++) {
                 _StdOut.putText(ReadyQueue[i]);
             }
+
+            commandHistory[commandCount++] = "ps";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellKill = function (args) {
@@ -485,10 +508,16 @@ var TSOS;
                     ReadyQueue[i] = {};
                 }
             }
+
+            commandHistory[commandCount++] = "kill";
+            commandReference = commandCount;
         };
 
         Shell.prototype.shellRunAll = function (args) {
             //TODO write runall command
+            //TODO scheduling algo
+            //TODO put all from resident queue into ready queue
+            //TODO pop them off then put them back on until they are done executing
         };
         return Shell;
     })();

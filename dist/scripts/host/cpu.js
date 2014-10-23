@@ -47,9 +47,9 @@ var TSOS;
 
             // TODO: Accumulate CPU usage and profiling statistics here.
             // Do the real work here. Be sure to set this.isExecuting appropriately.
-            var PCB = ReadyQueue[currentPID];
-            var PCBStart = PCB.PCBStart;
-            var PCBEnd = PCB.PCBEnd;
+            var PCB = ReadyQueue[0];
+            var PCBStart = PCB.Base;
+            var PCBEnd = PCB.Limit;
 
             var PCLoc = PCB.PC + PCBStart;
             var hexLoc = PCLoc.toString(16);
@@ -217,11 +217,12 @@ var TSOS;
                     PCB.PC++;
                     var constant = _MemoryManager.getByLoc(hexLoc);
 
+                    // TODO fix branching with regards to PCB location
                     //move PC counter to appropiate location if z = 0
                     if (PCB.Z == 0) {
                         var jumpAmt = parseInt(constant, 16);
-                        if (((PCB.PC + jumpAmt) - PCBStart) > 255) {
-                            PCB.PC = PCB.PC + jumpAmt - 255 - 1;
+                        if (((PCB.PC + jumpAmt)) > 255) {
+                            PCB.PC = PCB.PC + jumpAmt - 255 + -1;
                         } else {
                             PCB.PC += jumpAmt - 1;
                         }
@@ -249,7 +250,8 @@ var TSOS;
                     this.isExecuting = false;
                     ReadyQueue.splice(0, 1);
                     $("#queueTableBody").html("");
-                    //this.resetCPU();
+                    _StdOut.advanceLine();
+                    PCB.PC = 0;
                 }
 
                 this.PC = PCB.PC;
@@ -300,7 +302,7 @@ var TSOS;
         };
 
         Cpu.prototype.updateCPU = function () {
-            var PCB = ReadyQueue[currentPID];
+            var PCB = ReadyQueue[0];
             $("#pc").html(this.PC.toString());
             $("#ir").html(PCB.IR);
             $("#acc").html(this.Acc.toString());
@@ -329,7 +331,8 @@ var TSOS;
             if (ReadyQueue.length > 0) {
                 for (var i = 0; i < ReadyQueue.length; i++) {
                     var pcb = ReadyQueue[i];
-                    table.append("<tr><td class='pid'>" + pcb.PC + "</td><td class='pc'>" + pcb.PC + "</td><td class='ir'>" + pcb.IR + "</td><td class='acc'>" + pcb.Acc + "</td><td class='x'>" + pcb.X + "</td><td class='y'>" + pcb.Y + "</td><td class='z'>" + pcb.Z + "</td><td class='priority'>" + pcb.Priority + "</td><td class='state'>" + pcb.State + "</td><td class='location'>" + pcb.Location + "</td><tr>");
+                    if (pcb)
+                        table.append("<tr><td class='pid'>" + pcb.PID + "</td><td class='pc'>" + pcb.PC + "</td><td class='ir'>" + pcb.IR + "</td><td class='acc'>" + pcb.Acc + "</td><td class='x'>" + pcb.X + "</td><td class='y'>" + pcb.Y + "</td><td class='z'>" + pcb.Z + "</td><td class='priority'>" + pcb.Priority + "</td><td class='state'>" + pcb.State + "</td><td class='location'>" + pcb.Location + "</td><tr>");
                 }
             }
         };

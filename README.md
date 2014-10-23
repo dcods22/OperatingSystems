@@ -59,17 +59,17 @@ Assignment 3
 
 - [x] Display the Ready queue and its (PCB) contents (including process state) in real time.
 
-- [ ] Add a shell command, ps, to display the PIDs of all active processes. Add a shell command, kill <pid>, to kill an active process.
+- [x] Add a shell command, ps, to display the PIDs of all active processes. Add a shell command, kill <pid>, to kill an active process.
 
-- [ ] Store multiple programs in memory, each in their own partition, allocated by the client OS (which obviously needs to keep track of available and used partitions).
+- [x] Store multiple programs in memory, each in their own partition, allocated by the client OS (which obviously needs to keep track of available and used partitions).
 
-- [ ] Add base and limit registers to your core memory access code in the host OS and to your PCB object in the client OS.
+- [x] Add base and limit registers to your core memory access code in the host OS and to your PCB object in the client OS.
 
-- [ ] Enforce memory partition boundaries at all times.
+- [x] Enforce memory partition boundaries at all times.
 
-- [ ] Create a Resident list for the loaded processes.
+- [x] Create a Resident list for the loaded processes.
 
-- [ ] Create a Ready queue for the running processes.
+- [x] Create a Ready queue for the running processes.
 
 - [ ] Instantiate a PCB for each loaded program and put it in the Resident list.
 

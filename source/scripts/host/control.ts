@@ -20,6 +20,8 @@
      Operating System Concepts 8th edition by Silberschatz, Galvin, and Gagne.  ISBN 978-0-470-12872-5
      ------------ */
 
+
+///<reference path='../jquery.d.ts' />
 //
 // Control Services
 //
@@ -109,17 +111,16 @@ module TSOS {
         }
 
         public static hostSingleStepMode_click(btn): void{
-            _CPU.singleStep = true;
-            document.getElementById("btnStep").disabled = false;
-            document.getElementById("btnSingleStepMode").disabled = true;
-            document.getElementById("btnDisableStep").disabled = false;
-        }
 
-        public static hostDisableSingleStep_click(btn): void{
-            _CPU.singleStep = false;
-            document.getElementById("btnStep").disabled = true;
-            document.getElementById("btnSingleStepMode").disabled = false;
-            document.getElementById("btnDisableStep").disabled = true;
+            if($("#btnSingleStepMode").val() == "Enable Step"){
+                _CPU.singleStep = true;
+                document.getElementById("btnStep").disabled = false;
+                $("#btnSingleStepMode").val("Disable Step");
+            } else if($("#btnSingleStepMode").val() == "Disable Step"){
+                _CPU.singleStep = false;
+                document.getElementById("btnStep").disabled = true;
+                $("#btnSingleStepMode").val("Enable Step");
+            }
         }
 
         public static hostSingleStep_click(btn): void{
