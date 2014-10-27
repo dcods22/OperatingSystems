@@ -257,14 +257,17 @@ var TSOS;
                     } else if (PCB.X == 2) {
                         //Loop through till 00
                         //print appropiate charaters
-                        var currentLoc = parseInt(PCB.Y) + PCBStart;
+                        // TODO: fix value in current loc from hex to decimal
+                        var newLoc = parseInt(PCB.Y, 16) + PCBStart;
+                        var currentLoc = newLoc.toString(16);
                         var constant3 = _MemoryManager.getByLoc(currentLoc);
+
                         while (constant3 != "00") {
                             var letterVal = parseInt(constant3, 16);
                             var letter = String.fromCharCode(letterVal);
                             _StdOut.putText(letter);
                             var intLoc = parseInt(currentLoc.toString(), 16) + 1;
-                            currentLoc = parseInt(intLoc.toString(16));
+                            currentLoc = intLoc.toString(16);
                             constant3 = _MemoryManager.getByLoc(currentLoc);
                         }
                     }

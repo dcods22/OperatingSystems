@@ -70,7 +70,10 @@ export class Memory {
         var memoryTable = $("#memoryTable");
 
         for(var i=0; i < 768; i++){
-            memoryTable.find("#memory-label-" + i).html(this.memory[i.toString(16).toUpperCase()].toUpperCase());
+            var mem:string = this.memory[i.toString(16).toUpperCase()];
+            if(mem){
+                memoryTable.find("#memory-label-" + i).html(mem.toString().toUpperCase());
+            }
         }
     }
 

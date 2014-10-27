@@ -25,8 +25,8 @@
     <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414446943233" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/console.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414446943233" ignored="false" />
     <file path="$PROJECT_DIR$/source/styles/js/bootstrap.min.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412784731509" ignored="false" />
-    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414447654903" ignored="false" />
-    <file path="/memory.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414420917578" ignored="false" />
+    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414453331551" ignored="false" />
+    <file path="/memory.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414451271172" ignored="false" />
     <file path="/pcb.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414069006763" ignored="false" />
     <file path="/memoryManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414416647987" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/memory.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414446943233" ignored="false" />
@@ -134,7 +134,7 @@
       <file leaf-file-name="cpu.ts" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="193" column="42" selection-start="6787" selection-end="6787" vertical-scroll-proportion="0.8349381">
+            <state line="258" column="47" selection-start="9276" selection-end="9276" vertical-scroll-proportion="0.33012378">
               <folding />
             </state>
           </provider>
@@ -143,7 +143,7 @@
       <file leaf-file-name="memory.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/host/memory.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="13" selection-start="2787" selection-end="2787" vertical-scroll-proportion="0.0">
+            <state line="72" column="83" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -179,9 +179,9 @@
         <option value="$PROJECT_DIR$/source/styles/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/host/memory.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/source/scripts/host/memory.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
       </list>
     </option>
@@ -542,13 +542,6 @@
         <state line="52" column="42" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="64" selection-start="1493" selection-end="1493" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/styles/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="8" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0" />
@@ -593,13 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/memory.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="13" selection-start="2787" selection-end="2787" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/console.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="91" column="49" selection-start="3762" selection-end="3762" vertical-scroll-proportion="0.0">
@@ -607,9 +593,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="64" selection-start="1493" selection-end="1493" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/memory.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="83" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="42" selection-start="6787" selection-end="6787" vertical-scroll-proportion="0.8349381">
+        <state line="258" column="47" selection-start="9276" selection-end="9276" vertical-scroll-proportion="0.33012378">
           <folding />
         </state>
       </provider>
