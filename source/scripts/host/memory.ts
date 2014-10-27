@@ -73,10 +73,38 @@ export class Memory {
     }
 
     public getByLoc(loc){
+        if(loc.length == 3){
+            if(loc.charAt(0) == "0"){
+                loc = loc.substr(1);
+            }
+        }else if(loc.length == 4){
+            if(loc.charAt(0) == "0"){
+                loc = loc.substr(1);
+            }
+
+            if(loc.charAt(0) == "0"){
+                loc = loc.substr(1);
+            }
+        }
+
         return this.memory[loc];
     }
 
     public setByLoc(loc, value) : void{
+        if(loc.length == 3){
+            if(loc.charAt(0) == "0"){
+                loc = loc.substr(1);
+            }
+        }else if(loc.length == 4){
+            if(loc.charAt(0) == "0"){
+                loc = loc.substr(1);
+            }
+
+            if(loc.charAt(0) == "0"){
+                loc = loc.substr(1);
+            }
+        }
+
         this.memory[loc] = value
     }
 }

@@ -21,7 +21,6 @@ figure,
 footer,
 header,
 hgroup,
-main,
 nav,
 section,
 summary {
@@ -38,8 +37,7 @@ audio:not([controls]) {
   display: none;
   height: 0;
 }
-[hidden],
-template {
+[hidden]{
   display: none;
 }
 a {
@@ -2402,7 +2400,7 @@ input[type="time"],
 input[type="datetime-local"],
 input[type="month"] {
   line-height: 34px;
-  line-height: 1.42857143 \0;
+  line-height: 1.42857143;
 }
 input[type="date"].input-sm,
 input[type="time"].input-sm,

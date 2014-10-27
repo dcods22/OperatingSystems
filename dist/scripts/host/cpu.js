@@ -64,9 +64,8 @@ var TSOS;
                     PCLoc = PCB.PC + PCBStart;
                     hexLoc = PCLoc.toString(16);
                     PCB.PC++;
-                    var constant = _MemoryManager.getByLoc(hexLoc);
 
-                    _CPU.setAcc(constant);
+                    var constant = _MemoryManager.getByLoc(hexLoc);
                     PCB.ACC = constant;
                 } else if (exec == "LDXC") {
                     PCLoc = PCB.PC + PCBStart;
@@ -95,9 +94,9 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var memoryLoc = parseInt((constant2 + constant), 10).toString();
+                    var hexLoc = constant2.toString() + constant.toString();
 
-                    var value = _MemoryManager.getByLoc(memoryLoc);
+                    var value = _MemoryManager.getByLoc(hexLoc);
                     value = parseInt(value, 10);
 
                     PCB.ACC = value;
@@ -113,9 +112,9 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var memoryLoc = parseInt((constant2 + constant), 10).toString();
+                    var hexLoc = constant2.toString() + constant.toString();
 
-                    var value = _MemoryManager.getByLoc(memoryLoc);
+                    var value = _MemoryManager.getByLoc(hexLoc);
                     value = parseInt(value, 10);
 
                     PCB.X = value;
@@ -125,16 +124,15 @@ var TSOS;
                     hexLoc = PCLoc.toString(16);
                     PCB.PC++;
                     var constant = _MemoryManager.getByLoc(hexLoc);
-                    hexLoc = PCB.PC.toString(16);
 
                     PCLoc = PCB.PC + PCBStart;
                     hexLoc = PCLoc.toString(16);
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var memoryLoc = parseInt((constant2 + constant), 10).toString();
+                    var hexLoc = constant2.toString() + constant.toString();
 
-                    var value = _MemoryManager.getByLoc(memoryLoc);
+                    var value = _MemoryManager.getByLoc(hexLoc);
                     value = parseInt(value, 10);
 
                     PCB.Y = value;
@@ -150,9 +148,9 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var memoryLoc = parseInt((constant2 + constant), 10).toString();
+                    var hexLoc = constant2 + constant;
 
-                    _MemoryManager.setByLoc(memoryLoc, PCB.ACC);
+                    _MemoryManager.setByLoc(hexLoc, PCB.ACC);
                 } else if (exec == "ADC") {
                     PCLoc = PCB.PC + PCBStart;
                     hexLoc = PCLoc.toString(16);
@@ -164,9 +162,9 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var memoryLoc = parseInt((constant2 + constant), 10).toString();
+                    var hexLoc = constant2.toString() + constant.toString();
 
-                    var value = _MemoryManager.getByLoc(memoryLoc);
+                    var value = _MemoryManager.getByLoc(hexLoc);
                     value = parseInt(value, 10);
 
                     PCB.ACC = value + PCB.ACC;
@@ -182,9 +180,9 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var memoryLoc = parseInt((constant2 + constant), 10).toString();
+                    var hexLoc = constant2.toString() + constant.toString();
 
-                    var value = _MemoryManager.getByLoc(memoryLoc);
+                    var value = _MemoryManager.getByLoc(hexLoc);
                     value = parseInt(value, 10);
 
                     if (value == PCB.X) {
@@ -205,12 +203,12 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var memoryLoc = parseInt((constant2 + constant), 10).toString();
+                    var hexLoc = constant2.toString() + constant.toString();
 
-                    var value = _MemoryManager.getByLoc(memoryLoc);
+                    var value = _MemoryManager.getByLoc(hexLoc);
 
                     value = parseInt(value, 10) + 1;
-                    _MemoryManager.setByLoc(memoryLoc, value.toString(16));
+                    _MemoryManager.setByLoc(hexLoc, value.toString(16));
                 } else if (exec == "BNE") {
                     PCLoc = PCB.PC + PCBStart;
                     hexLoc = PCLoc.toString(16);

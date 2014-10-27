@@ -169,6 +169,8 @@ var TSOS;
             _Canvas.style.color = 'white';
             _StdOut.putText("Blue Screen of Death!");
 
+            _CPU.isExecuting = false;
+
             this.krnShutdown();
         };
         return Kernel;
