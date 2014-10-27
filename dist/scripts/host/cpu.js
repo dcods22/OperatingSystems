@@ -257,7 +257,6 @@ var TSOS;
                     } else if (PCB.X == 2) {
                         //Loop through till 00
                         //print appropiate charaters
-                        // TODO: fix value in current loc from hex to decimal
                         var newLoc = parseInt(PCB.Y, 16) + PCBStart;
                         var currentLoc = newLoc.toString(16);
                         var constant3 = _MemoryManager.getByLoc(currentLoc);

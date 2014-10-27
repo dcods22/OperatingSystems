@@ -134,7 +134,7 @@
       <file leaf-file-name="cpu.ts" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="258" column="47" selection-start="9276" selection-end="9276" vertical-scroll-proportion="0.33012378">
+            <state line="261" column="24" selection-start="9377" selection-end="9377" vertical-scroll-proportion="0.37964237">
               <folding />
             </state>
           </provider>
@@ -609,7 +609,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="258" column="47" selection-start="9276" selection-end="9276" vertical-scroll-proportion="0.33012378">
+        <state line="261" column="24" selection-start="9377" selection-end="9377" vertical-scroll-proportion="0.37964237">
           <folding />
         </state>
       </provider>
