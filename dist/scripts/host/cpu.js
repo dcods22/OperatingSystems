@@ -55,6 +55,7 @@ var TSOS;
             var hexLoc = PCLoc.toString(16);
             var command = _MemoryManager.getByLoc(hexLoc);
             var exec = executions[command];
+            var mem = "";
 
             if (exec) {
                 PCB.IR = command;
@@ -66,14 +67,20 @@ var TSOS;
                     PCB.PC++;
 
                     var constant = _MemoryManager.getByLoc(hexLoc);
-                    PCB.ACC = constant;
+
+                    mem = "#" + constant;
+
+                    this.Acc = constant;
+                    PCB.Acc = constant;
                 } else if (exec == "LDXC") {
                     PCLoc = PCB.PC + PCBStart;
                     hexLoc = PCLoc.toString(16);
                     PCB.PC++;
                     var constant = _MemoryManager.getByLoc(hexLoc);
 
-                    _CPU.setX(constant);
+                    mem = "#" + constant;
+
+                    this.Xreg = constant;
                     PCB.X = constant;
                 } else if (exec == "LDYC") {
                     PCLoc = PCB.PC + PCBStart;
@@ -81,7 +88,9 @@ var TSOS;
                     PCB.PC++;
                     var constant = _MemoryManager.getByLoc(hexLoc);
 
-                    _CPU.setY(constant);
+                    mem = "#" + constant;
+
+                    this.Yreg = constant;
                     PCB.Y = constant;
                 } else if (exec == "LDAM") {
                     PCLoc = PCB.PC + PCBStart;
@@ -94,13 +103,15 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var hexLoc = constant2.toString() + constant.toString();
+                    var newLoc = constant2.toString() + constant.toString();
 
-                    var value = _MemoryManager.getByLoc(hexLoc);
+                    mem = "$" + newLoc;
+
+                    var value = _MemoryManager.getByLoc(newLoc);
                     value = parseInt(value, 10);
 
-                    PCB.ACC = value;
-                    _CPU.setAcc(value);
+                    PCB.Acc = value;
+                    this.Acc = value;
                 } else if (exec == "LDXM") {
                     PCLoc = PCB.PC + PCBStart;
                     hexLoc = PCLoc.toString(16);
@@ -112,13 +123,15 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var hexLoc = constant2.toString() + constant.toString();
+                    var newLoc = constant2.toString() + constant.toString();
 
-                    var value = _MemoryManager.getByLoc(hexLoc);
+                    mem = "$" + newLoc;
+
+                    var value = _MemoryManager.getByLoc(newLoc);
                     value = parseInt(value, 10);
 
                     PCB.X = value;
-                    _CPU.setX(value);
+                    this.Xreg = value;
                 } else if (exec == "LDYM") {
                     PCLoc = PCB.PC + PCBStart;
                     hexLoc = PCLoc.toString(16);
@@ -130,13 +143,15 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var hexLoc = constant2.toString() + constant.toString();
+                    var newLoc = constant2.toString() + constant.toString();
 
-                    var value = _MemoryManager.getByLoc(hexLoc);
+                    mem = "$" + newLoc;
+
+                    var value = _MemoryManager.getByLoc(newLoc);
                     value = parseInt(value, 10);
 
                     PCB.Y = value;
-                    _CPU.setY(value);
+                    this.Yreg = value;
                 } else if (exec == "STAM") {
                     PCLoc = PCB.PC + PCBStart;
                     hexLoc = PCLoc.toString(16);
@@ -148,9 +163,11 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var hexLoc = constant2 + constant;
+                    var newLoc = constant2 + constant;
 
-                    _MemoryManager.setByLoc(hexLoc, PCB.ACC);
+                    mem = "$" + newLoc;
+
+                    _MemoryManager.setByLoc(newLoc, PCB.Acc);
                 } else if (exec == "ADC") {
                     PCLoc = PCB.PC + PCBStart;
                     hexLoc = PCLoc.toString(16);
@@ -162,13 +179,17 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var hexLoc = constant2.toString() + constant.toString();
+                    var newLoc = constant2.toString() + constant.toString();
 
-                    var value = _MemoryManager.getByLoc(hexLoc);
+                    mem = "$" + hexLoc;
+
+                    var value = _MemoryManager.getByLoc(newLoc);
                     value = parseInt(value, 10);
 
-                    PCB.ACC = value + PCB.ACC;
-                    _CPU.setAcc(value + PCB.ACC);
+                    var finalValue = parseInt(PCB.Acc) + parseInt(value);
+
+                    PCB.Acc = finalValue;
+                    _CPU.setAcc(finalValue);
                 } else if (exec == "CPX") {
                     PCLoc = PCB.PC + PCBStart;
                     hexLoc = PCLoc.toString(16);
@@ -180,10 +201,11 @@ var TSOS;
                     PCB.PC++;
                     var constant2 = _MemoryManager.getByLoc(hexLoc);
 
-                    var hexLoc = constant2.toString() + constant.toString();
+                    var newLoc = constant2.toString() + constant.toString();
 
-                    var value = _MemoryManager.getByLoc(hexLoc);
-                    value = parseInt(value, 10);
+                    var value = _MemoryManager.getByLoc(newLoc);
+
+                    mem = "$" + newLoc;
 
                     if (value == PCB.X) {
                         PCB.Z = 1;
@@ -208,6 +230,9 @@ var TSOS;
                     var value = _MemoryManager.getByLoc(hexLoc);
 
                     value = parseInt(value, 10) + 1;
+
+                    mem = "$" + hexLoc;
+
                     _MemoryManager.setByLoc(hexLoc, value.toString(16));
                 } else if (exec == "BNE") {
                     PCLoc = PCB.PC + PCBStart;
@@ -215,16 +240,17 @@ var TSOS;
                     PCB.PC++;
                     var constant = _MemoryManager.getByLoc(hexLoc);
 
-                    // TODO fix branching with regards to PCB location
                     //move PC counter to appropiate location if z = 0
                     if (PCB.Z == 0) {
                         var jumpAmt = parseInt(constant, 16);
                         if (((PCB.PC + jumpAmt)) > 255) {
                             PCB.PC = PCB.PC + jumpAmt - 255 + -1;
                         } else {
-                            PCB.PC += jumpAmt - 1;
+                            PCB.PC += jumpAmt;
                         }
                     }
+
+                    mem = "#" + constant;
                 } else if (exec == "SYS") {
                     if (PCB.X == 1) {
                         _StdOut.putText(PCB.Y.toString());
@@ -260,6 +286,8 @@ var TSOS;
                     this.updateReadyQueue();
                 }
             }
+
+            $("#instruction-details").html(exec.toString() + " " + mem);
 
             if (this.singleStep || PCB.PC === PCBEnd) {
                 this.isExecuting = false;

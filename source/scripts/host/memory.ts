@@ -50,7 +50,9 @@ export class Memory {
 
             for(var x=0; x < 8; x++){
                 var memoryLocation = (x + hexInt);
-                memoryRow.append("<td id='memory-label-" + memoryLocation +"' class='memoryData'>" + this.memory[memoryLocation.toString(16)].toUpperCase() + "</td>");
+                var memL = memoryLocation.toString(16);
+                var memLoc = memL.toUpperCase();
+                memoryRow.append("<td id='memory-label-" + memoryLocation +"' class='memoryData'>" + "00" + "</td>");
             }
 
             memoryTable.append("</tr>");
@@ -59,7 +61,7 @@ export class Memory {
 
     public resetMemory() : void{
         for(var i=0; i < 768; i++){
-            var hexValue = i.toString(16);
+            var hexValue = i.toString(16).toUpperCase();
             this.memory[hexValue] = "00";
         }
     }
@@ -68,44 +70,56 @@ export class Memory {
         var memoryTable = $("#memoryTable");
 
         for(var i=0; i < 768; i++){
-            memoryTable.find("#memory-label-" + i).html(this.memory[i.toString(16)].toUpperCase());
+            memoryTable.find("#memory-label-" + i).html(this.memory[i.toString(16).toUpperCase()].toUpperCase());
         }
     }
 
     public getByLoc(loc){
-        if(loc.length == 3){
-            if(loc.charAt(0) == "0"){
-                loc = loc.substr(1);
-            }
-        }else if(loc.length == 4){
-            if(loc.charAt(0) == "0"){
-                loc = loc.substr(1);
+        if(loc){
+            loc = loc.toString();
+
+            if(loc.length == 3){
+                if(loc.charAt(0) == "0"){
+                    loc = loc.substr(1);
+                }
+            }else if(loc.length == 4){
+                if(loc.charAt(0) == "0"){
+                    loc = loc.substr(1);
+                }
+
+                if(loc.charAt(0) == "0"){
+                    loc = loc.substr(1);
+                }
             }
 
-            if(loc.charAt(0) == "0"){
-                loc = loc.substr(1);
-            }
+            loc = loc.toUpperCase();
+
+            return this.memory[loc];
         }
-
-        return this.memory[loc];
     }
 
     public setByLoc(loc, value) : void{
-        if(loc.length == 3){
-            if(loc.charAt(0) == "0"){
-                loc = loc.substr(1);
-            }
-        }else if(loc.length == 4){
-            if(loc.charAt(0) == "0"){
-                loc = loc.substr(1);
+        if(loc){
+            loc = loc.toString();
+
+            if(loc.length == 3){
+                if(loc.charAt(0) == "0"){
+                    loc = loc.substr(1);
+                }
+            }else if(loc.length == 4){
+                if(loc.charAt(0) == "0"){
+                    loc = loc.substr(1);
+                }
+
+                if(loc.charAt(0) == "0"){
+                    loc = loc.substr(1);
+                }
             }
 
-            if(loc.charAt(0) == "0"){
-                loc = loc.substr(1);
-            }
+            loc = loc.toUpperCase();
+
+            this.memory[loc] = value;
         }
-
-        this.memory[loc] = value
     }
 }
 }

@@ -391,7 +391,7 @@ var TSOS;
 
                 for (var i = 0; i < 255; i++) {
                     var hexLoc = i + PCBStart;
-                    var hexLocation = hexLoc.toString(16);
+                    var hexLocation = hexLoc.toString(16).toUpperCase();
                     var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
 
                     if (hexValue == "")

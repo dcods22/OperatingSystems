@@ -114,6 +114,7 @@ var TSOS;
                 $("#btnSingleStepMode").val("Disable Step");
             } else if ($("#btnSingleStepMode").val() == "Disable Step") {
                 _CPU.singleStep = false;
+                _CPU.isExecuting = true;
                 document.getElementById("btnStep").disabled = true;
                 $("#btnSingleStepMode").val("Enable Step");
             }
