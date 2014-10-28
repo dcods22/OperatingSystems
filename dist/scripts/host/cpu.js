@@ -13,6 +13,8 @@ Operating System Concepts 8th edition by Silberschatz, Galvin, and Gagne.  ISBN 
 ///<reference path='../jquery.d.ts' />
 var TSOS;
 (function (TSOS) {
+    var rrCount = 0;
+
     var Cpu = (function () {
         function Cpu(PC, Acc, Xreg, Yreg, Zflag, isExecuting, singleStep) {
             if (typeof PC === "undefined") { PC = 0; }
@@ -50,6 +52,7 @@ var TSOS;
             this.removeColors();
 
             var PCB = ReadyQueue[0];
+            ReadyQueue[0].State = "Running";
             var PCBStart = PCB.Base;
             var PCBEnd = PCB.Limit;
 
@@ -350,7 +353,6 @@ var TSOS;
                             var intLoc = parseInt(currentLoc.toString(), 16) + 1;
                             currentLoc = intLoc.toString(16);
                             constant3 = _MemoryManager.getByLoc(currentLoc);
-                            console.log(constant3, currentLoc);
                         }
                     }
                 } else if (exec == "NOP") {
@@ -369,6 +371,15 @@ var TSOS;
                     this.updateCPU();
                     _MemoryManager.updateMemory();
                     this.updateReadyQueue();
+                }
+            }
+
+            if (RR && ReadyQueue.length > 1) {
+                if (rrCount == _Quantum) {
+                    this.swapReadyQueue();
+                    rrCount = 0;
+                } else {
+                    rrCount++;
                 }
             }
 
@@ -454,6 +465,21 @@ var TSOS;
                         table.append("<tr><td class='pid'>" + pcb.PID + "</td><td class='pc'>" + pcb.PC + "</td><td class='ir'>" + pcb.IR + "</td><td class='acc'>" + pcb.Acc + "</td><td class='x'>" + pcb.X + "</td><td class='y'>" + pcb.Y + "</td><td class='z'>" + pcb.Z + "</td><td class='priority'>" + pcb.Priority + "</td><td class='state'>" + pcb.State + "</td><td class='location'>" + pcb.Location + "</td><tr>");
                 }
             }
+        };
+
+        Cpu.prototype.swapReadyQueue = function () {
+            // TODO: Work on properly swapping the ready queue
+            var oldFirst = ReadyQueue[0];
+
+            oldFirst.State = "Waiting";
+
+            for (var i = 1; i < ReadyQueue.length - 1; i++) {
+                ReadyQueue[i - 1] = ReadyQueue[i];
+            }
+
+            ReadyQueue[ReadyQueue.length] = oldFirst;
+
+            ReadyQueue[0].State = "Running";
         };
         return Cpu;
     })();

@@ -514,10 +514,21 @@ var TSOS;
         };
 
         Shell.prototype.shellRunAll = function (args) {
-            //TODO write runall command
-            //TODO scheduling algo
-            //TODO put all from resident queue into ready queue
-            //TODO pop them off then put them back on until they are done executing
+            for (var i = 0; i < ResidentQueue.length; i++) {
+                ReadyQueue[i] = ResidentQueue[i];
+            }
+
+            ReadyQueue[0].Status = "Running";
+
+            while (ResidentQueue.length > 0) {
+                ResidentQueue.splice(0, 1);
+            }
+
+            if (!_CPU.singleStep)
+                _CPU.isExecuting = true;
+
+            commandHistory[commandCount++] = "runall";
+            commandReference = commandCount;
         };
         return Shell;
     })();
