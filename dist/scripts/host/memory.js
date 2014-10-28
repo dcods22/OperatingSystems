@@ -26,7 +26,11 @@ var TSOS;
             memoryTable.html("");
 
             for (var i = 0; i < 96; i++) {
-                memoryTable.append("<tr id='memory-row-" + i + "'>");
+                if (i % 32 == 0) {
+                    memoryTable.append("<tr id='memory-row-" + i + "' class='info'>");
+                } else {
+                    memoryTable.append("<tr id='memory-row-" + i + "'>");
+                }
 
                 var memoryRow = $("#memory-row-" + i);
 
@@ -43,7 +47,9 @@ var TSOS;
 
                 for (var x = 0; x < 8; x++) {
                     var memoryLocation = (x + hexInt);
-                    memoryRow.append("<td id='memory-label-" + memoryLocation + "' class='memoryData'>" + this.memory[memoryLocation.toString(16)].toUpperCase() + "</td>");
+                    var memL = memoryLocation.toString(16);
+                    var memLoc = memL.toUpperCase();
+                    memoryRow.append("<td id='memory-label-" + memoryLocation + "' class='memoryData'>" + "00" + "</td>");
                 }
 
                 memoryTable.append("</tr>");
@@ -52,7 +58,7 @@ var TSOS;
 
         Memory.prototype.resetMemory = function () {
             for (var i = 0; i < 768; i++) {
-                var hexValue = i.toString(16);
+                var hexValue = i.toString(16).toUpperCase();
                 this.memory[hexValue] = "00";
             }
         };
@@ -60,17 +66,60 @@ var TSOS;
         Memory.prototype.updateMemory = function () {
             var memoryTable = $("#memoryTable");
 
-            for (var i = 0; i < this.memory.length; i++) {
-                memoryTable.find("#memory-label-" + i).html(this.memory[i.toString(16)].toUpperCase());
+            for (var i = 0; i < 768; i++) {
+                var mem = this.memory[i.toString(16).toUpperCase()];
+                if (mem) {
+                    memoryTable.find("#memory-label-" + i).html(mem.toString().toUpperCase());
+                }
             }
         };
 
         Memory.prototype.getByLoc = function (loc) {
-            return this.memory[loc];
+            if (loc) {
+                loc = loc.toString();
+
+                if (loc.length == 3) {
+                    if (loc.charAt(0) == "0") {
+                        loc = loc.substr(1);
+                    }
+                } else if (loc.length == 4) {
+                    if (loc.charAt(0) == "0") {
+                        loc = loc.substr(1);
+                    }
+
+                    if (loc.charAt(0) == "0") {
+                        loc = loc.substr(1);
+                    }
+                }
+
+                loc = loc.toUpperCase();
+
+                return this.memory[loc];
+            }
         };
 
         Memory.prototype.setByLoc = function (loc, value) {
-            this.memory[loc] = value;
+            if (loc) {
+                loc = loc.toString();
+
+                if (loc.length == 3) {
+                    if (loc.charAt(0) == "0") {
+                        loc = loc.substr(1);
+                    }
+                } else if (loc.length == 4) {
+                    if (loc.charAt(0) == "0") {
+                        loc = loc.substr(1);
+                    }
+
+                    if (loc.charAt(0) == "0") {
+                        loc = loc.substr(1);
+                    }
+                }
+
+                loc = loc.toUpperCase();
+
+                this.memory[loc] = value;
+            }
         };
         return Memory;
     })();

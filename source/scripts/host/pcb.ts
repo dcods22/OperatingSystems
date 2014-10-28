@@ -21,12 +21,17 @@ module TSOS {
 
 export class PCB {
 
-    constructor(public PCBStart: number,
-                public PCBEnd: number,
+    constructor(public Base: number,
+                public Limit: number,
+                public PID: number,
                 public PC: number = 0,
                 public Acc: number = 0,
+                public IR: String = "0",
                 public X: number = 0,
                 public Y: number = 0,
-                public Z: number = 0){}
+                public Z: number = 0,
+                public State: String = "Waiting",
+                public Priority: number = 0,
+                public Location: String ="Memory"){}
 }
 }

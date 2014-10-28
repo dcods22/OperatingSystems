@@ -59,14 +59,6 @@
                                   tabindex="2"
                                   onclick="TSOS.Control.hostSingleStepMode_click(this);"></a></li>
                     <li><a><input type="button"
-                                  id = "btnDisableStep"
-                                  name="btnStep"
-                                  class="btn btn-primary"
-                                  disabled="disabled"
-                                  value="Disable Step"
-                                  tabindex="2"
-                                  onclick="TSOS.Control.hostDisableSingleStep_click(this);"></a></li>
-                    <li><a><input type="button"
                                   id = "btnStep"
                                   name="btnStep"
                                   class="btn btn-primary"
@@ -99,6 +91,34 @@
                 </div>
             </div>
 
+            <div id="queue" class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Ready Queue</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="queueTable" class="table table-striped text-center">
+                        <thead>
+                        <tr>
+                            <td>PID</td>
+                            <td>PC</td>
+                            <td>IR</td>
+                            <td>ACC</td>
+                            <td>X</td>
+                            <td>Y</td>
+                            <td>Z</td>
+                            <td>Priority</td>
+                            <td>State</td>
+                            <td>Location</td>
+                        </tr>
+                        </thead>
+                        <tbody id="queueTableBody">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
 
         </div>
 
@@ -115,7 +135,7 @@
 
             <div id="cpu" class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">CPU</h3>
+                    <span id="instruction-details" class="badge pull-right"></span> <h3 class="panel-title">CPU</h3>
                 </div>
                 <div class="panel-body">
                     <table id="cpuTable" class="table table-striped text-center">
@@ -165,7 +185,7 @@
                               id  ="taProgramInput"
                               rows="4"
                               cols="83"
-                            >A9 03 8D 41 00 A9 01 8D 40 00 AC 40 00 A2 01 FF EE 40 00 AE 40 00 EC 41 00 D0 EF A9 44 8D 42 00 A9 4F 8D 43 00 A9 4E 8D 44 00 A9 45 8D 45 00 A9 00 8D 46 00 A2 02 A0 42 FF 00</textarea>
+                            >A9 03 8D 41 00 A9 01 8D 40 00 AC 40 00 A2 01 FF EE 40 00 AE 40 00 EC 41 00 D0 EF A9 44 8D 42 00 A9 4F 8D 43 00 A9 4E 8D 44 00 A9 45 8D 45 00 A9 00 8D 46 00 A2 02 A0 42 FF 00 </textarea>
                 </div>
             </div>
         </div>

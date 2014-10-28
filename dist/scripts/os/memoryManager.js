@@ -16,10 +16,10 @@ var TSOS;
         };
 
         MemoryManager.prototype.getByLoc = function (loc) {
-            var end = ResidentQueue[currentPID].PCBEnd;
-            var pos = parseInt(loc, 10);
+            var end = ReadyQueue[0].Limit + 1;
+            var pos = parseInt(loc, 10) + ReadyQueue[0].Base;
 
-            if (pos > end) {
+            if (pos > end || pos < ReadyQueue[0].Base) {
                 _Kernel.krnTrapError("Out Of Memory Error");
             }
 

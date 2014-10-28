@@ -44,4 +44,39 @@ Assignment 2
 - [x] Develop	a	PCB	prototype	and	implement	it	in	the	client	OS.
 - [x] Develop	a	memory	manager	and	implement	it	in	the	client	OS.
 - [x] Develop	a	core	memory	prototype	and	implement	it	in	the	host	OS.
-- [ ] Develop	a	CPU	prototype	and	implement	it	in	the	host	OS.
+- [x] Develop	a	CPU	prototype	and	implement	it	in	the	host	OS.
+
+Assignment 3
+============
+
+- [x] Add a shell command, clearmem, to clear all memory partitions.
+
+- [x] Allow the user to load three programs into memory at once.
+
+- [ ] Add a shell command, runall, to execute all the programs at once.
+
+- [x] Add a shell command, quantum <int>, to let the user set the Round Robin quantum (measured in clock ticks).
+
+- [x] Display the Ready queue and its (PCB) contents (including process state) in real time.
+
+- [x] Add a shell command, ps, to display the PIDs of all active processes. Add a shell command, kill <pid>, to kill an active process.
+
+- [x] Store multiple programs in memory, each in their own partition, allocated by the client OS (which obviously needs to keep track of available and used partitions).
+
+- [x] Add base and limit registers to your core memory access code in the host OS and to your PCB object in the client OS.
+
+- [x] Enforce memory partition boundaries at all times.
+
+- [x] Create a Resident list for the loaded processes.
+
+- [x] Create a Ready queue for the running processes.
+
+- [x] Instantiate a PCB for each loaded program and put it in the Resident list.
+
+- [ ] Develop a CPU scheduler in the client OS using Round Robin scheduling with the user-speciVied quantum measured in clock ticks (default = 6).
+    - [ ] Make the client OS control the host CPU with the client OS CPU scheduler.
+    - [ ] Log all scheduling events.
+
+- [ ] Implement context switches with software interrupts. Be sure to update the mode bit (if appropriate), the PCBs, and the Ready queue.
+
+- [ ] Detect and gracefully handle errors like invalid op codes, missing operands (if you can detect that), and most importantly, memory out of bounds access attempts.

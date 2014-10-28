@@ -25,3 +25,18 @@ textarea{
     overflow:scroll;
     height:80px;
 }
+
+.instruction{
+    font-weight: bolder;
+    color: #5cb85c;
+}
+
+.parameter{
+    font-weight: bolder;
+    color: #b31b1b;
+}
+
+.count{
+    float:right;
+    color:grey;
+}

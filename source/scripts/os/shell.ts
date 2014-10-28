@@ -119,6 +119,29 @@ module TSOS {
 
             this.commandList[this.commandList.length] = sc;
 
+            sc = new ShellCommand(this.shellClearMem,
+                "clearmem",
+                "- Clears out memory");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellRunAll,
+                "runall",
+                "- Runs All Programs in Memory");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellQuantum,
+                "quantum",
+                "- Sets the round robin quantum");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellPS,
+                "ps",
+                "- Displays the running PID's");
+
+            this.commandList[this.commandList.length] = sc;
             // processes - list the running processes and their IDs
             // kill <id> - kills the specified process id.
 
@@ -397,10 +420,13 @@ module TSOS {
             _Canvas.style.color = 'white';
             _StdOut.putText("Blue Screen of Death!");
             _Kernel.krnShutdown();
+
+
+            commandHistory[commandCount++] = "bsod";
+            commandReference = commandCount;
         }
 
         public shellLoad(args){
-            _MemoryManager.resetMemory();
 
             var program = <HTMLInputElement> document.getElementById("taProgramInput");
 
@@ -413,10 +439,9 @@ module TSOS {
 
                 _StdOut.putText("Program ID: " + PID);
 
-                PCBEnd = 255;
-
-                for(var i: number=PCBStart; i < loadedProgram.length; i++){
-                    var hexLocation = i.toString(16);
+                for(var i: number=0; i < 255; i++){
+                    var hexLoc = i + PCBStart;
+                    var hexLocation = hexLoc.toString(16).toUpperCase();
                     var hexValue =  loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
 
                     if(hexValue == "")
@@ -427,13 +452,18 @@ module TSOS {
 
                 _MemoryManager.updateMemory();
 
-                ResidentQueue[PID] = new PCB(PCBStart, PCBEnd);
+                ResidentQueue[PID] = new PCB(PCBStart, PCBEnd, PID);
 
                 PID++;
 
                 //Used for next assignment with more memory
-                //PCBStart += 255;
-                //PCBEnd += 255;
+                PCBStart += 256;
+                PCBEnd += 256;
+
+                if(PCBStart >= 765){
+                    PCBStart = 0;
+                    PCBEnd = 255;
+                }
             }else
                 _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
 
@@ -444,12 +474,28 @@ module TSOS {
 
         public shellRun(args){
             if(args != ""){
-                currentPID = args[0];
+
+                if(ReadyQueue.length > 0){
+                    for(var i=0; i < ReadyQueue.length; i++){
+                        ReadyQueue[i + 1] = ReadyQueue[i];
+                    }
+                }
+
+                ReadyQueue[0] = ResidentQueue[args[0]];
+
+                var p = parseInt(args[0]);
+                ResidentQueue.splice(p,1);
+                ReadyQueue[0].State = "Running";
+                ReadyQueue[0].Location = "Memory";
                 if(! _CPU.singleStep)
                     _CPU.isExecuting = true;
             }else{
                 _StdOut.putText("Need a Program ID");
             }
+
+
+            commandHistory[commandCount++] = "run " + args[0];
+            commandReference = commandCount;
         }
 
         public autoComplete(args){
@@ -484,6 +530,59 @@ module TSOS {
             var subCommand = command.substring(0, buffer.length);
 
             return subCommand === buffer;
+        }
+
+        public shellClearMem(args){
+            _MemoryManager.resetMemory();
+
+            commandHistory[commandCount++] = "clearmem";
+            commandReference = commandCount;
+        }
+
+        public shellQuantum(args){
+            _Quantum = parseInt(args[0]);
+
+            commandHistory[commandCount++] = "quantum " + args[0];
+            commandReference = commandCount;
+        }
+
+        public shellPS(args){
+            for(var i=0; i < ReadyQueue.length; i++){
+                _StdOut.putText(ReadyQueue[i]);
+            }
+
+            commandHistory[commandCount++] = "ps";
+            commandReference = commandCount;
+        }
+
+        public shellKill(args){
+            for(var i=0; i < ReadyQueue.length; i++){
+                if(ReadyQueue[i].PID == args[0]){
+                    ReadyQueue[i] = {};
+                }
+            }
+
+            commandHistory[commandCount++] = "kill";
+            commandReference = commandCount;
+        }
+
+        public shellRunAll(args){
+            for(var i=0; i < ResidentQueue.length; i++){
+                ReadyQueue[i] = ResidentQueue[i];
+            }
+
+            ReadyQueue[0].Status = "Running";
+
+            while(ResidentQueue.length > 0){
+                ResidentQueue.splice(0,1);
+            }
+
+
+            if(! _CPU.singleStep)
+                _CPU.isExecuting = true;
+
+            commandHistory[commandCount++] = "runall";
+            commandReference = commandCount;
         }
 
     }

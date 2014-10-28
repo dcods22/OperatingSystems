@@ -20,10 +20,17 @@
      Operating System Concepts 8th edition by Silberschatz, Galvin, and Gagne.  ISBN 978-0-470-12872-5
      ------------ */
 
+
+///<reference path='../jquery.d.ts' />
 //
 // Control Services
 //
 module TSOS {
+
+    var prevLog = "";
+    var prevCount = 1;
+    var lastID = "log0";
+    var logCount = 0;
 
     export class Control {
 
@@ -50,6 +57,7 @@ module TSOS {
 
         public static hostLog(msg: string, source: string = "?"): void {
             // Note the OS CLOCK.
+
             var clock: number = _OSclock;
 
             // Note the REAL clock in milliseconds since January 1, 1970.
@@ -58,7 +66,19 @@ module TSOS {
             // Build the log string.
             var str: string = "({ clock: " + clock + ", source: " + source + ", msg: " + msg + ", now: " + now  + " })"  + "\n";
 
-            var log = "<div id='osMessage'><span class='label label-success'>" + source + "</span> Msg: " + msg + " time:" + now + " </div>"
+            if(prevLog == msg){
+                //Update count
+                prevCount++;
+                var l = $("#host-log").find("#" + lastID);
+                l.find(".time").html(now);
+                l.find(".count").html(prevCount.toString());
+            }else{
+                prevCount = 1;
+                lastID = "log" + logCount++;
+                var log = "<div id='" + lastID + "'><span class='label label-success'>" + source + "</span> Msg: " + msg + " <span class='time'>time:" + now + "</span><span class='count'>1</span> </div>"
+            }
+
+            prevLog = msg;
 
             $("#host-log").prepend(log);
         }
@@ -109,17 +129,17 @@ module TSOS {
         }
 
         public static hostSingleStepMode_click(btn): void{
-            _CPU.singleStep = true;
-            document.getElementById("btnStep").disabled = false;
-            document.getElementById("btnSingleStepMode").disabled = true;
-            document.getElementById("btnDisableStep").disabled = false;
-        }
 
-        public static hostDisableSingleStep_click(btn): void{
-            _CPU.singleStep = false;
-            document.getElementById("btnStep").disabled = true;
-            document.getElementById("btnSingleStepMode").disabled = false;
-            document.getElementById("btnDisableStep").disabled = true;
+            if($("#btnSingleStepMode").val() == "Enable Step"){
+                _CPU.singleStep = true;
+                document.getElementById("btnStep").disabled = false;
+                $("#btnSingleStepMode").val("Disable Step");
+            } else if($("#btnSingleStepMode").val() == "Disable Step"){
+                _CPU.singleStep = false;
+                _CPU.isExecuting = true;
+                document.getElementById("btnStep").disabled = true;
+                $("#btnSingleStepMode").val("Enable Step");
+            }
         }
 
         public static hostSingleStep_click(btn): void{

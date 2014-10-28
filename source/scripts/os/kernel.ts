@@ -91,6 +91,8 @@ module TSOS {
             } else {                      // If there are no interrupts and there is nothing being executed then just be idle. {
                 this.krnTrace("Idle");
             }
+
+            _CPU.updateReadyQueue();
         }
 
 
@@ -178,6 +180,8 @@ module TSOS {
             _Canvas.style.backgroundColor = "#1028D9";
             _Canvas.style.color = 'white';
             _StdOut.putText("Blue Screen of Death!");
+
+            _CPU.isExecuting = false;
 
             this.krnShutdown();
         }

@@ -14,11 +14,17 @@ DOM manipulation and event handling, and so on.  (Index.html is -- obviously -- 
 This code references page numbers in the text book:
 Operating System Concepts 8th edition by Silberschatz, Galvin, and Gagne.  ISBN 978-0-470-12872-5
 ------------ */
+///<reference path='../jquery.d.ts' />
 //
 // Control Services
 //
 var TSOS;
 (function (TSOS) {
+    var prevLog = "";
+    var prevCount = 1;
+    var lastID = "log0";
+    var logCount = 0;
+
     var Control = (function () {
         function Control() {
         }
@@ -44,8 +50,8 @@ var TSOS;
         };
 
         Control.hostLog = function (msg, source) {
-            if (typeof source === "undefined") { source = "?"; }
             // Note the OS CLOCK.
+            if (typeof source === "undefined") { source = "?"; }
             var clock = _OSclock;
 
             // Note the REAL clock in milliseconds since January 1, 1970.
@@ -54,7 +60,19 @@ var TSOS;
             // Build the log string.
             var str = "({ clock: " + clock + ", source: " + source + ", msg: " + msg + ", now: " + now + " })" + "\n";
 
-            var log = "<div id='osMessage'><span class='label label-success'>" + source + "</span> Msg: " + msg + " time:" + now + " </div>";
+            if (prevLog == msg) {
+                //Update count
+                prevCount++;
+                var l = $("#host-log").find("#" + lastID);
+                l.find(".time").html(now);
+                l.find(".count").html(prevCount.toString());
+            } else {
+                prevCount = 1;
+                lastID = "log" + logCount++;
+                var log = "<div id='" + lastID + "'><span class='label label-success'>" + source + "</span> Msg: " + msg + " <span class='time'>time:" + now + "</span><span class='count'>1</span> </div>";
+            }
+
+            prevLog = msg;
 
             $("#host-log").prepend(log);
         };
@@ -107,17 +125,16 @@ var TSOS;
         };
 
         Control.hostSingleStepMode_click = function (btn) {
-            _CPU.singleStep = true;
-            document.getElementById("btnStep").disabled = false;
-            document.getElementById("btnSingleStepMode").disabled = true;
-            document.getElementById("btnDisableStep").disabled = false;
-        };
-
-        Control.hostDisableSingleStep_click = function (btn) {
-            _CPU.singleStep = false;
-            document.getElementById("btnStep").disabled = true;
-            document.getElementById("btnSingleStepMode").disabled = false;
-            document.getElementById("btnDisableStep").disabled = true;
+            if ($("#btnSingleStepMode").val() == "Enable Step") {
+                _CPU.singleStep = true;
+                document.getElementById("btnStep").disabled = false;
+                $("#btnSingleStepMode").val("Disable Step");
+            } else if ($("#btnSingleStepMode").val() == "Disable Step") {
+                _CPU.singleStep = false;
+                _CPU.isExecuting = true;
+                document.getElementById("btnStep").disabled = true;
+                $("#btnSingleStepMode").val("Enable Step");
+            }
         };
 
         Control.hostSingleStep_click = function (btn) {
