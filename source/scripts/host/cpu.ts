@@ -363,15 +363,23 @@ module TSOS {
                 }else if(exec == "NOP"){
                     PCB.PC++;
                 }else if(exec == "BRK"){
-                    this.isExecuting = false;
                     ReadyQueue.splice(0,1);
                     $("#queueTableBody").html("");
-                    _StdOut.advanceLine();
                     PCB.PC = 0;
+
+                    if(ReadyQueue.length == 0){
+                        this.isExecuting = false;
+                        _StdOut.advanceLine();
+                    }
+
                 }else{
                     _StdOut.putText("Invalid Op Code");
-                    this.isExecuting = false;
+
                     ReadyQueue.splice(0,1);
+
+                    if(ReadyQueue.length == 0){
+                        this.isExecuting = false;
+                    }
                 }
 
                 this.PC = PCB.PC;
@@ -478,6 +486,7 @@ module TSOS {
         }
 
         public swapReadyQueue(){
+            //TODO: last two dont finish
             var oldFirst = ReadyQueue[0];
 
             oldFirst.State = "Waiting";

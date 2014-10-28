@@ -25,7 +25,7 @@
     <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574073847" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/console.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411574073847" ignored="false" />
     <file path="$PROJECT_DIR$/source/styles/js/bootstrap.min.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412784731509" ignored="false" />
-    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414510835217" ignored="false" />
+    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414511034676" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +114,7 @@
       <file leaf-file-name="cpu.ts" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="479" column="32" selection-start="16719" selection-end="16719" vertical-scroll-proportion="0.6797753">
+            <state line="370" column="53" selection-start="13112" selection-end="13112" vertical-scroll-proportion="0.30898875">
               <folding />
             </state>
           </provider>
@@ -557,7 +557,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="479" column="32" selection-start="16719" selection-end="16719" vertical-scroll-proportion="0.6797753">
+        <state line="370" column="53" selection-start="13112" selection-end="13112" vertical-scroll-proportion="0.30898875">
           <folding />
         </state>
       </provider>
