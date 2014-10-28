@@ -534,6 +534,7 @@ module TSOS {
 
         public shellClearMem(args){
             _MemoryManager.resetMemory();
+            _MemoryManager.updateMemory();
 
             commandHistory[commandCount++] = "clearmem";
             commandReference = commandCount;

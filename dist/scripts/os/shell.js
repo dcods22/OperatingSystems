@@ -481,6 +481,7 @@ var TSOS;
 
         Shell.prototype.shellClearMem = function (args) {
             _MemoryManager.resetMemory();
+            _MemoryManager.updateMemory();
 
             commandHistory[commandCount++] = "clearmem";
             commandReference = commandCount;

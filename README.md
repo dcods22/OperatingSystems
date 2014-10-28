@@ -59,7 +59,7 @@ Assignment 3
 
 - [x] Display the Ready queue and its (PCB) contents (including process state) in real time.
 
-- [x] Add a shell command, ps, to display the PIDs of all active processes. Add a shell command, kill <pid>, to kill an active process.
+- [ ] Add a shell command, ps, to display the PIDs of all active processes. Add a shell command, kill <pid>, to kill an active process.
 
 - [x] Store multiple programs in memory, each in their own partition, allocated by the client OS (which obviously needs to keep track of available and used partitions).
 

@@ -363,6 +363,10 @@ var TSOS;
                     $("#queueTableBody").html("");
                     _StdOut.advanceLine();
                     PCB.PC = 0;
+                } else {
+                    _StdOut.putText("Invalid Op Code");
+                    this.isExecuting = false;
+                    ReadyQueue.splice(0, 1);
                 }
 
                 this.PC = PCB.PC;
@@ -468,14 +472,11 @@ var TSOS;
         };
 
         Cpu.prototype.swapReadyQueue = function () {
-            // TODO: Work on properly swapping the ready queue
             var oldFirst = ReadyQueue[0];
 
             oldFirst.State = "Waiting";
 
-            for (var i = 1; i < ReadyQueue.length - 1; i++) {
-                ReadyQueue[i - 1] = ReadyQueue[i];
-            }
+            ReadyQueue.splice(0, 1);
 
             ReadyQueue[ReadyQueue.length] = oldFirst;
 
