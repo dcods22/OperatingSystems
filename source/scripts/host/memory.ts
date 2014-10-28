@@ -33,7 +33,11 @@ export class Memory {
 
         for(var i=0; i < 96; i++){
 
-            memoryTable.append("<tr id='memory-row-" + i + "'>");
+            if(i % 32 == 0){
+                memoryTable.append("<tr id='memory-row-" + i + "' class='info'>");
+            }else{
+                memoryTable.append("<tr id='memory-row-" + i + "'>");
+            }
 
             var memoryRow = $("#memory-row-" + i);
 

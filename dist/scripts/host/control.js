@@ -20,6 +20,11 @@ Operating System Concepts 8th edition by Silberschatz, Galvin, and Gagne.  ISBN 
 //
 var TSOS;
 (function (TSOS) {
+    var prevLog = "";
+    var prevCount = 1;
+    var lastID = "log0";
+    var logCount = 0;
+
     var Control = (function () {
         function Control() {
         }
@@ -45,8 +50,8 @@ var TSOS;
         };
 
         Control.hostLog = function (msg, source) {
-            if (typeof source === "undefined") { source = "?"; }
             // Note the OS CLOCK.
+            if (typeof source === "undefined") { source = "?"; }
             var clock = _OSclock;
 
             // Note the REAL clock in milliseconds since January 1, 1970.
@@ -55,7 +60,19 @@ var TSOS;
             // Build the log string.
             var str = "({ clock: " + clock + ", source: " + source + ", msg: " + msg + ", now: " + now + " })" + "\n";
 
-            var log = "<div id='osMessage'><span class='label label-success'>" + source + "</span> Msg: " + msg + " time:" + now + " </div>";
+            if (prevLog == msg) {
+                //Update count
+                prevCount++;
+                var l = $("#host-log").find("#" + lastID);
+                l.find(".time").html(now);
+                l.find(".count").html(prevCount.toString());
+            } else {
+                prevCount = 1;
+                lastID = "log" + logCount++;
+                var log = "<div id='" + lastID + "'><span class='label label-success'>" + source + "</span> Msg: " + msg + " <span class='time'>time:" + now + "</span><span class='count'>1</span> </div>";
+            }
+
+            prevLog = msg;
 
             $("#host-log").prepend(log);
         };

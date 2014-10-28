@@ -27,6 +27,11 @@
 //
 module TSOS {
 
+    var prevLog = "";
+    var prevCount = 1;
+    var lastID = "log0";
+    var logCount = 0;
+
     export class Control {
 
         public static hostInit(): void {
@@ -52,6 +57,7 @@ module TSOS {
 
         public static hostLog(msg: string, source: string = "?"): void {
             // Note the OS CLOCK.
+
             var clock: number = _OSclock;
 
             // Note the REAL clock in milliseconds since January 1, 1970.
@@ -60,7 +66,19 @@ module TSOS {
             // Build the log string.
             var str: string = "({ clock: " + clock + ", source: " + source + ", msg: " + msg + ", now: " + now  + " })"  + "\n";
 
-            var log = "<div id='osMessage'><span class='label label-success'>" + source + "</span> Msg: " + msg + " time:" + now + " </div>"
+            if(prevLog == msg){
+                //Update count
+                prevCount++;
+                var l = $("#host-log").find("#" + lastID);
+                l.find(".time").html(now);
+                l.find(".count").html(prevCount.toString());
+            }else{
+                prevCount = 1;
+                lastID = "log" + logCount++;
+                var log = "<div id='" + lastID + "'><span class='label label-success'>" + source + "</span> Msg: " + msg + " <span class='time'>time:" + now + "</span><span class='count'>1</span> </div>"
+            }
+
+            prevLog = msg;
 
             $("#host-log").prepend(log);
         }

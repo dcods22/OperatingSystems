@@ -71,7 +71,7 @@ Assignment 3
 
 - [x] Create a Ready queue for the running processes.
 
-- [ ] Instantiate a PCB for each loaded program and put it in the Resident list.
+- [x] Instantiate a PCB for each loaded program and put it in the Resident list.
 
 - [ ] Develop a CPU scheduler in the client OS using Round Robin scheduling with the user-speciVied quantum measured in clock ticks (default = 6).
     - [ ] Make the client OS control the host CPU with the client OS CPU scheduler.
