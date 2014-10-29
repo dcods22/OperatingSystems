@@ -548,8 +548,13 @@ module TSOS {
         }
 
         public shellPS(args){
+
+            _StdOut.putText("PID PC  IR  ACC  X  Y  Z");
+            _StdOut.advanceLine();
+
             for(var i=0; i < ReadyQueue.length; i++){
-                _StdOut.putText(ReadyQueue[i]);
+                var PCB = ReadyQueue[i];
+                _StdOut.putText(" " + PCB.PID + "   " + PCB.PC + "  " + PCB.IR + "  " + PCB.Acc + "  " + PCB.X + "  " + PCB.Y + "  " + PCB.Z);
             }
 
             commandHistory[commandCount++] = "ps";

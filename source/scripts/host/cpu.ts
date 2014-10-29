@@ -315,7 +315,7 @@ module TSOS {
 
                     var value = _MemoryManager.getByLoc(finalLoc);
 
-                    value = parseInt(value,10) + 1;
+                    value = parseInt(value,16) + 1;
 
                     mem = "$" + hexLoc;
 
@@ -372,14 +372,6 @@ module TSOS {
                         _StdOut.advanceLine();
                     }
 
-                }else{
-                    _StdOut.putText("Invalid Op Code");
-
-                    ReadyQueue.splice(0,1);
-
-                    if(ReadyQueue.length == 0){
-                        this.isExecuting = false;
-                    }
                 }
 
                 this.PC = PCB.PC;
@@ -389,21 +381,30 @@ module TSOS {
                     _MemoryManager.updateMemory();
                     this.updateReadyQueue();
                 }
-            }
 
-            if(RR && ReadyQueue.length > 1){
-                if(rrCount == _Quantum){
-                    this.swapReadyQueue();
-                    rrCount = 0;
-                }else{
-                    rrCount++;
+                if(RR && ReadyQueue.length > 1){
+                    if(rrCount == _Quantum){
+                        this.swapReadyQueue();
+                        rrCount = 0;
+                    }else{
+                        rrCount++;
+                    }
                 }
-            }
 
-            $("#instruction-details").html(exec.toString() + " " + mem);
+                $("#instruction-details").html(exec.toString() + " " + mem);
 
-            if(this.singleStep || PCB.PC === PCBEnd){
-                this.isExecuting = false;
+                if(this.singleStep || PCB.PC === PCBEnd){
+                    this.isExecuting = false;
+                }
+
+            }else{
+                _StdOut.putText("Invalid Opcode");
+
+                ReadyQueue.splice(0,1);
+
+                if(ReadyQueue.length == 0){
+                    this.isExecuting = false;
+                }
             }
 
         }

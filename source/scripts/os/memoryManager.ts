@@ -18,17 +18,28 @@ module TSOS {
         }
 
         public getByLoc(loc){
-            var end = ReadyQueue[0].Limit + 1;
-            var pos = parseInt(loc,10) + ReadyQueue[0].Base;
+            if(_CPU.isExecuting){
+                var end = ReadyQueue[0].Limit;
+                var pos = parseInt(loc,16) + ReadyQueue[0].Base;
 
-            if(pos > end || pos < ReadyQueue[0].Base){
-                _Kernel.krnTrapError("Out Of Memory Error");
+                if(pos >= end || pos < ReadyQueue[0].Base){
+                    _Kernel.krnTrapError("Out Of Memory Error");
+                }
             }
 
             return _Memory.getByLoc(loc);
         }
 
         public setByLoc(loc, value) : void{
+            if(_CPU.isExecuting){
+                var end = ReadyQueue[0].Limit;
+                var pos = parseInt(loc,16) + ReadyQueue[0].Base;
+
+                if(pos >= end || pos < ReadyQueue[0].Base){
+                    _Kernel.krnTrapError("Out Of Memory Error");
+                }
+            }
+
             _Memory.setByLoc(loc, value);
         }
     }
