@@ -13,7 +13,7 @@
     <file path="/tsos.css" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411571750927" ignored="false" />
     <file path="/kernel.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411573711126" ignored="false" />
     <file path="/control.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411496593029" ignored="false" />
-    <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414597543141" ignored="false" />
+    <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414600128592" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriver.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414534234595" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/interrupt.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414534234595" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/cpu.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414534234595" ignored="false" />
@@ -25,7 +25,7 @@
     <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414534234595" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/console.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414534234595" ignored="false" />
     <file path="$PROJECT_DIR$/source/styles/js/bootstrap.min.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1412784731509" ignored="false" />
-    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414596677649" ignored="false" />
+    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414599369954" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/memory.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414534234595" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/pcb.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414534234595" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/canvastext.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414534234595" ignored="false" />
@@ -35,7 +35,7 @@
     <file path="$PROJECT_DIR$/dist/scripts/os/shellCommand.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414534234596" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/userCommand.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414534234596" ignored="false" />
     <file path="/memory.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414593390442" ignored="false" />
-    <file path="/memoryManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414596256439" ignored="false" />
+    <file path="/memoryManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414599793478" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,19 +94,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="187" column="53" selection-start="7758" selection-end="7758" vertical-scroll-proportion="-0.5714286">
+            <state line="79" column="5" selection-start="3446" selection-end="3446" vertical-scroll-proportion="0.8651685">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="control.ts" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/host/control.ts">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="62" selection-start="2489" selection-end="2489" vertical-scroll-proportion="0.0">
+            <state line="187" column="29" selection-start="7734" selection-end="7784" vertical-scroll-proportion="-4.0">
               <folding />
             </state>
           </provider>
@@ -121,28 +121,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cpu.ts" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="352" column="52" selection-start="12261" selection-end="12261" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="memoryManager.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="45" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0">
+            <state line="38" column="20" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="cpu.ts" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="87" selection-start="3034" selection-end="3034" vertical-scroll-proportion="0.71348315">
+            <state line="79" column="40" selection-start="2472" selection-end="2472" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -176,11 +167,11 @@
         <option value="$PROJECT_DIR$/source/scripts/globals.ts" />
         <option value="$PROJECT_DIR$/source/scripts/jquery.d.ts" />
         <option value="$PROJECT_DIR$/dist/styles/tsos.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/source/scripts/host/memory.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -548,37 +539,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="53" selection-start="7758" selection-end="7758" vertical-scroll-proportion="-0.5714286">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="0" selection-start="2814" selection-end="2814" vertical-scroll-proportion="1.4068966">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="352" column="52" selection-start="12261" selection-end="12261" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="45" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/control.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="62" selection-start="2489" selection-end="2489" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -590,9 +553,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/control.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="62" selection-start="2489" selection-end="2489" vertical-scroll-proportion="0.66151685">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="40" selection-start="2472" selection-end="2472" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="20" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="187" column="29" selection-start="7734" selection-end="7784" vertical-scroll-proportion="-4.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="87" selection-start="3034" selection-end="3034" vertical-scroll-proportion="0.71348315">
+        <state line="79" column="5" selection-start="3446" selection-end="3446" vertical-scroll-proportion="0.8651685">
           <folding />
         </state>
       </provider>

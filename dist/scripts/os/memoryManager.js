@@ -18,7 +18,7 @@ var TSOS;
         MemoryManager.prototype.getByLoc = function (loc) {
             if (_CPU.isExecuting) {
                 var end = ReadyQueue[0].Limit;
-                var pos = parseInt(loc, 16) + ReadyQueue[0].Base;
+                var pos = parseInt(loc, 16);
 
                 if (pos >= end || pos < ReadyQueue[0].Base) {
                     _Kernel.krnTrapError("Out Of Memory Error");
@@ -31,7 +31,7 @@ var TSOS;
         MemoryManager.prototype.setByLoc = function (loc, value) {
             if (_CPU.isExecuting) {
                 var end = ReadyQueue[0].Limit;
-                var pos = parseInt(loc, 16) + ReadyQueue[0].Base;
+                var pos = parseInt(loc, 16);
 
                 if (pos >= end || pos < ReadyQueue[0].Base) {
                     _Kernel.krnTrapError("Out Of Memory Error");

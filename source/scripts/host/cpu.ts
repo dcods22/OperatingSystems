@@ -60,6 +60,7 @@ module TSOS {
             var PCBEnd: number = PCB.Limit;
 
             var PCLoc = PCB.PC + PCBStart;
+
             var hexLoc = PCLoc.toString(16);
             var command = _MemoryManager.getByLoc(hexLoc);
             var exec = executions[command];
@@ -75,6 +76,8 @@ module TSOS {
                     PCLoc = PCB.PC + PCBStart;
                     hexLoc = PCLoc.toString(16);
                     PCB.PC++;
+
+                    console.log(hexLoc);
 
                     $("#memoryTable").find("#memory-label-" + PCLoc).addClass("parameter");
 
