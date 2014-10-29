@@ -75,7 +75,7 @@ Assignment 3
 
 - [x] Develop a CPU scheduler in the client OS using Round Robin scheduling with the user-specivied quantum measured in clock ticks (default = 6).
     - [x] Make the client OS control the host CPU with the client OS CPU scheduler.
-    - [ ] Log all scheduling events.
+    - [x] Log all scheduling events.
 
 - [ ] Implement context switches with software interrupts. Be sure to update the mode bit (if appropriate), the PCBs, and the Ready queue.
 

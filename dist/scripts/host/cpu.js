@@ -381,6 +381,7 @@ var TSOS;
 
                 if (RR && ReadyQueue.length > 1) {
                     if (rrCount == _Quantum) {
+                        TSOS.Control.hostLog("Scheduling Switch", "CPU");
                         this.swapReadyQueue();
                         rrCount = 0;
                     } else {
@@ -394,6 +395,7 @@ var TSOS;
                     this.isExecuting = false;
                 }
             } else {
+                TSOS.Control.hostLog("Invalid Opcode", "CPU");
                 _StdOut.putText("Invalid Opcode");
 
                 ReadyQueue.splice(0, 1);

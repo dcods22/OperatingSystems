@@ -387,6 +387,7 @@ module TSOS {
 
                 if(RR && ReadyQueue.length > 1){
                     if(rrCount == _Quantum){
+                        Control.hostLog("Scheduling Switch", "CPU");
                         this.swapReadyQueue();
                         rrCount = 0;
                     }else{
@@ -401,6 +402,7 @@ module TSOS {
                 }
 
             }else{
+                Control.hostLog("Invalid Opcode", "CPU");
                 _StdOut.putText("Invalid Opcode");
 
                 ReadyQueue.splice(0,1);
