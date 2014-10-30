@@ -387,7 +387,7 @@ module TSOS {
 
                 if(RR && ReadyQueue.length > 1){
                     if(rrCount == _Quantum){
-                        Control.hostLog("Scheduling Switch", "CPU");
+                        Control.hostLog("Scheduling Switch - RR", "CPU");
                         this.swapReadyQueue();
                         rrCount = 0;
                     }else{

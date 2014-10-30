@@ -17,7 +17,6 @@ textarea{
 
 #memory{
     height:145px;
-    overflow: scroll;
 }
 
 
@@ -29,14 +28,21 @@ textarea{
 .instruction{
     font-weight: bolder;
     color: #5cb85c;
+    font-size:15px;
 }
 
 .parameter{
     font-weight: bolder;
     color: #b31b1b;
+    font-size:15px;
 }
 
 .count{
     float:right;
     color:grey;
+}
+
+#tableBody{
+    height:105px;
+    overflow:scroll;
 }
