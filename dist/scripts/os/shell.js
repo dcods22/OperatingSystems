@@ -98,9 +98,10 @@ var TSOS;
             sc = new TSOS.ShellCommand(this.shellPS, "ps", "- Displays the running PID's");
 
             this.commandList[this.commandList.length] = sc;
+            sc = new TSOS.ShellCommand(this.shellKill, "kill", "<id> - Kills the program with that specific PID");
 
-            // processes - list the running processes and their IDs
-            // kill <id> - kills the specified process id.
+            this.commandList[this.commandList.length] = sc;
+
             //
             // Display the initial prompt.
             _StdOut.putText(this.dateAndTime);
@@ -508,10 +509,22 @@ var TSOS;
         };
 
         Shell.prototype.shellKill = function (args) {
+            var loc;
+
             for (var i = 0; i < ReadyQueue.length; i++) {
-                if (ReadyQueue[i].PID == args[0]) {
-                    ReadyQueue[i] = {};
+                if (ReadyQueue[i].PID.toString() == args[0]) {
+                    loc = i;
                 }
+            }
+
+            if (loc || loc == "0") {
+                ReadyQueue.splice(loc, 1);
+            } else {
+                _StdOut.putText("PID " + args[0] + " does not exist");
+            }
+
+            if (ReadyQueue.length == 0) {
+                _CPU.isExecuting = false;
             }
 
             commandHistory[commandCount++] = "kill";

@@ -77,8 +77,6 @@ module TSOS {
                     hexLoc = PCLoc.toString(16);
                     PCB.PC++;
 
-                    console.log(hexLoc);
-
                     $("#memoryTable").find("#memory-label-" + PCLoc).addClass("parameter");
 
                     var constant = _MemoryManager.getByLoc(hexLoc);
