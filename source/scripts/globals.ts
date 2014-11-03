@@ -23,6 +23,9 @@ var TIMER_IRQ: number = 0;  // Pages 23 (timer), 9 (interrupts), and 561 (interr
                             // NOTE: The timer is different from hardware/host clock pulses. Don't confuse these.
 var KEYBOARD_IRQ: number = 1;
 
+var CONTEXT_IRQ: number = 2;
+
+var SYSCALL_IRQ: number = 3;
 
 //
 // Global Variables

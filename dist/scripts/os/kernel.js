@@ -118,6 +118,12 @@ var TSOS;
                     _krnKeyboardDriver.isr(params); // Kernel mode device driver
                     _StdIn.handleInput();
                     break;
+                case CONTEXT_IRQ:
+                    this.swapReadyQueue();
+                    break;
+                case SYSCALL_IRQ:
+                    this.systemCall();
+                    break;
                 default:
                     this.krnTrapError("Invalid Interrupt Request. irq=" + irq + " params=[" + params + "]");
             }
@@ -172,6 +178,41 @@ var TSOS;
             _CPU.isExecuting = false;
 
             this.krnShutdown();
+        };
+
+        Kernel.prototype.swapReadyQueue = function () {
+            //TODO: last two dont finish
+            var oldFirst = ReadyQueue[0];
+
+            oldFirst.State = "Waiting";
+
+            ReadyQueue.splice(0, 1);
+
+            ReadyQueue[ReadyQueue.length] = oldFirst;
+
+            ReadyQueue[0].State = "Running";
+        };
+
+        Kernel.prototype.systemCall = function () {
+            var PCB = ReadyQueue[0];
+            if (PCB.X == 1) {
+                _StdOut.putText(PCB.Y.toString());
+            } else if (PCB.X == 2) {
+                //Loop through till 00
+                //print appropiate charaters
+                var newLoc = parseInt(PCB.Y, 16) + PCB.Base;
+                var currentLoc = newLoc.toString(16);
+                var constant3 = _MemoryManager.getByLoc(currentLoc);
+
+                while (constant3 != "00") {
+                    var letterVal = parseInt(constant3, 16);
+                    var letter = String.fromCharCode(letterVal);
+                    _StdOut.putText(letter);
+                    var intLoc = parseInt(currentLoc.toString(), 16) + 1;
+                    currentLoc = intLoc.toString(16);
+                    constant3 = _MemoryManager.getByLoc(currentLoc);
+                }
+            }
         };
         return Kernel;
     })();

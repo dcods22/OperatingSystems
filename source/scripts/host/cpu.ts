@@ -342,25 +342,7 @@ module TSOS {
 
                     mem = "#" + constant;
                 }else if(exec == "SYS"){
-                    if(PCB.X == 1){
-                        _StdOut.putText(PCB.Y.toString());
-                    }else if(PCB.X == 2){
-                        //Loop through till 00
-                        //print appropiate charaters
-
-                        var newLoc:any = parseInt(PCB.Y, 16) + PCBStart;
-                        var currentLoc = newLoc.toString(16);
-                        var constant3 = _MemoryManager.getByLoc(currentLoc);
-
-                        while(constant3 != "00"){
-                            var letterVal = parseInt(constant3,16);
-                            var letter = String.fromCharCode(letterVal);
-                            _StdOut.putText(letter);
-                            var intLoc = parseInt(currentLoc.toString(), 16) + 1;
-                            currentLoc = intLoc.toString(16);
-                            constant3 = _MemoryManager.getByLoc(currentLoc);
-                        }
-                    }
+                    _KernelInterruptQueue.enqueue(new Interrupt(SYSCALL_IRQ, ""));
                 }else if(exec == "NOP"){
                     PCB.PC++;
                 }else if(exec == "BRK"){
@@ -386,7 +368,8 @@ module TSOS {
                 if(RR && ReadyQueue.length > 1){
                     if(rrCount == _Quantum){
                         Control.hostLog("Scheduling Switch - RR", "CPU");
-                        this.swapReadyQueue();
+                        _KernelInterruptQueue.enqueue(new Interrupt(CONTEXT_IRQ, ""));
+                        //this.swapReadyQueue();
                         rrCount = 0;
                     }else{
                         rrCount++;
@@ -490,7 +473,6 @@ module TSOS {
         }
 
         public swapReadyQueue(){
-            //TODO: last two dont finish
             var oldFirst = ReadyQueue[0];
 
             oldFirst.State = "Waiting";
