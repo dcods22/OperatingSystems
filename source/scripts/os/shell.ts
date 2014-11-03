@@ -483,14 +483,27 @@ module TSOS {
                     }
                 }
 
-                ReadyQueue[0] = ResidentQueue[args[0]];
 
-                var p = parseInt(args[0]);
-                ResidentQueue.splice(p,1);
-                ReadyQueue[0].State = "Running";
-                ReadyQueue[0].Location = "Memory";
-                if(! _CPU.singleStep)
-                    _CPU.isExecuting = true;
+                var p;
+
+                for(var i=0; i < ResidentQueue.length; i++){
+                    if(ResidentQueue[i].PID == args[0]){
+                        p = i;
+                    }
+                }
+
+                if(p || p == 0){
+                    ReadyQueue[0] = ResidentQueue[p];
+                    ResidentQueue.splice(p,1);
+                    ReadyQueue[0].State = "Running";
+                    ReadyQueue[0].Location = "Memory";
+
+                    if(! _CPU.singleStep){
+                        _CPU.isExecuting = true;
+                    }
+                }else{
+                    _StdOut.putText("Invalid Program ID");
+                }
             }else{
                 _StdOut.putText("Need a Program ID");
             }

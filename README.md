@@ -77,6 +77,6 @@ Assignment 3
     - [x] Make the client OS control the host CPU with the client OS CPU scheduler.
     - [x] Log all scheduling events.
 
-- [ ] Implement context switches with software interrupts. Be sure to update the mode bit (if appropriate), the PCBs, and the Ready queue.
+- [x] Implement context switches with software interrupts. Be sure to update the mode bit (if appropriate), the PCBs, and the Ready queue.
 
 - [x] Detect and gracefully handle errors like invalid op codes, missing operands (if you can detect that), and most importantly, memory out of bounds access attempts.
