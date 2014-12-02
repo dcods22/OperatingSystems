@@ -80,3 +80,34 @@ Assignment 3
 - [x] Implement context switches with software interrupts. Be sure to update the mode bit (if appropriate), the PCBs, and the Ready queue.
 
 - [x] Detect and gracefully handle errors like invalid op codes, missing operands (if you can detect that), and most importantly, memory out of bounds access attempts.
+
+
+Assignment 4
+============
+
+Add shell commands for the following disk operations:
+- [ ] create <filename> — Create the File "ilename and display a message denoting success or failure.
+- [ ] read <filename> — Read and display the contents of "ilename or display an error if something went wrong.
+- [ ] write <filename> “data” — Write the data inside the quotes to "ilename and display a message denoting success or failure.
+- [ ] delete <filename> — Remove "ilename from storage and display a message denoting success or failure.
+- [ ] format — Initialize all blocks in all sectors in all tracks and display a message denoting success or failure.
+
+- [ ] Add a shell command, ls, to list the Files currently stored on the disk.
+- [ ] Add a shell command to allow the user to select a CPU scheduling algorithm — setschedule [rr, fcfs, priority]
+- [ ] Add a shell command, getschedule, to return the currently selected cpu scheduling algorithm.
+
+- [ ] Implement a File system in HTML5 web storage as discussed in class.
+- [ ] Include a File system viewer in your OS interface.
+
+- [ ] Develop a File System Device Driver (fsDD) for all of the functional requirements noted above.
+- [ ] Load the fsDD in a similar manner as the keyboard device driver.
+- [ ] Develop your fsDD to insulate and encapsulate the implementation of the kernel-level I/O operations (noted above) from the byte-level details of your individual blocks on the local storage.
+
+Add new scheduling algorithms to your CPU scheduler:
+- [ ] Default to RR. First-come, First-served (FCFS) non-preemptive priority (You will need an optional load parameter here.)
+- [ ] Implement swapped virtual memory with enough physical memory for three concurrent user processes.
+
+- [ ] Allow the OS to execute four concurrent user process by writing roll-out and roll-in routines to . . .
+    - [ ] Take a ready process and store it to the disk via your fsDD.
+    - [ ] Load a swapped-out process and place it in the ready queue.
+    - [ ] Your ready queue should denote which processes are where.
