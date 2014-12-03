@@ -97,3 +97,6 @@ var PCBEnd = 255;
 //CPU Scheduling
 var _Quantum = 6;
 var RR = true;
+var FCFS = false;
+var Priority = false;
+var scheduling = "round robin";

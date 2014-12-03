@@ -142,11 +142,25 @@ module TSOS {
                 "- Displays the running PID's");
 
             this.commandList[this.commandList.length] = sc;
+
             sc = new ShellCommand(this.shellKill,
                 "kill",
                 "<id> - Kills the program with that specific PID");
 
             this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellGetSchedule,
+                "getschedule",
+                "displays the current scheduling alrogithm");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellSetSchedule,
+                "setschedule",
+                "<string> - The string of the new scheduling algorithm");
+
+            this.commandList[this.commandList.length] = sc;
+
             //
             // Display the initial prompt.
             _StdOut.putText(this.dateAndTime);
@@ -454,7 +468,13 @@ module TSOS {
 
                 _MemoryManager.updateMemory();
 
-                ResidentQueue[PID] = new PCB(PCBStart, PCBEnd, PID);
+                var priority = args[0];
+
+                if(!args[0]){
+                    priority = 0;
+                }
+
+                ResidentQueue[PID] = new PCB(PCBStart, PCBEnd, PID, priority);
 
                 PID++;
 
@@ -482,7 +502,6 @@ module TSOS {
                         ReadyQueue[i + 1] = ReadyQueue[i];
                     }
                 }
-
 
                 var p;
 
@@ -600,16 +619,49 @@ module TSOS {
         }
 
         public shellRunAll(args){
-            for(var i=0; i < ResidentQueue.length; i++){
-                ReadyQueue[i] = ResidentQueue[i];
-            }
 
-            ReadyQueue[0].Status = "Running";
+            if(Priority){
 
-            while(ResidentQueue.length > 0){
+                ReadyQueue[0] = ResidentQueue[0];
                 ResidentQueue.splice(0,1);
-            }
 
+                while(ResidentQueue.length > 0){
+                    for(var i=0; i <= ReadyQueue.length; i++){
+                        if(ResidentQueue[0].Priority > ReadyQueue[i].Priority){
+                            var len = ReadyQueue.length;
+
+                            for(var n=i; n < len; n++){
+                                ReadyQueue[n + 1] = ReadyQueue[n];
+                            }
+
+                            ReadyQueue[i] = ResidentQueue[0];
+                            ResidentQueue.splice(0,1);
+
+                            break;
+                        }else if(i == (ReadyQueue.length - 1)){
+                            ReadyQueue[i+1] = ResidentQueue[0];
+                            ResidentQueue.splice(0,1);
+
+                            break;
+                        }
+                    }
+
+
+                }
+
+                ReadyQueue[0].Status = "Running";
+
+            }else{
+                for(var i=0; i < ResidentQueue.length; i++){
+                    ReadyQueue[i] = ResidentQueue[i];
+                }
+
+                ReadyQueue[0].Status = "Running";
+
+                while(ResidentQueue.length > 0){
+                    ResidentQueue.splice(0,1);
+                }
+            }
 
             if(! _CPU.singleStep)
                 _CPU.isExecuting = true;
@@ -618,5 +670,36 @@ module TSOS {
             commandReference = commandCount;
         }
 
+        public shellGetSchedule(args){
+            _StdOut.putText("Scheduling Algorith: " + scheduling);
+
+
+            commandHistory[commandCount++] = "getschedule " + args[0];
+            commandReference = commandCount;
+        }
+
+        public shellSetSchedule(args){
+            if(args[0] == "rr"){
+                RR = true;
+                FCFS = false;
+                Priority = false;
+                scheduling = "rr";
+            }else if(args[0] == "fcfs"){
+                RR = false;
+                FCFS = true;
+                Priority = false;
+                scheduling = "fcfs";
+            }else if(args[0] == "priority"){
+                RR = false;
+                FCFS = false;
+                Priority = true;
+                scheduling = "priority";
+            }else{
+                _StdOut.putText("You must choose RR, FCFS, or Priority");
+            }
+
+            commandHistory[commandCount++] = "setschedule " + args[0];
+            commandReference = commandCount;
+        }
     }
 }
