@@ -111,6 +111,10 @@ var TSOS;
 
             this.commandList[this.commandList.length] = sc;
 
+            sc = new TSOS.ShellCommand(this.shellHDForm, "format", "- Formats the Hard Drive");
+
+            this.commandList[this.commandList.length] = sc;
+
             //
             // Display the initial prompt.
             _StdOut.putText(this.dateAndTime);
@@ -618,21 +622,36 @@ var TSOS;
                 FCFS = false;
                 Priority = false;
                 scheduling = "rr";
+
+                _StdOut.putText("Your Scheduling Algorithm was changed to Round Robin");
             } else if (args[0] == "fcfs") {
                 RR = false;
                 FCFS = true;
                 Priority = false;
                 scheduling = "fcfs";
+
+                _StdOut.putText("Your Scheduling Algorithm was changed to First Come First Served");
             } else if (args[0] == "priority") {
                 RR = false;
                 FCFS = false;
-                Priority = true;
                 scheduling = "priority";
+                Priority = true;
+
+                _StdOut.putText("Your Scheduling Algorithm was changed to Priority");
             } else {
                 _StdOut.putText("You must choose RR, FCFS, or Priority");
             }
 
             commandHistory[commandCount++] = "setschedule " + args[0];
+            commandReference = commandCount;
+        };
+
+        Shell.prototype.shellHDFormat = function (args) {
+            _HDManager.resetHardDrive();
+
+            _StdOut.putText("Hard Drive has been Formatted");
+
+            commandHistory[commandCount++] = "format";
             commandReference = commandCount;
         };
         return Shell;

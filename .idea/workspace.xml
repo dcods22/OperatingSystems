@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411517267798" ignored="false" />
     <file path="/globals.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417574442354" ignored="false" />
-    <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417571311578" ignored="false" />
+    <file path="/shell.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417615999848" ignored="false" />
     <file path="/console.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1411437899056" ignored="false" />
     <file path="/deviceDriverKeyboard.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1410464782602" ignored="false" />
     <file path="/index.html" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417573139379" ignored="false" />
@@ -117,6 +117,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="shell.ts" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="693" column="85" selection-start="22974" selection-end="22974" vertical-scroll-proportion="0.42068964">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="harddrive.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/host/harddrive.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -126,10 +135,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hdManager.ts" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="hdManager.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/hdManager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="43" selection-start="185" selection-end="185" vertical-scroll-proportion="0.11586207">
+            <state line="7" column="43" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -161,7 +170,6 @@
         <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/pcb.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
         <option value="$PROJECT_DIR$/dist/styles/tsos.css" />
         <option value="$PROJECT_DIR$/index.html" />
@@ -169,6 +177,7 @@
         <option value="$PROJECT_DIR$/source/scripts/host/harddrive.ts" />
         <option value="$PROJECT_DIR$/source/scripts/globals.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/hdManager.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
       </list>
     </option>
   </component>
@@ -508,13 +517,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="676" column="58" selection-start="22436" selection-end="22436" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/pcb.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="35" selection-start="845" selection-end="845" vertical-scroll-proportion="0.0">
@@ -587,7 +589,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/hdManager.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="43" selection-start="185" selection-end="185" vertical-scroll-proportion="0.11586207">
+        <state line="7" column="43" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="693" column="85" selection-start="22974" selection-end="22974" vertical-scroll-proportion="0.42068964">
           <folding />
         </state>
       </provider>
