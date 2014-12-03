@@ -111,7 +111,7 @@ var TSOS;
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new TSOS.ShellCommand(this.shellHDForm, "format", "- Formats the Hard Drive");
+            sc = new TSOS.ShellCommand(this.shellHDFormat, "format", "- Formats the Hard Drive");
 
             this.commandList[this.commandList.length] = sc;
 

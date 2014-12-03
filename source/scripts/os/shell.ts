@@ -161,7 +161,7 @@ module TSOS {
 
             this.commandList[this.commandList.length] = sc;
 
-            sc = new ShellCommand(this.shellHDForm,
+            sc = new ShellCommand(this.shellHDFormat,
                 "format",
                 "- Formats the Hard Drive");
 

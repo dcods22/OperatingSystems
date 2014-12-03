@@ -90,18 +90,18 @@ Add shell commands for the following disk operations:
 - [ ] read <filename> — Read and display the contents of filename or display an error if something went wrong.
 - [ ] write <filename> “data” — Write the data inside the quotes to filename and display a message denoting success or failure.
 - [ ] delete <filename> — Remove filename from storage and display a message denoting success or failure.
-- [ ] format — Initialize all blocks in all sectors in all tracks and display a message denoting success or failure.
+- [x] format — Initialize all blocks in all sectors in all tracks and display a message denoting success or failure.
 
 - [ ] Add a shell command, ls, to list the Files currently stored on the disk.
 - [x] Add a shell command to allow the user to select a CPU scheduling algorithm — setschedule [rr, fcfs, priority]
 - [x] Add a shell command, getschedule, to return the currently selected cpu scheduling algorithm.
 
-- [ ] Implement a File system in HTML5 web storage as discussed in class.
+- [x] Implement a File system in HTML5 web storage as discussed in class.
 - [x] Include a File system viewer in your OS interface.
 
-- [ ] Develop a File System Device Driver (fsDD) for all of the functional requirements noted above.
-- [ ] Load the fsDD in a similar manner as the keyboard device driver.
-- [ ] Develop your fsDD to insulate and encapsulate the implementation of the kernel-level I/O operations (noted above) from the byte-level details of your individual blocks on the local storage.
+Develop a File System Device Driver (fsDD) for all of the functional requirements noted above.
+- [x] Load the fsDD in a similar manner as the keyboard device driver.
+- [x] Develop your fsDD to insulate and encapsulate the implementation of the kernel-level I/O operations (noted above) from the byte-level details of your individual blocks on the local storage.
 
 Add new scheduling algorithms to your CPU scheduler:
 - [x] Default to RR. First-come, First-served (FCFS)

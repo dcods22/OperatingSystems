@@ -48,6 +48,10 @@ textarea{
 }
 
 #hardDrive{
-    overflow:scroll;
     height:200px;
+}
+
+#hdTableOverflow{
+    overflow:scroll;
+    height:140px;
 }
