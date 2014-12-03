@@ -46,3 +46,8 @@ textarea{
     height:105px;
     overflow:scroll;
 }
+
+#hardDrive{
+    overflow:scroll;
+    height:200px;
+}

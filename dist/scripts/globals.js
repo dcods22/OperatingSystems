@@ -31,6 +31,9 @@ var SYSCALL_IRQ = 3;
 var _MemoryManager;
 var _Memory;
 
+var _HDManager;
+var _HardDrive;
+
 var _CPU;
 
 var _OSclock = 0;

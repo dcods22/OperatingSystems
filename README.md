@@ -97,14 +97,16 @@ Add shell commands for the following disk operations:
 - [x] Add a shell command, getschedule, to return the currently selected cpu scheduling algorithm.
 
 - [ ] Implement a File system in HTML5 web storage as discussed in class.
-- [ ] Include a File system viewer in your OS interface.
+- [x] Include a File system viewer in your OS interface.
 
 - [ ] Develop a File System Device Driver (fsDD) for all of the functional requirements noted above.
 - [ ] Load the fsDD in a similar manner as the keyboard device driver.
 - [ ] Develop your fsDD to insulate and encapsulate the implementation of the kernel-level I/O operations (noted above) from the byte-level details of your individual blocks on the local storage.
 
 Add new scheduling algorithms to your CPU scheduler:
-- [x] Default to RR. First-come, First-served (FCFS) non-preemptive priority (You will need an optional load parameter here.)
+- [x] Default to RR. First-come, First-served (FCFS)
+- [x] non-preemptive priority (You will need an optional load parameter here.)
+
 - [ ] Implement swapped virtual memory with enough physical memory for three concurrent user processes.
 
 - [ ] Allow the OS to execute four concurrent user process by writing roll-out and roll-in routines to . . .
