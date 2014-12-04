@@ -675,7 +675,6 @@ var TSOS;
 
         Shell.prototype.shellCreate = function (args) {
             _KernelInterruptQueue.enqueue(new TSOS.Interrupt(CREATE_IRQ, args[0]));
-            _StdOut.putText(args[0] + " has been created");
 
             commandHistory[commandCount++] = "create " + args[0];
             commandReference = commandCount;
@@ -683,7 +682,6 @@ var TSOS;
 
         Shell.prototype.shellRead = function (args) {
             _KernelInterruptQueue.enqueue(new TSOS.Interrupt(READ_IRQ, args[0]));
-            _StdOut.putText(args[0] + "has been read");
 
             commandHistory[commandCount++] = "read " + args[0];
             commandReference = commandCount;
@@ -693,7 +691,6 @@ var TSOS;
             var write = args[0] + "%%" + args[1];
 
             _KernelInterruptQueue.enqueue(new TSOS.Interrupt(WRITE_IRQ, write));
-            _StdOut.putText(args[0] + " has been created");
 
             commandHistory[commandCount++] = "write " + args[0];
             commandReference = commandCount;
@@ -701,7 +698,6 @@ var TSOS;
 
         Shell.prototype.shellDelete = function (args) {
             _KernelInterruptQueue.enqueue(new TSOS.Interrupt(DELETE_IRQ, args[0]));
-            _StdOut.putText(args[0] + " Has been deleted");
 
             commandHistory[commandCount++] = "delete " + args[0];
             commandReference = commandCount;

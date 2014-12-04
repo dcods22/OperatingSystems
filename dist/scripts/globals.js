@@ -99,3 +99,6 @@ var RR = true;
 var FCFS = false;
 var Priority = false;
 var scheduling = "round robin";
+
+//HD Variables
+var fileList = [];

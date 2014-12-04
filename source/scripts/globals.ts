@@ -29,9 +29,6 @@ var READ_IRQ: number = 6;
 var WRITE_IRQ: number = 7;
 var DELETE_IRQ: number = 8;
 
-
-
-
 //
 // Global Variables
 //
@@ -108,3 +105,6 @@ var RR = true;
 var FCFS = false;
 var Priority = false;
 var scheduling = "round robin";
+
+//HD Variables
+var fileList = [];

@@ -27,6 +27,7 @@ module TSOS {
             _Console = new Console();          // The command line interface / console I/O device.
             _MemoryManager = new MemoryManager();
             _HardDrive = new HardDrive();
+            _HDManager = new HDManager();
 
             // Initialize the console.
             _Console.init();

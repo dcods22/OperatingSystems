@@ -752,7 +752,6 @@ module TSOS {
         public shellCreate(args){
 
             _KernelInterruptQueue.enqueue(new Interrupt(CREATE_IRQ, args[0]));
-            _StdOut.putText(args[0] + " has been created");
 
             commandHistory[commandCount++] = "create " + args[0];
             commandReference = commandCount;
@@ -761,7 +760,6 @@ module TSOS {
         public shellRead(args){
 
             _KernelInterruptQueue.enqueue(new Interrupt(READ_IRQ, args[0]));
-            _StdOut.putText(args[0] + "has been read");
 
             commandHistory[commandCount++] = "read " + args[0];
             commandReference = commandCount;
@@ -772,7 +770,6 @@ module TSOS {
             var write = args[0] + "%%" + args[1];
 
             _KernelInterruptQueue.enqueue(new Interrupt(WRITE_IRQ, write));
-            _StdOut.putText(args[0] + " has been created");
 
             commandHistory[commandCount++] = "write " + args[0];
             commandReference = commandCount;
@@ -781,7 +778,6 @@ module TSOS {
         public shellDelete(args){
 
             _KernelInterruptQueue.enqueue(new Interrupt(DELETE_IRQ, args[0]));
-            _StdOut.putText(args[0] + " Has been deleted");
 
             commandHistory[commandCount++] = "delete " + args[0];
             commandReference = commandCount;

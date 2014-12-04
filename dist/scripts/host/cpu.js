@@ -348,6 +348,7 @@ var TSOS;
 
                     if (ReadyQueue.length == 0) {
                         this.isExecuting = false;
+                        this.removeFromResidentQueue(PCB.PID);
                         _StdOut.advanceLine();
                     }
                 }
@@ -364,8 +365,6 @@ var TSOS;
                     if (rrCount == _Quantum) {
                         TSOS.Control.hostLog("Scheduling Switch - RR", "CPU");
                         _KernelInterruptQueue.enqueue(new TSOS.Interrupt(CONTEXT_IRQ, ""));
-
-                        //this.swapReadyQueue();
                         rrCount = 0;
                     } else {
                         rrCount++;
@@ -476,6 +475,14 @@ var TSOS;
             ReadyQueue[ReadyQueue.length] = oldFirst;
 
             ReadyQueue[0].State = "Running";
+        };
+
+        Cpu.prototype.removeFromResidentQueue = function (PID) {
+            for (var i = 0; i < ResidentQueue.length; i++) {
+                if (ResidentQueue[i].PID = PID) {
+                    ResidentQueue.splice(i, 1);
+                }
+            }
         };
         return Cpu;
     })();

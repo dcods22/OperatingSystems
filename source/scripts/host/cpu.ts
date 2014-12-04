@@ -352,6 +352,7 @@ module TSOS {
 
                     if(ReadyQueue.length == 0){
                         this.isExecuting = false;
+                        this.removeFromResidentQueue(PCB.PID);
                         _StdOut.advanceLine();
                     }
 
@@ -369,7 +370,6 @@ module TSOS {
                     if(rrCount == _Quantum){
                         Control.hostLog("Scheduling Switch - RR", "CPU");
                         _KernelInterruptQueue.enqueue(new Interrupt(CONTEXT_IRQ, ""));
-                        //this.swapReadyQueue();
                         rrCount = 0;
                     }else{
                         rrCount++;
@@ -482,6 +482,14 @@ module TSOS {
             ReadyQueue[ReadyQueue.length] = oldFirst;
 
             ReadyQueue[0].State = "Running";
+        }
+
+        public removeFromResidentQueue(PID){
+            for(var i=0; i < ResidentQueue.length; i++){
+                if(ResidentQueue[i].PID = PID){
+                    ResidentQueue.splice(i,1);
+                }
+            }
         }
 
     }

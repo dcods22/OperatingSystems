@@ -24,6 +24,7 @@ var TSOS;
             _Console = new TSOS.Console(); // The command line interface / console I/O device.
             _MemoryManager = new TSOS.MemoryManager();
             _HardDrive = new TSOS.HardDrive();
+            _HDManager = new TSOS.HDManager();
 
             // Initialize the console.
             _Console.init();
