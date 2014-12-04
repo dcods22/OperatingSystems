@@ -89,10 +89,10 @@ Add shell commands for the following disk operations:
 - [x] create <filename> — Create the File filename and display a message denoting success or failure.
 - [ ] read <filename> — Read and display the contents of filename or display an error if something went wrong.
 - [x] write <filename> “data” — Write the data inside the quotes to filename and display a message denoting success or failure.
-- [ ] delete <filename> — Remove filename from storage and display a message denoting success or failure.
+- [x] delete <filename> — Remove filename from storage and display a message denoting success or failure.
 - [x] format — Initialize all blocks in all sectors in all tracks and display a message denoting success or failure.
 
-- [ ] Add a shell command, ls, to list the Files currently stored on the disk.
+- [x] Add a shell command, ls, to list the Files currently stored on the disk.
 - [x] Add a shell command to allow the user to select a CPU scheduling algorithm — setschedule [rr, fcfs, priority]
 - [x] Add a shell command, getschedule, to return the currently selected cpu scheduling algorithm.
 

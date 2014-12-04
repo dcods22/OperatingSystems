@@ -190,6 +190,13 @@ module TSOS {
                 "<string> - deletes a file on the hard drive with a filename");
 
             this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellLS,
+                "ls",
+                "- Lists the files on the File System");
+
+            this.commandList[this.commandList.length] = sc;
+
             //
             // Display the initial prompt.
             _StdOut.putText(this.dateAndTime);
@@ -781,6 +788,18 @@ module TSOS {
 
             commandHistory[commandCount++] = "delete " + args[0];
             commandReference = commandCount;
+        }
+
+        public shellLS(args){
+            _StdOut.putText("Current Files Are...")
+
+            for(var i=0; i < fileList.length; i++){
+                _StdOut.putText(fileList[i] + ", ");
+            }
+
+            commandHistory[commandCount++] = "delete " + args[0];
+            commandReference = commandCount;
+
         }
     }
 }

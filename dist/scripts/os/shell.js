@@ -131,6 +131,10 @@ var TSOS;
 
             this.commandList[this.commandList.length] = sc;
 
+            sc = new TSOS.ShellCommand(this.shellLS, "ls", "- Lists the files on the File System");
+
+            this.commandList[this.commandList.length] = sc;
+
             //
             // Display the initial prompt.
             _StdOut.putText(this.dateAndTime);
@@ -698,6 +702,17 @@ var TSOS;
 
         Shell.prototype.shellDelete = function (args) {
             _KernelInterruptQueue.enqueue(new TSOS.Interrupt(DELETE_IRQ, args[0]));
+
+            commandHistory[commandCount++] = "delete " + args[0];
+            commandReference = commandCount;
+        };
+
+        Shell.prototype.shellLS = function (args) {
+            _StdOut.putText("Current Files Are...");
+
+            for (var i = 0; i < fileList.length; i++) {
+                _StdOut.putText(fileList[i] + ", ");
+            }
 
             commandHistory[commandCount++] = "delete " + args[0];
             commandReference = commandCount;
