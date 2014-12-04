@@ -100,8 +100,8 @@ Add shell commands for the following disk operations:
 - [x] Include a File system viewer in your OS interface.
 
 Develop a File System Device Driver (fsDD) for all of the functional requirements noted above.
-- [x] Load the fsDD in a similar manner as the keyboard device driver.
-- [x] Develop your fsDD to insulate and encapsulate the implementation of the kernel-level I/O operations (noted above) from the byte-level details of your individual blocks on the local storage.
+- [ ] Load the fsDD in a similar manner as the keyboard device driver.
+- [ ] Develop your fsDD to insulate and encapsulate the implementation of the kernel-level I/O operations (noted above) from the byte-level details of your individual blocks on the local storage.
 
 Add new scheduling algorithms to your CPU scheduler:
 - [x] Default to RR. First-come, First-served (FCFS)

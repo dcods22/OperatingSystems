@@ -125,6 +125,22 @@ var TSOS;
                 case SYSCALL_IRQ:
                     this.systemCall();
                     break;
+                case FORMAT_IRQ:
+                    _HDManager.resetHardDrive();
+                    _StdOut.putText("Hard Drive has been Formatted");
+                    break;
+                case CREATE_IRQ:
+                    _HDManager.createFile(params);
+                    break;
+                case READ_IRQ:
+                    _HDManager.readFile(params);
+                    break;
+                case WRITE_IRQ:
+                    _HDManager.writeFile(params);
+                    break;
+                case DELETE_IRQ:
+                    _HDManager.deleteFile(params);
+                    break;
                 default:
                     this.krnTrapError("Invalid Interrupt Request. irq=" + irq + " params=[" + params + "]");
             }

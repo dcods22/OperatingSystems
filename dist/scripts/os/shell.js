@@ -115,6 +115,22 @@ var TSOS;
 
             this.commandList[this.commandList.length] = sc;
 
+            sc = new TSOS.ShellCommand(this.shellCreate, "create", "<string> - Creates a file on the hard drive with a filename");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new TSOS.ShellCommand(this.shellRead, "read", "<string> - reads a file on the hard drive with a filename");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new TSOS.ShellCommand(this.shellWrite, "write", "<string> <string> - writes the data in the \" \" to the HD with a file name");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new TSOS.ShellCommand(this.shellDelete, "delete", "<string> - deletes a file on the hard drive with a filename");
+
+            this.commandList[this.commandList.length] = sc;
+
             //
             // Display the initial prompt.
             _StdOut.putText(this.dateAndTime);
@@ -647,11 +663,47 @@ var TSOS;
         };
 
         Shell.prototype.shellHDFormat = function (args) {
-            _HDManager.resetHardDrive();
-
-            _StdOut.putText("Hard Drive has been Formatted");
+            if (_CPU.isExecuting) {
+                _StdOut.putText("Cannot format hard drive since CPU is executing");
+            } else {
+                _KernelInterruptQueue.enqueue(new TSOS.Interrupt(FORMAT_IRQ, ""));
+            }
 
             commandHistory[commandCount++] = "format";
+            commandReference = commandCount;
+        };
+
+        Shell.prototype.shellCreate = function (args) {
+            _KernelInterruptQueue.enqueue(new TSOS.Interrupt(CREATE_IRQ, args[0]));
+            _StdOut.putText(args[0] + " has been created");
+
+            commandHistory[commandCount++] = "create " + args[0];
+            commandReference = commandCount;
+        };
+
+        Shell.prototype.shellRead = function (args) {
+            _KernelInterruptQueue.enqueue(new TSOS.Interrupt(READ_IRQ, args[0]));
+            _StdOut.putText(args[0] + "has been read");
+
+            commandHistory[commandCount++] = "read " + args[0];
+            commandReference = commandCount;
+        };
+
+        Shell.prototype.shellWrite = function (args) {
+            var write = args[0] + "%%" + args[1];
+
+            _KernelInterruptQueue.enqueue(new TSOS.Interrupt(WRITE_IRQ, write));
+            _StdOut.putText(args[0] + " has been created");
+
+            commandHistory[commandCount++] = "write " + args[0];
+            commandReference = commandCount;
+        };
+
+        Shell.prototype.shellDelete = function (args) {
+            _KernelInterruptQueue.enqueue(new TSOS.Interrupt(DELETE_IRQ, args[0]));
+            _StdOut.putText(args[0] + " Has been deleted");
+
+            commandHistory[commandCount++] = "delete " + args[0];
             commandReference = commandCount;
         };
         return Shell;
