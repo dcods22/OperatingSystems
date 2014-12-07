@@ -348,7 +348,8 @@ var TSOS;
 
                     if (ReadyQueue.length == 0) {
                         this.isExecuting = false;
-                        this.removeFromResidentQueue(PCB.PID);
+
+                        //this.removeFromResidentQueue(PCB.PID);
                         _StdOut.advanceLine();
                     }
                 }
