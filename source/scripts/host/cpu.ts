@@ -346,6 +346,7 @@ module TSOS {
                 }else if(exec == "NOP"){
                     PCB.PC++;
                 }else if(exec == "BRK"){
+                    _MemoryManager.clearBlock(PCB.Base);
                     ReadyQueue.splice(0,1);
                     $("#queueTableBody").html("");
                     PCB.PC = 0;

@@ -420,42 +420,39 @@ var TSOS;
 
             var re = new RegExp("^[0-9A-F]+$");
 
-            if (re.test(loadedProgram)) {
-                _StdOut.putText("Program ID: " + PID);
+            if (_MemoryManager.memoryFilled()) {
+            } else {
+                if (re.test(loadedProgram)) {
+                    _StdOut.putText("Program ID: " + PID);
 
-                for (var i = 0; i < 255; i++) {
-                    var hexLoc = i + PCBStart;
-                    var hexLocation = hexLoc.toString(16).toUpperCase();
-                    var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
+                    PCBStart = _MemoryManager.getOpenMemory();
+                    PCBEnd = PCBStart + 255;
 
-                    if (hexValue == "")
-                        hexValue = "00";
+                    for (var i = 0; i < 255; i++) {
+                        var hexLoc = i + PCBStart;
+                        var hexLocation = hexLoc.toString(16).toUpperCase();
+                        var hexValue = loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
 
-                    _MemoryManager.setByLoc(hexLocation, hexValue);
-                }
+                        if (hexValue == "")
+                            hexValue = "00";
 
-                _MemoryManager.updateMemory();
+                        _MemoryManager.setByLoc(hexLocation, hexValue);
+                    }
 
-                var priority = args[0];
+                    _MemoryManager.updateMemory();
 
-                if (!args[0]) {
-                    priority = 0;
-                }
+                    var priority = args[0];
 
-                ResidentQueue[PID] = new TSOS.PCB(PCBStart, PCBEnd, PID, priority);
+                    if (!args[0]) {
+                        priority = 0;
+                    }
 
-                PID++;
+                    ResidentQueue[PID] = new TSOS.PCB(PCBStart, PCBEnd, PID, priority);
 
-                //Used for next assignment with more memory
-                PCBStart += 256;
-                PCBEnd += 256;
-
-                if (PCBStart >= 765) {
-                    PCBStart = 0;
-                    PCBEnd = 255;
-                }
-            } else
-                _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
+                    PID++;
+                } else
+                    _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
+            }
 
             commandHistory[commandCount++] = "load";
             commandReference = commandCount;
@@ -472,8 +469,10 @@ var TSOS;
                 var p;
 
                 for (var i = 0; i < ResidentQueue.length; i++) {
-                    if (ResidentQueue[i].PID == args[0]) {
-                        p = i;
+                    if (ResidentQueue[i]) {
+                        if (ResidentQueue[i].PID == args[0]) {
+                            p = i;
+                        }
                     }
                 }
 
@@ -710,7 +709,7 @@ var TSOS;
         Shell.prototype.shellLS = function (args) {
             _StdOut.putText("Current Files Are...");
 
-            for (var i = 0; i < fileList.length; i++) {
+            for (var i = 1; i < fileList.length; i++) {
                 _StdOut.putText(fileList[i] + ", ");
             }
 

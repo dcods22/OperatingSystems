@@ -42,5 +42,43 @@ module TSOS {
 
             _Memory.setByLoc(loc, value);
         }
+
+        public memoryFilled(){
+            var first = this.getByLoc("0");
+            var second = this.getByLoc("100");
+            var third = this.getByLoc("200");
+
+            if(first == "00" || second == "00" || third == "00"){
+                return false;
+            }else{
+                return true;
+            }
+        }
+
+        public getOpenMemory(){
+            var first = this.getByLoc("0");
+            var second = this.getByLoc("100");
+            var third = this.getByLoc("200");
+
+            if(first == "00"){
+                return 0;
+            }else if(second == "00"){
+                return 255;
+            }else if(third == "00"){
+                return 510;
+            }
+
+            return -1;
+        }
+
+        public clearBlock(start){
+            var memLoc = "";
+            for(var i=start; i < (start + 255); i++){
+                memLoc = i.toString(16);
+                this.setByLoc(memLoc, "00");
+            }
+
+            this.updateMemory();
+        }
     }
 }
