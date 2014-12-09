@@ -26,6 +26,8 @@ module TSOS {
             _KernelInputQueue = new Queue();      // Where device input lands before being processed out somewhere.
             _Console = new Console();          // The command line interface / console I/O device.
             _MemoryManager = new MemoryManager();
+            _HardDrive = new HardDrive();
+            _HDManager = new HDManager();
 
             // Initialize the console.
             _Console.init();
@@ -128,6 +130,28 @@ module TSOS {
                     _krnKeyboardDriver.isr(params);   // Kernel mode device driver
                     _StdIn.handleInput();
                     break;
+                case CONTEXT_IRQ:
+                    this.swapReadyQueue();
+                    break;
+                case SYSCALL_IRQ:
+                    this.systemCall();
+                    break;
+                case FORMAT_IRQ:
+                    _HDManager.resetHardDrive();
+                    _StdOut.putText("Hard Drive has been Formatted");
+                    break;
+                case CREATE_IRQ:
+                    _HDManager.createFile(params);
+                    break;
+                case READ_IRQ:
+                    _HDManager.readFile(params);
+                    break;
+                case WRITE_IRQ:
+                    _HDManager.writeFile(params);
+                    break;
+                case DELETE_IRQ:
+                    _HDManager.deleteFile(params);
+                    break;
                 default:
                     this.krnTrapError("Invalid Interrupt Request. irq=" + irq + " params=[" + params + "]");
             }
@@ -186,5 +210,40 @@ module TSOS {
             this.krnShutdown();
         }
 
+        public swapReadyQueue(){
+            //TODO: last two dont finish
+            var oldFirst = ReadyQueue[0];
+
+            oldFirst.State = "Waiting";
+
+            ReadyQueue.splice(0,1);
+
+            ReadyQueue[ReadyQueue.length] = oldFirst;
+
+            ReadyQueue[0].State = "Running";
+        }
+
+        public systemCall(){
+            var PCB = ReadyQueue[0];
+            if(PCB.X == 1){
+                _StdOut.putText(PCB.Y.toString());
+            }else if(PCB.X == 2){
+                //Loop through till 00
+                //print appropiate charaters
+
+                var newLoc:any = parseInt(PCB.Y, 16) + PCB.Base;
+                var currentLoc = newLoc.toString(16);
+                var constant3 = _MemoryManager.getByLoc(currentLoc);
+
+                while(constant3 != "00"){
+                    var letterVal = parseInt(constant3,16);
+                    var letter = String.fromCharCode(letterVal);
+                    _StdOut.putText(letter);
+                    var intLoc = parseInt(currentLoc.toString(), 16) + 1;
+                    currentLoc = intLoc.toString(16);
+                    constant3 = _MemoryManager.getByLoc(currentLoc);
+                }
+            }
+        }
     }
 }

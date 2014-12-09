@@ -129,11 +129,15 @@ var TSOS;
                 _CPU.singleStep = true;
                 document.getElementById("btnStep").disabled = false;
                 $("#btnSingleStepMode").val("Disable Step");
+                $("#btnSingleStepMode").removeClass("btn-success");
+                $("#btnSingleStepMode").addClass("btn-danger");
             } else if ($("#btnSingleStepMode").val() == "Disable Step") {
                 _CPU.singleStep = false;
                 _CPU.isExecuting = true;
                 document.getElementById("btnStep").disabled = true;
                 $("#btnSingleStepMode").val("Enable Step");
+                $("#btnSingleStepMode").removeClass("btn-danger");
+                $("#btnSingleStepMode").addClass("btn-success");
             }
         };
 

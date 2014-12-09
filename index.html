@@ -53,7 +53,7 @@
                     <li><a><input type="button"
                                   id = "btnSingleStepMode"
                                   name="btnSingleStepMode"
-                                  class="btn btn-primary"
+                                  class="btn btn-success"
                                   disabled="disabled"
                                   value="Enable Step"
                                   tabindex="2"
@@ -61,7 +61,7 @@
                     <li><a><input type="button"
                                   id = "btnStep"
                                   name="btnStep"
-                                  class="btn btn-primary"
+                                  class="btn btn-info"
                                   disabled="disabled"
                                   value="Step"
                                   tabindex="2"
@@ -168,11 +168,33 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Memory</h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" id="tableBody">
                     <table id="memoryTable" class="table table-condensed text-center">
                         <tbody id="memoryDiv">
                         </tbody>
                     </table>
+                </div>
+            </div>
+
+            <div id="hardDrive" class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Hard Drive</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="hdTableOverflow">
+                    <table id="hdTable" class="table table-striped text-center">
+                        <thead>
+                        <tr>
+                            <td>Sector</td>
+                            <td>Used</td>
+                            <td>Pointer</td>
+                            <td>Value</td>
+                        </tr>
+                        </thead>
+                        <tbody id="hdBody">
+                        </tbody>
+                    </table>
+                </div>
                 </div>
             </div>
 
@@ -185,9 +207,10 @@
                               id  ="taProgramInput"
                               rows="4"
                               cols="83"
-                            >A9 03 8D 41 00 A9 01 8D 40 00 AC 40 00 A2 01 FF EE 40 00 AE 40 00 EC 41 00 D0 EF A9 44 8D 42 00 A9 4F 8D 43 00 A9 4E 8D 44 00 A9 45 8D 45 00 A9 00 8D 46 00 A2 02 A0 42 FF 00 </textarea>
+                            >A9 03 8D 41 00 A9 01 8D 40 00 AC 40 00 A2 01 FF EE 40 00 AE 40 00 EC 41 00 D0 EF A9 44 8D 42 00 A9 4F 8D 43 00 A9 4E 8D 44 00 A9 45 8D 45 00 A9 00 8D 46 00 A2 02 A0 42 FF 00</textarea>
                 </div>
             </div>
+
         </div>
 
 
@@ -217,6 +240,7 @@
 <script type="text/javascript" src="dist/scripts/host/pcb.js"></script>
 <script type="text/javascript" src="dist/scripts/host/devices.js"></script>
 <script type="text/javascript" src="dist/scripts/host/memory.js"></script>
+<script type="text/javascript" src="dist/scripts/host/harddrive.js"></script>
 <script type="text/javascript" src="dist/scripts/host/cpu.js"></script>
 
 <!-- Virtual OS Routines: Make sure Kernel code is last, since it needs those above it. -->
@@ -230,6 +254,7 @@
 <script type="text/javascript" src="dist/scripts/os/shellCommand.js"></script>
 <script type="text/javascript" src="dist/scripts/os/userCommand.js"></script>
 <script type="text/javascript" src="dist/scripts/os/memoryManager.js"></script>
+<script type="text/javascript" src="dist/scripts/os/hdManager.js"></script>
 <script type="text/javascript" src="dist/scripts/os/kernel.js"></script>
 
 <!-- Other Routines -->

@@ -17,15 +17,23 @@ var USER_STATUS = "Good";
 var CPU_CLOCK_INTERVAL = 100;
 
 var TIMER_IRQ = 0;
-
-// NOTE: The timer is different from hardware/host clock pulses. Don't confuse these.
 var KEYBOARD_IRQ = 1;
+var CONTEXT_IRQ = 2;
+var SYSCALL_IRQ = 3;
+var FORMAT_IRQ = 4;
+var CREATE_IRQ = 5;
+var READ_IRQ = 6;
+var WRITE_IRQ = 7;
+var DELETE_IRQ = 8;
 
 //
 // Global Variables
 //
 var _MemoryManager;
 var _Memory;
+
+var _HDManager;
+var _HardDrive;
 
 var _CPU;
 
@@ -88,3 +96,9 @@ var PCBEnd = 255;
 //CPU Scheduling
 var _Quantum = 6;
 var RR = true;
+var FCFS = false;
+var Priority = false;
+var scheduling = "round robin";
+
+//HD Variables
+var fileList = [];

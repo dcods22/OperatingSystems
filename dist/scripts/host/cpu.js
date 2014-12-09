@@ -51,12 +51,19 @@ var TSOS;
             // Do the real work here. Be sure to set this.isExecuting appropriately.
             this.removeColors();
 
-            var PCB = ReadyQueue[0];
             ReadyQueue[0].State = "Running";
+
+            if (ReadyQueue[0].Location == "HDD") {
+                this.swapToHDD();
+            }
+
+            var PCB = ReadyQueue[0];
+
             var PCBStart = PCB.Base;
             var PCBEnd = PCB.Limit;
 
             var PCLoc = PCB.PC + PCBStart;
+
             var hexLoc = PCLoc.toString(16);
             var command = _MemoryManager.getByLoc(hexLoc);
             var exec = executions[command];
@@ -311,7 +318,7 @@ var TSOS;
 
                     var value = _MemoryManager.getByLoc(finalLoc);
 
-                    value = parseInt(value, 10) + 1;
+                    value = parseInt(value, 16) + 1;
 
                     mem = "$" + hexLoc;
 
@@ -337,32 +344,21 @@ var TSOS;
 
                     mem = "#" + constant;
                 } else if (exec == "SYS") {
-                    if (PCB.X == 1) {
-                        _StdOut.putText(PCB.Y.toString());
-                    } else if (PCB.X == 2) {
-                        //Loop through till 00
-                        //print appropiate charaters
-                        var newLoc = parseInt(PCB.Y, 16) + PCBStart;
-                        var currentLoc = newLoc.toString(16);
-                        var constant3 = _MemoryManager.getByLoc(currentLoc);
-
-                        while (constant3 != "00") {
-                            var letterVal = parseInt(constant3, 16);
-                            var letter = String.fromCharCode(letterVal);
-                            _StdOut.putText(letter);
-                            var intLoc = parseInt(currentLoc.toString(), 16) + 1;
-                            currentLoc = intLoc.toString(16);
-                            constant3 = _MemoryManager.getByLoc(currentLoc);
-                        }
-                    }
+                    _KernelInterruptQueue.enqueue(new TSOS.Interrupt(SYSCALL_IRQ, ""));
                 } else if (exec == "NOP") {
                     PCB.PC++;
                 } else if (exec == "BRK") {
-                    this.isExecuting = false;
+                    _MemoryManager.clearBlock(PCB.Base);
                     ReadyQueue.splice(0, 1);
                     $("#queueTableBody").html("");
-                    _StdOut.advanceLine();
                     PCB.PC = 0;
+
+                    if (ReadyQueue.length == 0) {
+                        this.isExecuting = false;
+
+                        //this.removeFromResidentQueue(PCB.PID);
+                        _StdOut.advanceLine();
+                    }
                 }
 
                 this.PC = PCB.PC;
@@ -372,21 +368,35 @@ var TSOS;
                     _MemoryManager.updateMemory();
                     this.updateReadyQueue();
                 }
-            }
 
-            if (RR && ReadyQueue.length > 1) {
-                if (rrCount == _Quantum) {
-                    this.swapReadyQueue();
-                    rrCount = 0;
-                } else {
-                    rrCount++;
+                if (RR && ReadyQueue.length > 1) {
+                    if (rrCount == _Quantum) {
+                        TSOS.Control.hostLog("Scheduling Switch - RR", "CPU");
+                        _KernelInterruptQueue.enqueue(new TSOS.Interrupt(CONTEXT_IRQ, ""));
+                        rrCount = 0;
+                    } else {
+                        rrCount++;
+                    }
                 }
-            }
 
-            $("#instruction-details").html(exec.toString() + " " + mem);
+                $("#instruction-details").html(exec.toString() + " " + mem);
 
-            if (this.singleStep || PCB.PC === PCBEnd) {
-                this.isExecuting = false;
+                if (this.singleStep || PCB.PC === PCBEnd) {
+                    this.isExecuting = false;
+                }
+
+                if (ReadyQueue[0].Location == "HDD") {
+                    this.swapToHDD();
+                }
+            } else {
+                TSOS.Control.hostLog("Invalid Opcode", "CPU");
+                _StdOut.putText("Invalid Opcode");
+
+                ReadyQueue.splice(0, 1);
+
+                if (ReadyQueue.length == 0) {
+                    this.isExecuting = false;
+                }
             }
         };
 
@@ -468,18 +478,58 @@ var TSOS;
         };
 
         Cpu.prototype.swapReadyQueue = function () {
-            // TODO: Work on properly swapping the ready queue
             var oldFirst = ReadyQueue[0];
 
             oldFirst.State = "Waiting";
 
-            for (var i = 1; i < ReadyQueue.length - 1; i++) {
-                ReadyQueue[i - 1] = ReadyQueue[i];
-            }
+            ReadyQueue.splice(0, 1);
 
             ReadyQueue[ReadyQueue.length] = oldFirst;
 
             ReadyQueue[0].State = "Running";
+        };
+
+        Cpu.prototype.removeFromResidentQueue = function (PID) {
+            for (var i = 0; i < ResidentQueue.length; i++) {
+                if (ResidentQueue[i].PID = PID) {
+                    ResidentQueue.splice(i, 1);
+                }
+            }
+        };
+
+        Cpu.prototype.swapToHDD = function () {
+            var oldProg = "";
+            var content = _HDManager.getProgram(ReadyQueue[0].PID);
+
+            if (_MemoryManager.memoryFilled()) {
+                if (ReadyQueue[3].Location = "Memory") {
+                    ReadyQueue[3].Location = "HDD";
+                    oldProg = _MemoryManager.getProgram(ReadyQueue[3].Base);
+                    _HDManager.writeSwap(ReadyQueue[3].PID, oldProg);
+                    _MemoryManager.addProgram(ReadyQueue[3].Base, content);
+                    ReadyQueue[0].Base = ReadyQueue[3].Base;
+                    ReadyQueue[0].Limit = ReadyQueue[3].Limit;
+                } else if (ReadyQueue[2].Location = "Memory") {
+                    ReadyQueue[2].Location = "HDD";
+                    oldProg = _MemoryManager.getProgram(ReadyQueue[2].Base);
+                    _HDManager.writeSwap(ReadyQueue[2].PID, oldProg);
+                    _MemoryManager.addProgram(ReadyQueue[2].Base, content);
+                    ReadyQueue[0].Base = ReadyQueue[2].Base;
+                    ReadyQueue[0].Limit = ReadyQueue[2].Limit;
+                } else if (ReadyQueue[1].Location = "Memory") {
+                    ReadyQueue[1].Location = "HDD";
+                    oldProg = _MemoryManager.getProgram(ReadyQueue[1].Base);
+                    _HDManager.writeSwap(ReadyQueue[1].PID, oldProg);
+                    _MemoryManager.addProgram(ReadyQueue[1].Base, content);
+                    ReadyQueue[0].Base = ReadyQueue[1].Base;
+                    ReadyQueue[0].Limit = ReadyQueue[1].Limit;
+                }
+            } else {
+                var loc = _MemoryManager.getOpenMemory();
+                _MemoryManager.addProgram(loc, content);
+            }
+
+            ReadyQueue[0].Location = "Memory";
         };
         return Cpu;
     })();

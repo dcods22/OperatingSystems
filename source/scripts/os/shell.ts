@@ -142,8 +142,60 @@ module TSOS {
                 "- Displays the running PID's");
 
             this.commandList[this.commandList.length] = sc;
-            // processes - list the running processes and their IDs
-            // kill <id> - kills the specified process id.
+
+            sc = new ShellCommand(this.shellKill,
+                "kill",
+                "<id> - Kills the program with that specific PID");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellGetSchedule,
+                "getschedule",
+                "displays the current scheduling alrogithm");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellSetSchedule,
+                "setschedule",
+                "<string> - The string of the new scheduling algorithm");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellHDFormat,
+                "format",
+                "- Formats the Hard Drive");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellCreate,
+                "create",
+                "<string> - Creates a file on the hard drive with a filename");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellRead,
+                "read",
+                "<string> - reads a file on the hard drive with a filename");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellWrite,
+                "write",
+                "<string> <string> - writes the data in the \" \" to the HD with a file name");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellDelete,
+                "delete",
+                "<string> - deletes a file on the hard drive with a filename");
+
+            this.commandList[this.commandList.length] = sc;
+
+            sc = new ShellCommand(this.shellLS,
+                "ls",
+                "- Lists the files on the File System");
+
+            this.commandList[this.commandList.length] = sc;
 
             //
             // Display the initial prompt.
@@ -435,37 +487,62 @@ module TSOS {
 
             var re = new RegExp("^[0-9A-F]+$");
 
-            if(re.test(loadedProgram)){
+            if(_MemoryManager.memoryFilled()){
 
                 _StdOut.putText("Program ID: " + PID);
 
-                for(var i: number=0; i < 255; i++){
-                    var hexLoc = i + PCBStart;
-                    var hexLocation = hexLoc.toString(16).toUpperCase();
-                    var hexValue =  loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
+                PCBStart = -1;
+                PCBEnd = -1;
 
-                    if(hexValue == "")
-                        hexValue = "00";
+                var priority = args[0];
 
-                    _MemoryManager.setByLoc(hexLocation, hexValue);
+                if(!args[0]){
+                    priority = 0;
                 }
 
-                _MemoryManager.updateMemory();
+                ResidentQueue[PID] = new PCB(PCBStart, PCBEnd, PID, priority, "HDD");
 
-                ResidentQueue[PID] = new PCB(PCBStart, PCBEnd, PID);
+                _HDManager.writeSwap(PID, loadedProgram);
 
                 PID++;
+            }else{
 
-                //Used for next assignment with more memory
-                PCBStart += 256;
-                PCBEnd += 256;
+                if(re.test(loadedProgram)){
 
-                if(PCBStart >= 765){
-                    PCBStart = 0;
-                    PCBEnd = 255;
-                }
-            }else
-                _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
+                    _StdOut.putText("Program ID: " + PID);
+
+                    PCBStart = _MemoryManager.getOpenMemory();
+                    PCBEnd = PCBStart + 256;
+
+                    for(var i: number=0; i < 255; i++){
+                        var hexLoc = i + PCBStart;
+                        var hexLocation = hexLoc.toString(16).toUpperCase();
+                        var hexValue =  loadedProgram.substring(i * 2, (i * 2) + 2).toUpperCase();
+
+                        if(hexValue == "")
+                            hexValue = "00";
+
+                        _MemoryManager.setByLoc(hexLocation, hexValue);
+                    }
+
+                    _MemoryManager.updateMemory();
+
+                    var priority = args[0];
+
+                    if(!args[0]){
+                        priority = 0;
+                    }
+
+                    ResidentQueue[PID] = new PCB(PCBStart, PCBEnd, PID, priority, "Memory");
+
+                    PID++;
+
+
+                }else
+                    _StdOut.putText("Program was not successfully Loaded, there is non hex values in the program field");
+
+
+            }
 
             commandHistory[commandCount++] = "load";
             commandReference = commandCount;
@@ -481,14 +558,28 @@ module TSOS {
                     }
                 }
 
-                ReadyQueue[0] = ResidentQueue[args[0]];
+                var p;
 
-                var p = parseInt(args[0]);
-                ResidentQueue.splice(p,1);
-                ReadyQueue[0].State = "Running";
-                ReadyQueue[0].Location = "Memory";
-                if(! _CPU.singleStep)
-                    _CPU.isExecuting = true;
+                for(var i=0; i < ResidentQueue.length; i++){
+                    if(ResidentQueue[i]){
+                        if(ResidentQueue[i].PID == args[0]){
+                            p = i;
+                        }
+                    }
+                }
+
+                if(p || p == 0){
+                    ReadyQueue[0] = ResidentQueue[p];
+                    ResidentQueue.splice(p,1);
+                    ReadyQueue[0].State = "Running";
+                    ReadyQueue[0].Location = "Memory";
+
+                    if(! _CPU.singleStep){
+                        _CPU.isExecuting = true;
+                    }
+                }else{
+                    _StdOut.putText("Invalid Program ID");
+                }
             }else{
                 _StdOut.putText("Need a Program ID");
             }
@@ -534,6 +625,7 @@ module TSOS {
 
         public shellClearMem(args){
             _MemoryManager.resetMemory();
+            _MemoryManager.updateMemory();
 
             commandHistory[commandCount++] = "clearmem";
             commandReference = commandCount;
@@ -547,8 +639,13 @@ module TSOS {
         }
 
         public shellPS(args){
+
+            _StdOut.putText("PID PC  IR  ACC  X  Y  Z");
+            _StdOut.advanceLine();
+
             for(var i=0; i < ReadyQueue.length; i++){
-                _StdOut.putText(ReadyQueue[i]);
+                var PCB = ReadyQueue[i];
+                _StdOut.putText(" " + PCB.PID + "   " + PCB.PC + "  " + PCB.IR + "  " + PCB.Acc + "  " + PCB.X + "  " + PCB.Y + "  " + PCB.Z);
             }
 
             commandHistory[commandCount++] = "ps";
@@ -556,10 +653,22 @@ module TSOS {
         }
 
         public shellKill(args){
+            var loc;
+
             for(var i=0; i < ReadyQueue.length; i++){
-                if(ReadyQueue[i].PID == args[0]){
-                    ReadyQueue[i] = {};
+                if(ReadyQueue[i].PID.toString() == args[0]){
+                    loc = i;
                 }
+            }
+
+            if(loc || loc == "0"){
+                ReadyQueue.splice(loc, 1);
+            }else{
+                _StdOut.putText("PID " + args[0] + " does not exist");
+            }
+
+            if(ReadyQueue.length == 0){
+                _CPU.isExecuting = false;
             }
 
             commandHistory[commandCount++] = "kill";
@@ -567,16 +676,49 @@ module TSOS {
         }
 
         public shellRunAll(args){
-            for(var i=0; i < ResidentQueue.length; i++){
-                ReadyQueue[i] = ResidentQueue[i];
-            }
 
-            ReadyQueue[0].Status = "Running";
+            if(Priority){
 
-            while(ResidentQueue.length > 0){
+                ReadyQueue[0] = ResidentQueue[0];
                 ResidentQueue.splice(0,1);
-            }
 
+                while(ResidentQueue.length > 0){
+                    for(var i=0; i <= ReadyQueue.length; i++){
+                        if(ResidentQueue[0].Priority > ReadyQueue[i].Priority){
+                            var len = ReadyQueue.length;
+
+                            for(var n=i; n < len; n++){
+                                ReadyQueue[n + 1] = ReadyQueue[n];
+                            }
+
+                            ReadyQueue[i] = ResidentQueue[0];
+                            ResidentQueue.splice(0,1);
+
+                            break;
+                        }else if(i == (ReadyQueue.length - 1)){
+                            ReadyQueue[i+1] = ResidentQueue[0];
+                            ResidentQueue.splice(0,1);
+
+                            break;
+                        }
+                    }
+
+
+                }
+
+                ReadyQueue[0].Status = "Running";
+
+            }else{
+                for(var i=0; i < ResidentQueue.length; i++){
+                    ReadyQueue[i] = ResidentQueue[i];
+                }
+
+                ReadyQueue[0].Status = "Running";
+
+                while(ResidentQueue.length > 0){
+                    ResidentQueue.splice(0,1);
+                }
+            }
 
             if(! _CPU.singleStep)
                 _CPU.isExecuting = true;
@@ -585,5 +727,100 @@ module TSOS {
             commandReference = commandCount;
         }
 
+        public shellGetSchedule(args){
+            _StdOut.putText("Scheduling Algorith: " + scheduling);
+
+
+            commandHistory[commandCount++] = "getschedule " + args[0];
+            commandReference = commandCount;
+        }
+
+        public shellSetSchedule(args){
+            if(args[0] == "rr"){
+                RR = true;
+                FCFS = false;
+                Priority = false;
+                scheduling = "rr";
+
+                _StdOut.putText("Your Scheduling Algorithm was changed to Round Robin");
+            }else if(args[0] == "fcfs"){
+                RR = false;
+                FCFS = true;
+                Priority = false;
+                scheduling = "fcfs";
+
+                _StdOut.putText("Your Scheduling Algorithm was changed to First Come First Served");
+            }else if(args[0] == "priority"){
+                RR = false;
+                FCFS = false;
+                scheduling = "priority";
+                Priority = true;
+
+                _StdOut.putText("Your Scheduling Algorithm was changed to Priority");
+            }else{
+                _StdOut.putText("You must choose RR, FCFS, or Priority");
+            }
+
+            commandHistory[commandCount++] = "setschedule " + args[0];
+            commandReference = commandCount;
+        }
+
+        public shellHDFormat(args){
+
+            if(_CPU.isExecuting){
+                _StdOut.putText("Cannot format hard drive since CPU is executing");
+            }else{
+                _KernelInterruptQueue.enqueue(new Interrupt(FORMAT_IRQ, ""));
+            }
+
+            commandHistory[commandCount++] = "format";
+            commandReference = commandCount;
+        }
+
+        public shellCreate(args){
+
+            _KernelInterruptQueue.enqueue(new Interrupt(CREATE_IRQ, args[0]));
+
+            commandHistory[commandCount++] = "create " + args[0];
+            commandReference = commandCount;
+        }
+
+        public shellRead(args){
+
+            _KernelInterruptQueue.enqueue(new Interrupt(READ_IRQ, args[0]));
+
+            commandHistory[commandCount++] = "read " + args[0];
+            commandReference = commandCount;
+        }
+
+        public shellWrite(args){
+
+            var write = args[0] + "%%" + args[1];
+
+            _KernelInterruptQueue.enqueue(new Interrupt(WRITE_IRQ, write));
+
+            commandHistory[commandCount++] = "write " + args[0];
+            commandReference = commandCount;
+        }
+
+        public shellDelete(args){
+
+            _KernelInterruptQueue.enqueue(new Interrupt(DELETE_IRQ, args[0]));
+
+            commandHistory[commandCount++] = "delete " + args[0];
+            commandReference = commandCount;
+        }
+
+        public shellLS(args){
+            _StdOut.putText("Current Files Are...")
+
+            for(var i=1; i < fileList.length; i++){
+                _StdOut.putText(fileList[i] + ", ");
+            }
+
+            commandHistory[commandCount++] = "delete " + args[0];
+            commandReference = commandCount;
+
+        }
     }
 }

@@ -19,10 +19,15 @@ var USER_STATUS: string = "Good";     //Do as you please with my OS
 
 var CPU_CLOCK_INTERVAL: number = 100;   // This is in ms, or milliseconds, so 1000 = 1 second.
 
-var TIMER_IRQ: number = 0;  // Pages 23 (timer), 9 (interrupts), and 561 (interrupt priority).
-                            // NOTE: The timer is different from hardware/host clock pulses. Don't confuse these.
+var TIMER_IRQ: number = 0;
 var KEYBOARD_IRQ: number = 1;
-
+var CONTEXT_IRQ: number = 2;
+var SYSCALL_IRQ: number = 3;
+var FORMAT_IRQ: number = 4;
+var CREATE_IRQ: number = 5;
+var READ_IRQ: number = 6;
+var WRITE_IRQ: number = 7;
+var DELETE_IRQ: number = 8;
 
 //
 // Global Variables
@@ -30,6 +35,9 @@ var KEYBOARD_IRQ: number = 1;
 
 var _MemoryManager: TSOS.MemoryManager;
 var _Memory: TSOS.Memory;
+
+var _HDManager: TSOS.HDManager;
+var _HardDrive: TSOS.HardDrive;
 
 var _CPU: TSOS.Cpu;  // Utilize TypeScript's type annotation system to ensure that _CPU is an instance of the Cpu class.
 
@@ -94,3 +102,9 @@ var PCBEnd = 255;
 //CPU Scheduling
 var _Quantum = 6;
 var RR = true;
+var FCFS = false;
+var Priority = false;
+var scheduling = "round robin";
+
+//HD Variables
+var fileList = [];

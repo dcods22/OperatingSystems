@@ -19,51 +19,48 @@ var TSOS;
         }
         HardDrive.prototype.initalizeHardDrive = function () {
             this.resetHardDrive();
-
             this.updateHardDrive();
         };
 
         HardDrive.prototype.resetHardDrive = function () {
-            for (var i = 0; i < 4; i++) {
-                for (var n = 0; n < 8; n++) {
-                    for (var m = 0; m < 8; m++) {
-                        var hdString = i + ":" + n + ":" + m;
+            var hdStr = "";
+            var empty = "0000000000000000000000000000000000000000000000000000000000000000";
 
-                        var hdValue = "0000000000000000000000000000000000000000000000000000000000000000";
-
-                        this.setByLoc(hdString, hdValue);
+            for (var m = 0; m < 4; m++) {
+                for (var i = 0; i < 8; i++) {
+                    for (var n = 0; n < 8; n++) {
+                        hdStr = m + ":" + i + ":" + n;
+                        this.setByLoc(hdStr, empty);
                     }
                 }
             }
         };
 
         HardDrive.prototype.updateHardDrive = function () {
-            var hdTable = $("#hdBody");
-            hdTable.html("");
+            var hdStr = "";
+            var hex = "";
 
-            for (var i = 0; i < 4; i++) {
-                for (var n = 0; n < 8; n++) {
-                    for (var m = 0; m < 8; m++) {
-                        var hdString = i + ":" + n + ":" + m;
+            var memoryTable = $("#hdTable");
 
-                        var hdValue = this.getByLoc(hdString);
+            memoryTable.html("");
 
-                        hdTable.append("<tr id='hd-row-" + hdString + "' /><td class='text-muted'>" + hdString + "</td><td class='text-primary'>" + hdValue.substring(0, 1) + " </td><td class='text-success'>" + hdValue.substring(1, 2) + ":" + hdValue.substring(2, 3) + ":" + hdValue.substring(3, 4) + " </td><td class='text-warning'>" + hdValue.substring(4) + " </td></tr>");
+            for (var m = 0; m < 4; m++) {
+                for (var i = 0; i < 8; i++) {
+                    for (var n = 0; n < 8; n++) {
+                        hdStr = m + ":" + i + ":" + n;
+                        hex = this.getByLoc(hdStr);
+                        memoryTable.append("");
                     }
                 }
             }
         };
 
         HardDrive.prototype.getByLoc = function (loc) {
-            if (loc) {
-                return sessionStorage.getItem(loc);
-            }
+            return sessionStorage.getItem(loc);
         };
 
         HardDrive.prototype.setByLoc = function (loc, value) {
-            if (loc) {
-                sessionStorage.setItem(loc, value);
-            }
+            sessionStorage.setItem(loc, value);
         };
         return HardDrive;
     })();

@@ -27,63 +27,48 @@ module TSOS {
 
         private initalizeHardDrive() : void{
             this.resetHardDrive();
-
             this.updateHardDrive();
         }
 
         public resetHardDrive() : void{
-            //loop for tracks
-            for(var i=0; i < 4; i++){
+            var hdStr = "";
+            var empty = "0000000000000000000000000000000000000000000000000000000000000000"
 
-                //loop for sectors
-                for(var n=0; n < 8; n++){
-
-                    //loop for blocks
-                    for(var m=0; m < 8; m++){
-
-                        var hdString = i + ":" + n + ":" + m;
-
-                        var hdValue = "0000000000000000000000000000000000000000000000000000000000000000";
-
-                        this.setByLoc(hdString, hdValue);
+            for(var m=0; m < 4; m++){
+                for(var i=0; i < 8; i++){
+                    for(var n=0; n < 8; n++){
+                        hdStr = m + ":" + i + ":" + n;
+                        this.setByLoc(hdStr, empty);
                     }
                 }
             }
         }
 
         public updateHardDrive() : void{
-            var hdTable = $("#hdBody");
-            hdTable.html("");
+            var hdStr = "";
+            var hex = "";
 
-            //loop for tracks
-            for(var i=0; i < 4; i++){
+            var memoryTable = $("#hdTable");
 
-                //loop for sectors
-                for(var n=0; n < 8; n++){
+            memoryTable.html("");
 
-                    //loop for blocks
-                    for(var m=0; m < 8; m++){
-
-                        var hdString = i + ":" + n + ":" + m;
-
-                        var hdValue = this.getByLoc(hdString);
-
-                        hdTable.append("<tr id='hd-row-" + hdString +"' /><td class='text-muted'>" + hdString + "</td><td class='text-primary'>" + hdValue.substring(0,1) + " </td><td class='text-success'>" + hdValue.substring(1,2) +":" + hdValue.substring(2,3) + ":" + hdValue.substring(3,4) + " </td><td class='text-warning'>" + hdValue.substring(4) + " </td></tr>");
+            for(var m=0; m < 4; m++){
+                for(var i=0; i < 8; i++){
+                    for(var n=0; n < 8; n++){
+                        hdStr = m + ":" + i + ":" + n;
+                        hex = this.getByLoc(hdStr);
+                        memoryTable.append("")
                     }
                 }
             }
         }
 
         public getByLoc(loc){
-            if(loc){
-                return sessionStorage.getItem(loc);
-            }
+            return sessionStorage.getItem(loc);
         }
 
         public setByLoc(loc, value) : void{
-            if(loc){
-                sessionStorage.setItem(loc,value);
-            }
+            sessionStorage.setItem(loc, value);
         }
     }
 }
