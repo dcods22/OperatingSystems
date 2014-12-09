@@ -421,6 +421,22 @@ var TSOS;
             var re = new RegExp("^[0-9A-F]+$");
 
             if (_MemoryManager.memoryFilled()) {
+                _StdOut.putText("Program ID: " + PID);
+
+                PCBStart = -1;
+                PCBEnd = -1;
+
+                var priority = args[0];
+
+                if (!args[0]) {
+                    priority = 0;
+                }
+
+                ResidentQueue[PID] = new TSOS.PCB(PCBStart, PCBEnd, PID, priority, "HDD");
+
+                _HDManager.writeSwap(PID, loadedProgram);
+
+                PID++;
             } else {
                 if (re.test(loadedProgram)) {
                     _StdOut.putText("Program ID: " + PID);
@@ -447,7 +463,7 @@ var TSOS;
                         priority = 0;
                     }
 
-                    ResidentQueue[PID] = new TSOS.PCB(PCBStart, PCBEnd, PID, priority);
+                    ResidentQueue[PID] = new TSOS.PCB(PCBStart, PCBEnd, PID, priority, "Memory");
 
                     PID++;
                 } else

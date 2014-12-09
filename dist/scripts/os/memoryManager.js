@@ -78,6 +78,30 @@ var TSOS;
 
             this.updateMemory();
         };
+
+        MemoryManager.prototype.getProgram = function (base) {
+            var prog = "";
+
+            var hex = this.getByLoc(base);
+
+            for (var i = base; i < (base + 255); i++) {
+                prog += this.getByLoc(i.toString(16));
+            }
+
+            this.clearBlock(base);
+
+            return prog;
+        };
+
+        MemoryManager.prototype.addProgram = function (start, program) {
+            console.log(start, program);
+
+            for (var i = start; i < (start + 255); i++) {
+                this.setByLoc(i.toString(16), program.substring(i * 2, ((i + 1) * 2)));
+            }
+
+            this.updateMemory();
+        };
         return MemoryManager;
     })();
     TSOS.MemoryManager = MemoryManager;

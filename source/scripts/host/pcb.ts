@@ -25,13 +25,13 @@ export class PCB {
                 public Limit: number,
                 public PID: number,
                 public Priority: number,
+                public Location: String,
                 public PC: number = 0,
                 public Acc: number = 0,
                 public IR: String = "0",
                 public X: number = 0,
                 public Y: number = 0,
                 public Z: number = 0,
-                public State: String = "Waiting",
-                public Location: String ="Memory"){}
+                public State: String = "Waiting"){}
 }
 }
