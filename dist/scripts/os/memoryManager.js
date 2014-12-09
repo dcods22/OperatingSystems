@@ -22,7 +22,7 @@ var TSOS;
 
                 if (pos > 0 && end > 0) {
                     if (pos >= end || pos < ReadyQueue[0].Base) {
-                        console.log(ReadyQueue, end, pos);
+                        console.log("Get", ReadyQueue, ReadyQueue[0].Base, end, pos);
                         _Kernel.krnTrapError("Out Of Memory Error");
                     }
                 }
@@ -38,7 +38,7 @@ var TSOS;
 
                 if (pos >= 0 && end >= 0) {
                     if (pos >= end || pos < ReadyQueue[0].Base) {
-                        console.log(ReadyQueue, end, pos);
+                        console.log("Set", ReadyQueue, ReadyQueue[0].Base, end, pos);
                         _Kernel.krnTrapError("Out Of Memory Error");
                     }
                 }
