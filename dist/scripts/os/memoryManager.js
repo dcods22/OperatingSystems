@@ -20,8 +20,11 @@ var TSOS;
                 var end = ReadyQueue[0].Limit;
                 var pos = parseInt(loc, 16);
 
-                if (pos >= end || pos < ReadyQueue[0].Base) {
-                    _Kernel.krnTrapError("Out Of Memory Error");
+                if (pos > 0 && end > 0) {
+                    if (pos >= end || pos < ReadyQueue[0].Base) {
+                        console.log(ReadyQueue, end, pos);
+                        _Kernel.krnTrapError("Out Of Memory Error");
+                    }
                 }
             }
 
@@ -33,8 +36,11 @@ var TSOS;
                 var end = ReadyQueue[0].Limit;
                 var pos = parseInt(loc, 16);
 
-                if (pos >= end || pos < ReadyQueue[0].Base) {
-                    _Kernel.krnTrapError("Out Of Memory Error");
+                if (pos >= 0 && end >= 0) {
+                    if (pos >= end || pos < ReadyQueue[0].Base) {
+                        console.log(ReadyQueue, end, pos);
+                        _Kernel.krnTrapError("Out Of Memory Error");
+                    }
                 }
             }
 

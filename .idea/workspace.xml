@@ -25,7 +25,7 @@
     <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417705909115" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/console.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417705909115" ignored="false" />
     <file path="$PROJECT_DIR$/source/styles/js/bootstrap.min.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417571972585" ignored="false" />
-    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418102375528" ignored="false" />
+    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418104186281" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/memory.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417705909115" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/pcb.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417705909115" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/canvastext.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417705909115" ignored="false" />
@@ -35,7 +35,7 @@
     <file path="$PROJECT_DIR$/dist/scripts/os/shellCommand.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417705909115" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/userCommand.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417705909115" ignored="false" />
     <file path="/memory.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414593390442" ignored="false" />
-    <file path="/memoryManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418102110171" ignored="false" />
+    <file path="/memoryManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418105506966" ignored="false" />
     <file path="/harddrive.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417713660275" ignored="false" />
     <file path="$PROJECT_DIR$/source/styles/css/bootstrap-theme.min.css" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417571972585" ignored="false" />
     <file path="$PROJECT_DIR$/source/styles/css/bootstrap.min.css" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417571972585" ignored="false" />
@@ -127,10 +127,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cpu.ts" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="cpu.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="17" selection-start="3644" selection-end="3644" vertical-scroll-proportion="-0.252809">
+            <state line="77" column="50" selection-start="2807" selection-end="2807" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -145,10 +145,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="memoryManager.ts" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="memoryManager.ts" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="32" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0">
+            <state line="42" column="65" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.49655172">
               <folding />
             </state>
           </provider>
@@ -186,8 +186,8 @@
         <option value="$PROJECT_DIR$/source/scripts/host/pcb.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/hdManager.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
       </list>
     </option>
   </component>
@@ -581,13 +581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/hdManager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="353" column="56" selection-start="11965" selection-end="11965" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/shell.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="514" column="43" selection-start="17647" selection-end="17647" vertical-scroll-proportion="0.0">
@@ -595,16 +588,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/hdManager.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="32" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0">
+        <state line="353" column="56" selection-start="11965" selection-end="11965" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="17" selection-start="3644" selection-end="3644" vertical-scroll-proportion="-0.252809">
+        <state line="77" column="50" selection-start="2807" selection-end="2807" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="65" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.49655172">
           <folding />
         </state>
       </provider>
