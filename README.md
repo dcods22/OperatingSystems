@@ -109,6 +109,6 @@ Add new scheduling algorithms to your CPU scheduler:
 
 Implement swapped virtual memory with enough physical memory for three concurrent user processes.
 - [ ] Allow the OS to execute four concurrent user process by writing roll-out and roll-in routines to . . .
-    - [ ] Take a ready process and store it to the disk via your fsDD.
+    - [x] Take a ready process and store it to the disk via your fsDD.
     - [ ] Load a swapped-out process and place it in the ready queue.
-    - [ ] Your ready queue should denote which processes are where.
+    - [x] Your ready queue should denote which processes are where.

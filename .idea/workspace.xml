@@ -13,7 +13,7 @@
     <file path="/tsos.css" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417616282104" ignored="false" />
     <file path="/kernel.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417712452856" ignored="false" />
     <file path="/control.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414600860102" ignored="false" />
-    <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417736959389" ignored="false" />
+    <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418109105692" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/deviceDriver.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417705909115" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/os/interrupt.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417705909115" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/cpu.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1417705909115" ignored="false" />
@@ -182,12 +182,12 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/source/scripts/os/kernel.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/harddrive.ts" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/source/scripts/host/pcb.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/hdManager.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -548,11 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="72" selection-start="4664" selection-end="4664" vertical-scroll-proportion="0.6123595" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/memory.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="53" selection-start="1294" selection-end="1294" vertical-scroll-proportion="-0.40689656">
@@ -598,6 +593,13 @@
     <entry file="file://$PROJECT_DIR$/source/scripts/os/hdManager.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="353" column="56" selection-start="11965" selection-end="11965" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="8" selection-start="5659" selection-end="5659" vertical-scroll-proportion="0.8820225">
           <folding />
         </state>
       </provider>
