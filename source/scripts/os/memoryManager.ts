@@ -63,9 +63,9 @@ module TSOS {
             if(first == "00"){
                 return 0;
             }else if(second == "00"){
-                return 255;
+                return 256;
             }else if(third == "00"){
-                return 510;
+                return 512;
             }
 
             return -1;
@@ -96,10 +96,11 @@ module TSOS {
         }
 
         public addProgram(start, program){
-            console.log(start, program);
+            var loc = 0;
 
-            for(var i=start; i < (start + 255); i++){
-                this.setByLoc(i.toString(16), program.substring(i*2, ((i + 1)*2)));
+            for(var i=0; i < 256; i++){
+                loc = i + start;
+                this.setByLoc(loc.toString(16), program.substring(i*2, ((i + 1)*2)));
             }
 
             this.updateMemory();

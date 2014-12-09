@@ -442,7 +442,7 @@ var TSOS;
                     _StdOut.putText("Program ID: " + PID);
 
                     PCBStart = _MemoryManager.getOpenMemory();
-                    PCBEnd = PCBStart + 255;
+                    PCBEnd = PCBStart + 256;
 
                     for (var i = 0; i < 255; i++) {
                         var hexLoc = i + PCBStart;

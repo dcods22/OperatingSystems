@@ -62,36 +62,36 @@ module TSOS {
                 var oldProg = "";
                 var content = _HDManager.getProgram(ReadyQueue[0].PID);
 
-//                if(_MemoryManager.memoryFilled()){
-//                    if(ReadyQueue[3].Location = "Memory"){
-//                        ReadyQueue[3].Location = "HDD";
-//                        oldProg = _MemoryManager.getProgram(ReadyQueue[3].Base);
-//                        _HDManager.writeSwap(ReadyQueue[3].PID, oldProg);
-//                        //_MemoryManager.addProgram(ReadyQueue[3].Base, content);
-//                        ReadyQueue[0].Base = ReadyQueue[3].Base;
-//                        ReadyQueue[0].Limit = ReadyQueue[3].Limit;
-//
-//                    }else if(ReadyQueue[2].Location = "Memory"){
-//                       ReadyQueue[2].Location = "HDD";
-//                        oldProg = _MemoryManager.getProgram(ReadyQueue[2].Base);
-//                        _HDManager.writeSwap(ReadyQueue[2].PID, oldProg);
-//                        _MemoryManager.addProgram(ReadyQueue[2].Base, content);
-//                        ReadyQueue[0].Base = ReadyQueue[2].Base;
-//                        ReadyQueue[0].Limit = ReadyQueue[2].Limit;
-//
-//                    }else if(ReadyQueue[1].Location = "Memory"){
-//                        ReadyQueue[1].Location = "HDD";
-//                        oldProg = _MemoryManager.getProgram(ReadyQueue[1].Base);
-//                        _HDManager.writeSwap(ReadyQueue[1].PID, oldProg);
-//                        _MemoryManager.addProgram(ReadyQueue[1].Base, content);
-//                        ReadyQueue[0].Base = ReadyQueue[1].Base;
-//                        ReadyQueue[0].Limit = ReadyQueue[1].Limit;
-//                    }
-//
-//                }else{
-//                    var loc = _MemoryManager.getOpenMemory();
-//                    _MemoryManager.addProgram(loc, content);
-//                }
+                if(_MemoryManager.memoryFilled()){
+                    if(ReadyQueue[3].Location = "Memory"){
+                        ReadyQueue[3].Location = "HDD";
+                        oldProg = _MemoryManager.getProgram(ReadyQueue[3].Base);
+                        _HDManager.writeSwap(ReadyQueue[3].PID, oldProg);
+                        _MemoryManager.addProgram(ReadyQueue[3].Base, content);
+                        ReadyQueue[0].Base = ReadyQueue[3].Base;
+                        ReadyQueue[0].Limit = ReadyQueue[3].Limit;
+
+                    }else if(ReadyQueue[2].Location = "Memory"){
+                       ReadyQueue[2].Location = "HDD";
+                        oldProg = _MemoryManager.getProgram(ReadyQueue[2].Base);
+                        _HDManager.writeSwap(ReadyQueue[2].PID, oldProg);
+                        _MemoryManager.addProgram(ReadyQueue[2].Base, content);
+                        ReadyQueue[0].Base = ReadyQueue[2].Base;
+                        ReadyQueue[0].Limit = ReadyQueue[2].Limit;
+
+                    }else if(ReadyQueue[1].Location = "Memory"){
+                        ReadyQueue[1].Location = "HDD";
+                        oldProg = _MemoryManager.getProgram(ReadyQueue[1].Base);
+                        _HDManager.writeSwap(ReadyQueue[1].PID, oldProg);
+                        _MemoryManager.addProgram(ReadyQueue[1].Base, content);
+                        ReadyQueue[0].Base = ReadyQueue[1].Base;
+                        ReadyQueue[0].Limit = ReadyQueue[1].Limit;
+                    }
+
+                }else{
+                    var loc = _MemoryManager.getOpenMemory();
+                    _MemoryManager.addProgram(loc, content);
+                }
 
                 ReadyQueue[0].Location = "Memory";
 
