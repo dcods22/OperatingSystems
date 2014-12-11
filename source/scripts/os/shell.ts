@@ -797,11 +797,15 @@ module TSOS {
 
         public shellWrite(args){
 
-            var write = args[0] + "%%" + args[1];
+            var str = args[1];
+            for(var i=2; i < args.length; i++){
+                str = str + " " + args[i];
+            }
+            var write = args[0] + "%%" + str;
 
             _KernelInterruptQueue.enqueue(new Interrupt(WRITE_IRQ, write));
 
-            commandHistory[commandCount++] = "write " + args[0];
+            commandHistory[commandCount++] = "write " + args[0] + " " + str;
             commandReference = commandCount;
         }
 
