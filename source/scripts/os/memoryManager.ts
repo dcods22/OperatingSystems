@@ -19,12 +19,13 @@ module TSOS {
 
         public getByLoc(loc){
             if(_CPU.isExecuting){
-                var end = ReadyQueue[0].Limit;
+                var pcb = ReadyQueue[0];
+                //var end = pcb.Limit;
                 var pos = parseInt(loc,16);
 
-                if(pos > 0  && end > 0){
-                    if(pos >= end || pos < ReadyQueue[0].Base){
-                        console.log("Get", ReadyQueue, ReadyQueue[0].Base, end, pos);
+                if(pos > 0  && pcb.Limit > 0){
+                    if(pos >= pcb.Limit || pos < pcb.Base){
+                        console.log("Get", pcb, "Base: " + pcb.Base, "Limit: " + pcb.Limit, "Pos:" + pos);
                         _Kernel.krnTrapError("Out Of Memory Error");
                     }
                 }
@@ -35,12 +36,14 @@ module TSOS {
 
         public setByLoc(loc, value) : void{
             if(_CPU.isExecuting){
-                var end = ReadyQueue[0].Limit;
+                var pcb = ReadyQueue[0];
+                var end = pcb.Limit;
+                var base = pcb.Base;
                 var pos = parseInt(loc,16);
 
                 if(pos >= 0 && end >= 0){
-                    if(pos >= end || pos < ReadyQueue[0].Base){
-                        console.log("Set", ReadyQueue, ReadyQueue[0].Base, end, pos);
+                    if(pos >= end || pos < base){
+                        console.log("Set", pcb, "Base: " + pcb.Base, "Limit: " + pcb.Limit, "Pos:" + pos);
                         _Kernel.krnTrapError("Out Of Memory Error");
                     }
                 }
@@ -91,9 +94,19 @@ module TSOS {
             var prog = "";
 
             var hex = this.getByLoc(base);
+            var instr = "";
+            var prevInstr = "";
 
             for(var i=base; i < (base + 255); i++){
-                prog += this.getByLoc(i.toString(16));
+                instr = this.getByLoc(i.toString(16));
+
+                prog += instr;
+
+                if(instr == "00" && prevInstr == "00"){
+                    break;
+                }
+
+                prevInstr = instr;
             }
 
             this.clearBlock(base);

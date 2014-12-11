@@ -49,7 +49,7 @@ var TSOS;
                     for (var n = 0; n < 8; n++) {
                         hdStr = m + ":" + i + ":" + n;
                         hex = this.getByLoc(hdStr);
-                        memoryTable.append("");
+                        memoryTable.append("<tr><td class='text-muted'>" + hdStr + "</td><td class='text-warning'>" + hex.substring(0, 1) + "</td><td class='text-success'>" + hex.substring(1, 4) + "</td><td class='text-primary'>" + hex.substring(4) + "</td></tr>");
                     }
                 }
             }

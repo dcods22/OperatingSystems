@@ -49,14 +49,12 @@ module TSOS {
 
             _Kernel.krnTrace('CPU cycle');
 
-            // TODO: Accumulate CPU usage and profiling statistics here.
-            // Do the real work here. Be sure to set this.isExecuting appropriately.
-
             this.removeColors();
 
             ReadyQueue[0].State = "Running";
 
             if(ReadyQueue[0].Location == "HDD"){
+                Control.hostLog("Swapping memory to HDD", "HDD");
                 this.swapToHDD();
             }
 
@@ -68,6 +66,7 @@ module TSOS {
             var PCLoc = PCB.PC + PCBStart;
 
             var hexLoc = PCLoc.toString(16);
+
             var command = _MemoryManager.getByLoc(hexLoc);
             var exec = executions[command];
             var mem = "";
@@ -393,6 +392,7 @@ module TSOS {
                     this.swapToHDD();
                 }
 
+
             }else{
                 Control.hostLog("Invalid Opcode", "CPU");
                 _StdOut.putText("Invalid Opcode");
@@ -512,33 +512,37 @@ module TSOS {
                     ReadyQueue[3].Location = "HDD";
                     oldProg = _MemoryManager.getProgram(ReadyQueue[3].Base);
                     _HDManager.writeSwap(ReadyQueue[3].PID, oldProg);
-                    _MemoryManager.addProgram(ReadyQueue[3].Base, content);
                     ReadyQueue[0].Base = ReadyQueue[3].Base;
                     ReadyQueue[0].Limit = ReadyQueue[3].Limit;
+                    _MemoryManager.addProgram(ReadyQueue[3].Base, content);
 
                 }else if(ReadyQueue[2].Location = "Memory"){
                     ReadyQueue[2].Location = "HDD";
                     oldProg = _MemoryManager.getProgram(ReadyQueue[2].Base);
                     _HDManager.writeSwap(ReadyQueue[2].PID, oldProg);
-                    _MemoryManager.addProgram(ReadyQueue[2].Base, content);
                     ReadyQueue[0].Base = ReadyQueue[2].Base;
                     ReadyQueue[0].Limit = ReadyQueue[2].Limit;
+                    _MemoryManager.addProgram(ReadyQueue[2].Base, content);
 
                 }else if(ReadyQueue[1].Location = "Memory"){
                     ReadyQueue[1].Location = "HDD";
                     oldProg = _MemoryManager.getProgram(ReadyQueue[1].Base);
                     _HDManager.writeSwap(ReadyQueue[1].PID, oldProg);
-                    _MemoryManager.addProgram(ReadyQueue[1].Base, content);
                     ReadyQueue[0].Base = ReadyQueue[1].Base;
                     ReadyQueue[0].Limit = ReadyQueue[1].Limit;
+                    _MemoryManager.addProgram(ReadyQueue[1].Base, content);
                 }
 
             }else{
                 var loc = _MemoryManager.getOpenMemory();
                 _MemoryManager.addProgram(loc, content);
+                ReadyQueue[0].Base = loc;
+                ReadyQueue[0].Limit = loc + 255;
             }
 
             ReadyQueue[0].Location = "Memory";
+
+            this.updateReadyQueue();
         }
 
     }

@@ -425,7 +425,7 @@ module TSOS {
             point = this.getByLoc(oldPoint).substring(1,4);
             this.setByLoc(oldPoint, set);
 
-            while(this.getByLoc(point).substring(4,5) != "0"){
+            while(this.getByLoc(point).substring(0,1) != "0" && point != "000"){
                 oldPoint = point;
                 point = this.getByLoc(point).substring(1,4);
                 this.setByLoc(oldPoint, empty);

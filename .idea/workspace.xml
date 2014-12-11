@@ -15,16 +15,18 @@
     <file path="/control.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414468042179" ignored="false" />
     <file path="/README.md" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414467550426" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/cpu.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414446943233" ignored="false" />
-    <file path="$PROJECT_DIR$/dist/scripts/host/control.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418111139153" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/host/control.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418141026807" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/devices.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418110578929" ignored="false" />
     <file path="$PROJECT_DIR$/source/styles/js/bootstrap.min.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418110578929" ignored="false" />
-    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414508920702" ignored="false" />
+    <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418306740402" ignored="false" />
     <file path="/memory.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414454403907" ignored="false" />
     <file path="/pcb.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414069006763" ignored="false" />
-    <file path="/memoryManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414416647987" ignored="false" />
+    <file path="/memoryManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418222769440" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/memory.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418110578929" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/pcb.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418110578929" ignored="false" />
     <file path="/harddrive.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418111450253" ignored="false" />
+    <file path="$PROJECT_DIR$/dist/scripts/globals.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418141026807" ignored="false" />
+    <file path="/hdManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418152140124" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +88,25 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="181" column="49" selection-start="7474" selection-end="7474" vertical-scroll-proportion="-16.571428">
+            <state line="181" column="49" selection-start="7474" selection-end="7474" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cpu.ts" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="0" selection-start="1976" selection-end="1976" vertical-scroll-proportion="-7.1512604">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="memoryManager.ts" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="45" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -95,25 +115,7 @@
       <file leaf-file-name="hdManager.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/hdManager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="211" column="51" selection-start="7335" selection-end="7401" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="harddrive.ts" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/scripts/host/harddrive.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="44" selection-start="1859" selection-end="1859" vertical-scroll-proportion="0.70976615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="memory.ts" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/host/memory.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="8" selection-start="890" selection-end="926" vertical-scroll-proportion="0.0">
+            <state line="334" column="54" selection-start="10970" selection-end="10970" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -137,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/scripts/jquery.ts" />
         <option value="$PROJECT_DIR$/source/scripts/jquery.d.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/console.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/pcb.ts" />
@@ -147,12 +148,13 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/source/scripts/host/control.ts" />
         <option value="$PROJECT_DIR$/source/scripts/os/shell.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/dist/styles/tsos.css" />
         <option value="$PROJECT_DIR$/source/scripts/globals.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
         <option value="$PROJECT_DIR$/source/scripts/host/harddrive.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/os/hdManager.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/os/memoryManager.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/host/cpu.ts" />
       </list>
     </option>
   </component>
@@ -214,6 +216,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="All" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -223,9 +228,6 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="All" />
       </pane>
       <pane id="PackagesPane">
         <subPane />
@@ -534,60 +536,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/styles/tsos.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="1" selection-start="605" selection-end="605" vertical-scroll-proportion="0.9009629">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="180" column="62" selection-start="5918" selection-end="5918" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="56" column="1" selection-start="605" selection-end="605" vertical-scroll-proportion="0.9009629" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/globals.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1418098312000" expanded="false" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="9" selection-start="2536" selection-end="2536" vertical-scroll-proportion="1.34663">
-          <folding>
-            <marker date="1418098312000" expanded="false" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/os/hdManager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="211" column="51" selection-start="7335" selection-end="7401" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="49" selection-start="7474" selection-end="7474" vertical-scroll-proportion="-16.571428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/host/memory.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="8" selection-start="890" selection-end="926" vertical-scroll-proportion="0.0">
+        <state line="181" column="49" selection-start="7474" selection-end="7474" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/harddrive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="44" selection-start="1859" selection-end="1859" vertical-scroll-proportion="0.70976615">
+        <state line="60" column="44" selection-start="2099" selection-end="2099" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/memory.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="8" selection-start="890" selection-end="926" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="45" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/os/hdManager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="334" column="54" selection-start="10970" selection-end="10970" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="1976" selection-end="1976" vertical-scroll-proportion="-7.1512604">
           <folding />
         </state>
       </provider>
