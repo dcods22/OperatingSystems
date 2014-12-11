@@ -500,29 +500,24 @@ var TSOS;
         Cpu.prototype.swapToHDD = function () {
             var oldProg = "";
             var content = _HDManager.getProgram(ReadyQueue[0].PID);
+            var swapNum = ReadyQueue.length - 1;
+            var done = false;
 
             if (_MemoryManager.memoryFilled()) {
-                if (ReadyQueue[3].Location = "Memory") {
-                    ReadyQueue[3].Location = "HDD";
-                    oldProg = _MemoryManager.getProgram(ReadyQueue[3].Base);
-                    _HDManager.writeSwap(ReadyQueue[3].PID, oldProg);
-                    ReadyQueue[0].Base = ReadyQueue[3].Base;
-                    ReadyQueue[0].Limit = ReadyQueue[3].Limit;
-                    _MemoryManager.addProgram(ReadyQueue[3].Base, content);
-                } else if (ReadyQueue[2].Location = "Memory") {
-                    ReadyQueue[2].Location = "HDD";
-                    oldProg = _MemoryManager.getProgram(ReadyQueue[2].Base);
-                    _HDManager.writeSwap(ReadyQueue[2].PID, oldProg);
-                    ReadyQueue[0].Base = ReadyQueue[2].Base;
-                    ReadyQueue[0].Limit = ReadyQueue[2].Limit;
-                    _MemoryManager.addProgram(ReadyQueue[2].Base, content);
-                } else if (ReadyQueue[1].Location = "Memory") {
-                    ReadyQueue[1].Location = "HDD";
-                    oldProg = _MemoryManager.getProgram(ReadyQueue[1].Base);
-                    _HDManager.writeSwap(ReadyQueue[1].PID, oldProg);
-                    ReadyQueue[0].Base = ReadyQueue[1].Base;
-                    ReadyQueue[0].Limit = ReadyQueue[1].Limit;
-                    _MemoryManager.addProgram(ReadyQueue[1].Base, content);
+                for (var i = swapNum; i > 0; i--) {
+                    if (ReadyQueue[i].Location == "Memory") {
+                        ReadyQueue[0].Location = "Memory";
+                        ReadyQueue[i].Location = "HDD";
+                        oldProg = _MemoryManager.getProgram(ReadyQueue[3].Base);
+                        _HDManager.writeSwap(ReadyQueue[i].PID, oldProg);
+                        ReadyQueue[0].Base = ReadyQueue[i].Base;
+                        ReadyQueue[0].Limit = ReadyQueue[i].Limit;
+                        _MemoryManager.addProgram(ReadyQueue[i].Base, content);
+                        done = true;
+                    }
+
+                    if (done)
+                        break;
                 }
             } else {
                 var loc = _MemoryManager.getOpenMemory();

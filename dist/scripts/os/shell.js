@@ -584,6 +584,8 @@ var TSOS;
             }
 
             if (loc || loc == "0") {
+                var start = ReadyQueue[loc].Base;
+                _MemoryManager.clearBlock(start);
                 ReadyQueue.splice(loc, 1);
             } else {
                 _StdOut.putText("PID " + args[0] + " does not exist");
