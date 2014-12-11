@@ -30,7 +30,13 @@ module TSOS {
                 }
             }
 
-            return _Memory.getByLoc(loc);
+            var hex = _Memory.getByLoc(loc);
+
+            if(hex.length < 2){
+                "0" + hex;
+            }
+
+            return hex;
         }
 
         public setByLoc(loc, value) : void{
@@ -45,6 +51,10 @@ module TSOS {
                         _Kernel.krnTrapError("Out Of Memory Error");
                     }
                 }
+            }
+
+            if(value.length < 2){
+                value = "0" + value;
             }
 
             _Memory.setByLoc(loc, value);
@@ -96,6 +106,10 @@ module TSOS {
 
             for(var i=base; i < (base + 255); i++){
                 instr = this.getLocNoCheck(i.toString(16));
+
+                if(instr.length < 2){
+                    instr = "0" + instr;
+                }
 
                 prog += instr;
             }

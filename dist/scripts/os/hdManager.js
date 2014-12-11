@@ -172,9 +172,16 @@ var TSOS;
 
         HDManager.prototype.contentToHex = function (content) {
             var hexcontent = "";
+            var hex = "";
 
             for (var i = 0; i < content.length; i++) {
-                hexcontent += content.charCodeAt(i).toString(16);
+                hex = content.charCodeAt(i).toString(16);
+
+                if (hex.length < 2) {
+                    hex = "0" + hex;
+                }
+
+                hexcontent += hex;
             }
 
             return hexcontent;
@@ -396,6 +403,7 @@ var TSOS;
                 }
             }
 
+            this.clearProg(pointToProg);
             prog = this.trimDown(prog);
 
             return prog;

@@ -29,7 +29,13 @@ var TSOS;
                 }
             }
 
-            return _Memory.getByLoc(loc);
+            var hex = _Memory.getByLoc(loc);
+
+            if (hex.length < 2) {
+                "0" + hex;
+            }
+
+            return hex;
         };
 
         MemoryManager.prototype.setByLoc = function (loc, value) {
@@ -44,6 +50,10 @@ var TSOS;
                         _Kernel.krnTrapError("Out Of Memory Error");
                     }
                 }
+            }
+
+            if (value.length < 2) {
+                value = "0" + value;
             }
 
             _Memory.setByLoc(loc, value);
@@ -95,6 +105,10 @@ var TSOS;
 
             for (var i = base; i < (base + 255); i++) {
                 instr = this.getLocNoCheck(i.toString(16));
+
+                if (instr.length < 2) {
+                    instr = "0" + instr;
+                }
 
                 prog += instr;
             }

@@ -21,12 +21,12 @@
     <file path="/cpu.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418310828533" ignored="false" />
     <file path="/memory.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414454403907" ignored="false" />
     <file path="/pcb.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1414069006763" ignored="false" />
-    <file path="/memoryManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418313183399" ignored="false" />
+    <file path="/memoryManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418320005020" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/memory.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418110578929" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/host/pcb.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418110578929" ignored="false" />
     <file path="/harddrive.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418111450253" ignored="false" />
     <file path="$PROJECT_DIR$/dist/scripts/globals.js" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418141026807" ignored="false" />
-    <file path="/hdManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418316683539" ignored="false" />
+    <file path="/hdManager.ts" changelist="61d3a0b5-ed65-4e1e-a9bd-6cda5a3e2cff" time="1418321477497" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +97,7 @@
       <file leaf-file-name="cpu.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="30" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.0">
+            <state line="507" column="49" selection-start="17003" selection-end="17003" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -106,7 +106,7 @@
       <file leaf-file-name="memoryManager.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="34" selection-start="2749" selection-end="2749" vertical-scroll-proportion="0.0">
+            <state line="32" column="38" selection-start="854" selection-end="854" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -115,7 +115,7 @@
       <file leaf-file-name="hdManager.ts" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/scripts/os/hdManager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="405" column="22" selection-start="13546" selection-end="13546" vertical-scroll-proportion="0.6299862">
+            <state line="416" column="40" selection-start="13770" selection-end="13770" vertical-scroll-proportion="0.58734524">
               <folding />
             </state>
           </provider>
@@ -563,21 +563,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/host/cpu.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="30" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.0">
+        <state line="507" column="49" selection-start="17003" selection-end="17003" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/memoryManager.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="34" selection-start="2749" selection-end="2749" vertical-scroll-proportion="0.0">
+        <state line="32" column="38" selection-start="854" selection-end="854" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/os/hdManager.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="405" column="22" selection-start="13546" selection-end="13546" vertical-scroll-proportion="0.6299862">
+        <state line="416" column="40" selection-start="13770" selection-end="13770" vertical-scroll-proportion="0.58734524">
           <folding />
         </state>
       </provider>
