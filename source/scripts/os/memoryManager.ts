@@ -25,7 +25,6 @@ module TSOS {
 
                 if(pos > 0  && pcb.Limit > 0){
                     if(pos >= pcb.Limit || pos < pcb.Base){
-                        console.log("Get", pcb, "Base: " + pcb.Base, "Limit: " + pcb.Limit, "Pos:" + pos);
                         _Kernel.krnTrapError("Out Of Memory Error");
                     }
                 }
@@ -43,7 +42,6 @@ module TSOS {
 
                 if(pos >= 0 && end >= 0){
                     if(pos >= end || pos < base){
-                        console.log("Set", pcb, "Base: " + pcb.Base, "Limit: " + pcb.Limit, "Pos:" + pos);
                         _Kernel.krnTrapError("Out Of Memory Error");
                     }
                 }
@@ -53,9 +51,9 @@ module TSOS {
         }
 
         public memoryFilled(){
-            var first = this.getByLoc("0");
-            var second = this.getByLoc("100");
-            var third = this.getByLoc("200");
+            var first = this.getLocNoCheck("0");
+            var second = this.getLocNoCheck("100");
+            var third = this.getLocNoCheck("200");
 
             if(first == "00" || second == "00" || third == "00"){
                 return false;
@@ -65,9 +63,9 @@ module TSOS {
         }
 
         public getOpenMemory(){
-            var first = this.getByLoc("0");
-            var second = this.getByLoc("100");
-            var third = this.getByLoc("200");
+            var first = this.getLocNoCheck("0");
+            var second = this.getLocNoCheck("100");
+            var third = this.getLocNoCheck("200");
 
             if(first == "00"){
                 return 0;
@@ -84,7 +82,7 @@ module TSOS {
             var memLoc = "";
             for(var i=start; i < (start + 255); i++){
                 memLoc = i.toString(16);
-                this.setByLoc(memLoc, "00");
+                this.setLocNoCheck(memLoc, "00");
             }
 
             this.updateMemory();
@@ -93,20 +91,13 @@ module TSOS {
         public getProgram(base){
             var prog = "";
 
-            var hex = this.getByLoc(base);
+            var hex = this.getLocNoCheck(base);
             var instr = "";
-            var prevInstr = "";
 
             for(var i=base; i < (base + 255); i++){
-                instr = this.getByLoc(i.toString(16));
+                instr = this.getLocNoCheck(i.toString(16));
 
                 prog += instr;
-
-                if(instr == "00" && prevInstr == "00"){
-                    break;
-                }
-
-                prevInstr = instr;
             }
 
             this.clearBlock(base);
@@ -114,12 +105,20 @@ module TSOS {
             return prog;
         }
 
+        public getLocNoCheck(loc){
+            return _Memory.getByLoc(loc)
+        }
+
+        public setLocNoCheck(loc, value){
+            _Memory.setByLoc(loc, value);
+        }
+
         public addProgram(start, program){
             var loc = 0;
 
             for(var i=0; i < 256; i++){
                 loc = i + start;
-                this.setByLoc(loc.toString(16), program.substring(i*2, ((i + 1)*2)));
+                this.setLocNoCheck(loc.toString(16), program.substring(i*2, ((i + 1)*2)));
             }
 
             this.updateMemory();

@@ -324,6 +324,8 @@ var TSOS;
         HDManager.prototype.writeSwap = function (pid, content) {
             var point = this.getPointer(".swap_file");
 
+            content = this.trimDown(content);
+
             while (this.getByLoc(point).substring(0, 1) != 0) {
                 var hdVal = this.getByLoc(point);
                 var use = hdVal.substring(4, 5);
@@ -379,21 +381,10 @@ var TSOS;
                         hdVal = this.getByLoc(point);
                         use = hdVal.substring(0, 1);
                         point = hdVal.substring(1, 4);
-                        if (use == "1" && hdVal.substring(4, 5) != "0") {
-                            prog += hdVal.substring(4);
-                        } else {
-                            this.clearProg(pointToProg);
-                            done = true;
-                        }
-
-                        if (done) {
-                            break;
-                        }
+                        prog += hdVal.substring(4);
                     }
 
-                    if (done) {
-                        break;
-                    }
+                    done = true;
                 } else {
                     point = content.substr(1, 4);
                 }
@@ -404,6 +395,8 @@ var TSOS;
                     break;
                 }
             }
+
+            prog = this.trimDown(prog);
 
             return prog;
         };
@@ -427,6 +420,29 @@ var TSOS;
         HDManager.prototype.padFile = function (content) {
             for (var i = content.length; i < 512; i++) {
                 content += "0";
+            }
+
+            return content;
+        };
+
+        HDManager.prototype.trimDown = function (content) {
+            var done = false;
+
+            var len = content.length - 1;
+            var char = "";
+            for (var i = len; i > 0; i--) {
+                char = content.charAt(i);
+
+                if (char == "0") {
+                    content.slice(i);
+                } else {
+                    done = true;
+                }
+
+                if (done) {
+                    content = content.substring(0, i + 1);
+                    break;
+                }
             }
 
             return content;

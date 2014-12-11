@@ -370,7 +370,7 @@ var TSOS;
                 }
 
                 if (RR && ReadyQueue.length > 1) {
-                    if (rrCount == _Quantum) {
+                    if (rrCount == (_Quantum - 1)) {
                         TSOS.Control.hostLog("Scheduling Switch - RR", "CPU");
                         _KernelInterruptQueue.enqueue(new TSOS.Interrupt(CONTEXT_IRQ, ""));
                         rrCount = 0;
@@ -435,12 +435,12 @@ var TSOS;
 
         Cpu.prototype.updateCPU = function () {
             var PCB = ReadyQueue[0];
-            $("#pc").html(this.PC.toString());
+            $("#pc").html(PCB.PC.toString());
             $("#ir").html(PCB.IR);
-            $("#acc").html(this.Acc.toString());
-            $("#x").html(this.Xreg.toString());
-            $("#y").html(this.Yreg.toString());
-            $("#z").html(this.Zflag.toString());
+            $("#acc").html(PCB.Acc.toString());
+            $("#x").html(PCB.X.toString());
+            $("#y").html(PCB.Y.toString());
+            $("#z").html(PCB.Z.toString());
         };
 
         Cpu.prototype.resetCPU = function () {
